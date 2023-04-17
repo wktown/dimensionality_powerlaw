@@ -8,11 +8,12 @@ import numpy as np
 from tqdm import tqdm
 from model_tools.activations.core import flatten
 from model_tools.utils import fullname
-from custom_model_tools.hooks import GlobalMaxPool2d, RandomProjection
+from custom_model_tools.hooks import GlobalMaxPool2d, GlobalAvgPool2d, RandomProjection, SpatialPCA, RandomSpatial
 from custom_model_tools.image_transform import ImageDatasetTransformer
 from utils import id_to_properties, get_imagenet_val
 from typing import Optional, List
 
+logging.basicConfig(level=logging.INFO)
 
 class EigenspectrumBase:
 
@@ -29,11 +30,40 @@ class EigenspectrumBase:
 
     def fit(self, layers):
         transform_name = None if self._image_transform is None else self._image_transform.name
-        self._layer_eigenspectra = self._fit(identifier=self._extractor.identifier,
-                                             stimuli_identifier=self._stimuli_identifier,
-                                             layers=layers,
-                                             pooling=self._pooling,
-                                             image_transform_name=transform_name)
+        
+        if self._pooling == 'spatial_pca':
+            new_layers = []
+            remove_layers = []
+            properties = id_to_properties(self._extractor.identifier)
+            architecture = properties['architecture']
+            if architecture == 'ResNet18' or architecture == 'ResNet50':
+                for layer in layers:
+                    if layer > 'layer3.6.relu' or layer > 'encode_7':
+                        remove_layers.append(layer)
+                        for x in [0,1,2,3,4,5,6]:
+                            for y in [0,1,2,3,4,5,6]:
+                                new_layers.append(layer+f'.position{x}x{y}')
+            else:
+                raise Exception("Check dimensions of final layer for non ResNet model before doing spatial PCA")
+            
+            layers_positions = layers + new_layers
+            for l in remove_layers:
+                layers_positions.remove(l)
+            
+            print(layers_positions)
+            
+            self._layer_eigenspectra = self._fit(identifier=self._extractor.identifier,
+                                                 stimuli_identifier=self._stimuli_identifier,
+                                                 layers=layers_positions,
+                                                 pooling=self._pooling,
+                                                 image_transform_name=transform_name)
+            
+        else:
+            self._layer_eigenspectra = self._fit(identifier=self._extractor.identifier,
+                                                 stimuli_identifier=self._stimuli_identifier,
+                                                 layers=layers,
+                                                 pooling=self._pooling,
+                                                 image_transform_name=transform_name)
 
     def effective_dimensionalities(self):
         effdims = {layer: eigspec.sum() ** 2 / (eigspec ** 2).sum()
@@ -97,34 +127,88 @@ class EigenspectrumBase:
         # Compute activations and PCA for every layer individually to save on memory.
         # This is more inefficient because we run images through the network several times,
         # but it is a more scalable approach when using many images and large layers.
+        
         layer_eigenspectra = {}
+        #spatial_eigenspectra = {}
         for layer in layers:
-            if pooling:
+            if pooling == 'max':
                 handle = GlobalMaxPool2d.hook(self._extractor)
-            else:
+            elif pooling == 'avg':
+                handle = GlobalAvgPool2d.hook(self._extractor)
+            elif pooling == 'none':
                 handle = RandomProjection.hook(self._extractor)
-
+            elif pooling == 'random_spatial':
+                handle = RandomSpatial.hook(self._extractor)
+            
+            elif pooling == 'spatial_pca':
+                split_position = layer.split('.position',1)
+                if len(split_position) < 1:
+                    handle = RandomProjection.hook(self._extractor)
+                    print('hook = random (from spatial)')
+                else:
+                    handle = SpatialPCA.hook(self._extractor)
+                    print('hook = spatial')
+                    
+                
             handles = []
             if self._hooks is not None:
                 handles = [cls.hook(self._extractor) for cls in self._hooks]
+                
+            
+            if pooling != 'spatial_pca':
+                self._logger.debug('Retrieving stimulus activations')
+                activations = self._extractor(image_paths, layers=[layer])
+                activations = activations.sel(layer=layer).values
+                logging.info(identifier)
+                logging.info(layer)
+                print(layer)
+                print(activations.shape)
+                
+                self._logger.debug('Computing principal components')
+                progress = tqdm(total=1, desc="layer principal components")
+                
+                activations = flatten(activations)
+                pca = PCA(random_state=0)
+                pca.fit(activations)
+                eigenspectrum = pca.explained_variance_
+                progress.update(1)
+                progress.close()
 
-            self._logger.debug('Retrieving stimulus activations')
-            activations = self._extractor(image_paths, layers=[layer])
-            activations = activations.sel(layer=layer).values
-
-            self._logger.debug('Computing principal components')
-            progress = tqdm(total=1, desc="layer principal components")
-            activations = flatten(activations)
-            pca = PCA(random_state=0)
-            pca.fit(activations)
-            eigenspectrum = pca.explained_variance_
-            progress.update(1)
-            progress.close()
-
-            layer_eigenspectra[layer] = eigenspectrum
-
+                layer_eigenspectra[layer] = eigenspectrum
+                
+            elif pooling == 'spatial_pca':
+                split_position = layer.split('.position',1)
+                model_layer = split_position[0]
+                
+                self._logger.debug('Retrieving stimulus activations')
+                activations = self._extractor(image_paths, layers=[model_layer])
+                
+                if len(split_position) > 1:
+                    #'layer4.0.relu.position0x0'
+                    #'encode_8.position0x0'
+                    activations = activations.reset_index("neuroid")
+                    activations = activations.set_index({"neuroid": ["channel", "channel_x", "channel_y"]}).unstack(dim="neuroid")
+                    
+                    position = [int(i) for i in split_position[1] if i.isdigit()]
+                    local_activations = activations[dict(channel_x=position[0], channel_y=position[-1])].values
+                    
+                else:
+                    local_activations = activations.sel(layer=layer).values
+                
+                
+                self._logger.debug('Computing principal components')
+                progress = tqdm(total=1, desc="layer principal components")
+                
+                local_activations = flatten(local_activations)
+                pca = PCA(random_state=0)
+                pca.fit(local_activations)
+                eigenspectrum = pca.explained_variance_
+                progress.update(1)
+                progress.close()
+                
+                layer_eigenspectra[layer] = eigenspectrum
+                
             handle.remove()
-
             for h in handles:
                 h.remove()
 

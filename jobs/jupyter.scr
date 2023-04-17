@@ -1,0 +1,1 @@
+sbatch -c 4 -t 6:0:0 -p shared jupyter_notebook_start

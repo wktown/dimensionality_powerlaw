@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH --job-name=classification
+#SBATCH --time=72:00:00
+#SBATCH --partition=a100
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=12
+#SBATCH --account=mbonner5_gpu
+#SBATCH --mail-type=end
+#SBATCH --mail-user=wtownle1@jh.edu
+
+ml anaconda
+conda activate /home/wtownle1/dimensionality_powerlaw/env/classification
+python -m scripts.compute_nshot --dataset imagenet21k --data_dir /data/mbonner5/shared/datasets/imagenet21k_sorscher2021_downsampled --classifier prototype --pooling avg

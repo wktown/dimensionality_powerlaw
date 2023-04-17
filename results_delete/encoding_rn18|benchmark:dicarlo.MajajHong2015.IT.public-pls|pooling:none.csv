@@ -1,0 +1,9 @@
+layer,score,score_error,architecture,task,kind,source
+layer1.0.relu,0.20768459599559844,0.0038174959600737702,ResNet18,None,Untrained,PyTorch
+layer1.1.relu,0.21325512290572604,0.004423956238987009,ResNet18,None,Untrained,PyTorch
+layer2.0.relu,0.21506751293789736,0.005219744030556253,ResNet18,None,Untrained,PyTorch
+layer2.1.relu,0.217050036038759,0.0048059463431051296,ResNet18,None,Untrained,PyTorch
+layer3.0.relu,0.22373877206091633,0.004186833363545263,ResNet18,None,Untrained,PyTorch
+layer3.1.relu,0.2334095670934702,0.005060736871787309,ResNet18,None,Untrained,PyTorch
+layer4.0.relu,0.2353601807279753,0.005071275054133475,ResNet18,None,Untrained,PyTorch
+layer4.1.relu,0.23399607981422474,0.0037574656947704636,ResNet18,None,Untrained,PyTorch

@@ -7,17 +7,20 @@ import tensorflow as tf
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 import brainscore.benchmarks as bench
 from brainscore.metrics.regression import linear_regression, ridge_regression
-from bonnerlab_brainscore.benchmarks.object2vec import Object2VecEncoderBenchmark
+#from bonnerlab_brainscore.benchmarks.object2vec import Object2VecEncoderBenchmark
 from model_tools.activations.pca import LayerPCA
 from model_tools.brain_transformation.neural import LayerScores
 from activation_models.generators import get_activation_models
-from custom_model_tools.hooks import GlobalMaxPool2d
+from custom_model_tools.hooks import GlobalMaxPool2d, GlobalAvgPool2d, RandomSpatial
 from utils import timed, id_to_properties
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 @timed
 def main(benchmark, pooling, debug=False):
-    save_path = f'results/encoding|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
+    save_path = f'results/encoding_O|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
@@ -38,19 +41,28 @@ def fit_encoder(benchmark, model, layers, pooling, hooks=None):
     layer_scores = pd.DataFrame()
     model_identifier = model.identifier
     model_properties = id_to_properties(model_identifier)
-
+    
     for layer in layers:
-        if pooling:
+        if pooling == 'max':
             handle = GlobalMaxPool2d.hook(model)
-            model.identifier = model_identifier + f'|layer:{layer}|pooling:True'
-        else:
+            model.identifier = model_identifier + f'|lyr:{layer}|pooling:max'
+        elif pooling == 'avg':
+            handle = GlobalAvgPool2d.hook(model)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:avg'
+        elif pooling == 'random_spatial':
+            handle = RandomSpatial.hook(model)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:random_spatial'
+        elif pooling == 'none':
             handle = LayerPCA.hook(model, n_components=1000)
-            model.identifier = model_identifier + f'|layer:{layer}|pooling:False|n_components:1000'
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:none|n_components:1000'
+        
 
         handles = []
         if hooks is not None:
             handles = [cls.hook(model) for cls in hooks]
-
+            
+        logging.info(model.identifier)
+        logging.info(layer)
         model_scores = LayerScores(model_identifier=model.identifier,
                                    activations_model=model,
                                    visual_degrees=8)
@@ -118,8 +130,9 @@ if __name__ == '__main__':
                         help='Partial-least-squares or ordinary-least-squares for fitting')
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory for neural benchmark (only required for "object2vec")')
-    parser.add_argument('--no_pooling', dest='pooling', action='store_false',
-                        help='Do not perform global max-pooling prior to fitting')
+    parser.add_argument('--pooling', dest='pooling', type=str,
+                        choices=['max','avg','none', 'random_spatial'],
+                        help='Choose global max-pooling, global avg-pooling, no pooling, or random spatial positions prior to fitting')
     parser.add_argument('--debug', action='store_true',
                         help='Just run a single model to make sure there are no errors')
     args = parser.parse_args()
@@ -127,3 +140,6 @@ if __name__ == '__main__':
     benchmark = get_benchmark(benchmark=args.bench, region=args.region,
                               regression=args.regression, data_dir=args.data_dir)
     main(benchmark=benchmark, pooling=args.pooling, debug=args.debug)
+
+#pooling
+#fit_encoding_models.py def fit_encoder

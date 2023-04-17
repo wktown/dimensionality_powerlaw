@@ -60,11 +60,15 @@ if __name__ == '__main__':
     parser.add_argument('--classifier', type=str,
                         choices=['linear', 'prototype', 'maxmargin'],
                         help='Type of classifier to use')
-    parser.add_argument('--no_pooling', dest='pooling', action='store_false',
-                        help='Do not perform global max-pooling prior to computing the n-shot learning performance')
+    parser.add_argument('--pooling', dest='pooling', type=str,
+                        choices=['max','avg','none'],
+                        help='Choose global max-pooling, global avg-pooling, or no pooling prior to computing the n-shot learning performance')
     parser.add_argument('--debug', action='store_true',
                         help='Just run a single model to make sure there are no errors')
     args = parser.parse_args()
 
     main(dataset=args.dataset, data_dir=args.data_dir, classifier=args.classifier,
          pooling=args.pooling, debug=args.debug)
+
+#pooling:
+#n_shot_learning.py NShotLearningBase def _fit

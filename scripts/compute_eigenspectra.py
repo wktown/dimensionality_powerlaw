@@ -1,4 +1,6 @@
-import os
+#compute the effective dimensionality of the models
+#calls generators.py's get_activation_models function, custom_tools.eigenspectrum & image_transform
+
 import argparse
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -11,16 +13,13 @@ from custom_model_tools.eigenspectrum import EigenspectrumImageNet, Eigenspectru
     EigenspectrumObject2Vec, EigenspectrumMajajHong2015
 from custom_model_tools.image_transform import ImageDatasetTransformer
 from utils import timed
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 @timed
 def main(dataset, data_dir, pooling, grayscale, debug=False):
-    save_paths = {'eigspectra': f'results/eigspectra|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv',
-                  'eigmetrics': f'results/eigmetrics|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv'} 
-    if os.path.exists(save_paths['eigspectra']) or os.path.exists(save_paths['eigmetrics']):
-        print(f'Results already exists: {save_paths["eigspectra"]}\n{save_paths["eigmetrics"]}')
-        return
-    
     image_transform = ImageDatasetTransformer('grayscale', Grayscale()) if grayscale else None
     eigspec_df = pd.DataFrame()
     eigmetrics_df = pd.DataFrame()
@@ -33,8 +32,8 @@ def main(dataset, data_dir, pooling, grayscale, debug=False):
             break
 
     if not debug:
-        eigspec_df.to_csv(save_paths['eigspectra'], index=False)
-        eigmetrics_df.to_csv(save_paths['eigmetrics'], index=False)
+        eigspec_df.to_csv(f'results/eigspectra_O|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigmetrics_df.to_csv(f'results/eigmetrics_O|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
 
 
 def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_transform):
@@ -67,8 +66,9 @@ if __name__ == '__main__':
                         help='Dataset of concepts for which to compute the eigenspectrum')
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory containing stimuli')
-    parser.add_argument('--no_pooling', dest='pooling', action='store_false',
-                        help='Do not perform global max-pooling prior to computing the eigenspectrum')
+    parser.add_argument('--pooling', dest='pooling', type=str, default=None,
+                        choices=['max', 'avg', 'none', 'spatial_pca', 'random_spatial'],
+                        help='Choose global max pooling, avg pooling, no pooling, to select one random spatial position, or to compute the eigenspectrum at each spatial position in the final layer(s) of the model prior to computing the eigenspectrum')
     parser.add_argument('--grayscale', action='store_true',
                         help='Compute the eigenspectrum on grayscale inputs')
     parser.add_argument('--debug', action='store_true',

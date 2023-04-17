@@ -1,0 +1,40 @@
+/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/torchvision/models/_utils.py:209: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  f"The parameter '{pretrained_param}' is deprecated since 0.13 and may be removed in the future, "
+/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+layer4.0.relu.position0x0
+activations:   0%|          | 0/10048 [00:00<?, ?it/s]activations:   0%|          | 0/10048 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 92, in <module>
+    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, grayscale=args.grayscale, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 41, in main
+    eigspec.fit(lays)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 36, in fit
+    image_transform_name=transform_name)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 223, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 128, in _fit
+    activations = self._extractor(image_paths, layers=[layer])
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 41, in __call__
+    return self._extractor(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 43, in __call__
+    return self.from_paths(stimuli_paths=stimuli, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 73, in from_paths
+    activations = fnc(layers=layers, stimuli_paths=reduced_paths)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 85, in _from_paths
+    layer_activations = self._get_activations_batched(stimuli_paths, layers=layers, batch_size=self._batch_size)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 133, in _get_activations_batched
+    batch_activations = self._get_batch_activations(batch_inputs, layer_names=layers, batch_size=batch_size)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 148, in _get_batch_activations
+    activations = self.get_activations(preprocessed_inputs, layer_names)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 55, in get_activations
+    layer = self.get_layer(layer_name)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 71, in get_layer
+    assert module is not None, f"No submodule found for layer {layer_name}, at part {part}"
+AssertionError: No submodule found for layer layer4.0.relu.position0x0, at part position0x0

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_encoding_models.py", line 142, in <module>
+    main(benchmark=benchmark, pooling=args.pooling, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_encoding_models.py", line 29, in main
+    for model, layers in get_activation_models():
+  File "/home/wtownle1/dimensionality_powerlaw/activation_models/generators.py", line 61, in get_activation_models
+    model.apply(kai_uniform)
+AttributeError: 'PytorchWrapper' object has no attribute 'apply'
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv

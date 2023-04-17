@@ -22,6 +22,7 @@ class GlobalMaxPool2d:
             activations = torch.from_numpy(activations)
             activations = F.adaptive_max_pool2d(activations, 1)
             activations = activations.numpy()
+            
             return activations
 
         return change_dict(batch_activations, apply, keep_name=True,
@@ -31,6 +32,36 @@ class GlobalMaxPool2d:
     def hook(cls, activations_extractor):
         hook = GlobalMaxPool2d(activations_extractor)
         assert not cls.is_hooked(activations_extractor), "GlobalMaxPool2d already hooked"
+        handle = activations_extractor.register_batch_activations_hook(hook)
+        hook.handle = handle
+        return handle
+
+    @classmethod
+    def is_hooked(cls, activations_extractor):
+        return any(isinstance(hook, cls) for hook in
+                   activations_extractor._extractor._batch_activations_hooks.values())
+
+#add av pooling
+class GlobalAvgPool2d:
+    def __init__(self, activations_extractor):
+        self._extractor = activations_extractor
+
+    def __call__(self, batch_activations):
+        def apply(layer, activations):
+            if activations.ndim != 4:
+                return activations
+            activations = torch.from_numpy(activations)
+            activations = F.adaptive_avg_pool2d(activations, 1)
+            activations = activations.numpy()
+            return activations
+
+        return change_dict(batch_activations, apply, keep_name=True,
+                           multithread=os.getenv('MT_MULTITHREAD', '1') == '1')
+
+    @classmethod
+    def hook(cls, activations_extractor):
+        hook = GlobalAvgPool2d(activations_extractor)
+        assert not cls.is_hooked(activations_extractor), "GlobalAvgPool2d already hooked"
         handle = activations_extractor.register_batch_activations_hook(hook)
         hook.handle = handle
         return handle
@@ -66,6 +97,66 @@ class RandomProjection:
     def hook(cls, activations_extractor, n_components=1024):
         hook = RandomProjection(activations_extractor=activations_extractor, n_components=n_components)
         assert not cls.is_hooked(activations_extractor), "RandomProjection already hooked"
+        handle = activations_extractor.register_batch_activations_hook(hook)
+        hook.handle = handle
+        return handle
+
+    @classmethod
+    def is_hooked(cls, activations_extractor):
+        return any(isinstance(hook, cls) for hook in
+                   activations_extractor._extractor._batch_activations_hooks.values())
+
+
+#add spatial PCA
+class SpatialPCA:
+    def __init__(self, activations_extractor):
+        self._extractor = activations_extractor
+        
+    def __call__(self, batch_activations):
+        def apply(layer, activations):
+            return activations
+
+        return change_dict(batch_activations, apply, keep_name=True,
+                           multithread=os.getenv('MT_MULTITHREAD', '1') == '1')
+        
+    @classmethod
+    def hook(cls, activations_extractor):
+        hook = SpatialPCA(activations_extractor)
+        assert not cls.is_hooked(activations_extractor), "SpatialPCA already hooked"
+        handle = activations_extractor.register_batch_activations_hook(hook)
+        hook.handle = handle
+        return handle
+
+    @classmethod
+    def is_hooked(cls, activations_extractor):
+        return any(isinstance(hook, cls) for hook in
+                   activations_extractor._extractor._batch_activations_hooks.values())
+        
+#one random spatial position (instead of max pool)
+class RandomSpatial:
+    def __init__(self, activations_extractor):
+        self._extractor = activations_extractor
+        np.random.seed(27)
+
+    def __call__(self, batch_activations):
+        def apply(layer, activations):
+            if activations.ndim != 4:
+                return activations
+            w = activations.shape[2]
+            h = activations.shape[3]
+            x = np.random.randint(low=0, high=w)
+            y = np.random.randint(low=0, high=h)
+            activations = activations[:,:,x,y]
+            
+            return activations
+
+        return change_dict(batch_activations, apply, keep_name=True,
+                           multithread=os.getenv('MT_MULTITHREAD', '1') == '1')
+
+    @classmethod
+    def hook(cls, activations_extractor):
+        hook = RandomSpatial(activations_extractor)
+        assert not cls.is_hooked(activations_extractor), "RandomSpatial already hooked"
         handle = activations_extractor.register_batch_activations_hook(hook)
         hook.handle = handle
         return handle

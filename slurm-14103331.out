@@ -1,0 +1,36 @@
+/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py:69: RuntimeWarning: overflow encountered in square
+  for layer, eigspec in self._layer_eigenspectra.items()}
+/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py:69: RuntimeWarning: invalid value encountered in double_scalars
+  for layer, eigspec in self._layer_eigenspectra.items()}
+/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py:75: RuntimeWarning: invalid value encountered in true_divide
+  pvar = eigspec.cumsum() / eigspec.sum()
+Traceback (most recent call last):
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 75, in <module>
+    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, grayscale=args.grayscale, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 27, in main
+    eigmetrics_df = eigmetrics_df.append(eigspec.metrics_as_df())
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 108, in metrics_as_df
+    alpha = self.powerlaw_exponent()
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 91, in powerlaw_exponent
+    linear_fit = LinearRegression().fit(logeignum.reshape(-1, 1), logeigspec)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/linear_model/_base.py", line 506, in fit
+    y_numeric=True, multi_output=True)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/base.py", line 432, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/utils/validation.py", line 72, in inner_f
+    return f(**kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/utils/validation.py", line 805, in check_X_y
+    ensure_2d=False, dtype=None)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/utils/validation.py", line 72, in inner_f
+    return f(**kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/utils/validation.py", line 645, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "/home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw/lib/python3.7/site-packages/sklearn/utils/validation.py", line 99, in _assert_all_finite
+    msg_dtype if msg_dtype is not None else X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float32').
