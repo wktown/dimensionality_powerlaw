@@ -1108,3 +1108,6 @@ INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into asse
 layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
 
 layer packaging: 100%|██████████| 1/1 [00:03<00:00,  3.88s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:03<00:00,  3.88s/it]
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A

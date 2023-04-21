@@ -1645,3 +1645,40 @@ INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into asse
 cross-validation:  60%|██████    | 6/10 [00:07<00:04,  1.21s/it][A
 cross-validation:  70%|███████   | 7/10 [00:08<00:03,  1.22s/it][A
 cross-validation:  80%|████████  | 8/10 [00:09<00:02,  1.21s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:10<00:01,  1.20s/it][A
+cross-validation: 100%|██████████| 10/10 [00:12<00:00,  1.21s/it][Across-validation: 100%|██████████| 10/10 [00:12<00:00,  1.21s/it]
+layers: 100%|██████████| 1/1 [03:01<00:00, 181.70s/it]layers: 100%|██████████| 1/1 [03:01<00:00, 181.70s/it]
+INFO:root:architecture:ResNet50|task:N_0.25|kind:Untrained|source:PyTorch|layer:layer2.3.relu|pooling:none|n_components:1000
+INFO:root:layer2.3.relu
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:01<00:24, 39.96it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:03<00:23, 38.84it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:05<00:21, 38.02it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:06<00:20, 37.10it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:08<00:19, 36.46it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:10<00:17, 35.62it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:12<00:16, 34.92it/s][A[A
+
+activations:  50%|█████     | 512/1024 [00:14<00:14, 34.19it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:16<00:13, 33.40it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:18<00:11, 32.75it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:20<00:09, 32.09it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:22<00:08, 31.33it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:24<00:06, 30.74it/s][A[A
