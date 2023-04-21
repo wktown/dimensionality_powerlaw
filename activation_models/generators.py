@@ -80,41 +80,31 @@ def get_activation_models(pytorch=False, untrained=True, transformers=False, vgg
     
 
 def kai_uniform(m):
-    # - don't change BatchNorm
-    #if isinstance(m, nn.BatchNorm2d):
-    #    nn.init.ones_(m.weight)
-    #    nn.init.zeros_(m.bias)
     if isinstance(m, nn.Conv2d):
         nn.init.kaiming_uniform_(m.weight, a=0, mode='fan_out', nonlinearity='relu')
-        #  - keep bias = 0??
-        #if m.bias is not None:
-        #    nn.init.kaiming_uniform_(m.bias, a=0, mode='fan_out', nonlinearity='relu')
     if isinstance(m, nn.Linear):
         nn.init.kaiming_uniform_(m.weight, a=0, mode='fan_out', nonlinearity='relu')
         #mnasnet = sigmoid instead of relu
-        
-        #if m.bias is not None:
-        #    nn.init.kaiming_uniform_(m.bias, a=0, mode='fan_out', nonlinearity='relu')
 
 def uniform(m):
     if isinstance(m, nn.Conv2d):
-        nn.init.uniform_(m.weight, a= -0.1, b=0.1)
+        nn.init.uniform_(m.weight, a= -0.01, b=0.01)
         if m.bias is not None:
-            nn.init.uniform_(m.bias, a= -0.1, b= 0.1)
+            nn.init.uniform_(m.bias, a= -0.01, b= 0.01)
     if isinstance(m, nn.Linear):
-        nn.init.uniform_(m.weight, a= -0.1, b= 0.1)
+        nn.init.uniform_(m.weight, a= -0.01, b= 0.01)
         if m.bias is not None:
-            nn.init.uniform_(m.bias, a= -0.1, b= 0.1)
+            nn.init.uniform_(m.bias, a= -0.01, b= 0.01)
 
 def normal(m):
     if isinstance(m, nn.Conv2d):
-        nn.init.normal_(m.weight, mean=0.0, std=0.05)
+        nn.init.normal_(m.weight, mean=0.0, std=0.005)
         if m.bias is not None:
-            nn.init.normal_(m.bias, mean=0.0, std=0.05)
+            nn.init.normal_(m.bias, mean=0.0, std=0.005)
     if isinstance(m, nn.Linear):
-        nn.init.normal_(m.weight, mean=0.0, std=0.05)
+        nn.init.normal_(m.weight, mean=0.0, std=0.005)
         if m.bias is not None:
-            nn.init.normal_(m.bias, mean=0.0, std=0.05)
+            nn.init.normal_(m.bias, mean=0.0, std=0.005)
             
 def sparse(m):
     if isinstance(m, nn.Conv2d):
@@ -132,35 +122,57 @@ def orthogonal(m):
     if isinstance(m, nn.Conv2d):
         nn.init.orthogonal_(m.weight)
         if m.bias is not None:
-            nn.init.orthogonal_(m.bias)
+            if len(m.bias.size()) > 1:
+                nn.init.orthogonal_(m.bias)
     if isinstance(m, nn.Linear):
         nn.init.orthogonal_(m.weight)
         if m.bias is not None:
-            nn.init.orthogonal_(m.bias)
+            if len(m.bias.size()) > 1:
+                nn.init.orthogonal_(m.bias)
+
+def xavier_uniform(m):
+    if isinstance(m, nn.Conv2d):
+        nn.init.xavier_uniform_(m.weight)
+    if isinstance(m, nn.Linear):
+        nn.init.xavier_uniform_(m.weight)
+            
+def xavier_normal(m):
+    if isinstance(m, nn.Conv2d):
+        nn.init.xavier_normal_(m.weight)
+    if isinstance(m, nn.Linear):
+        nn.init.xavier_normal_(m.weight)
+
+def dirac(m):
+    if isinstance(m, nn.Conv2d):
+        torch.nn.init.dirac_(m.weight, groups=1)
+    if isinstance(m, nn.Linear):
+        torch.nn.init.eye_(m.weight)
 
 
 def untrained_models():
     
     new_init = True
+    init = uniform
+    task = 'N_0.005'
     
     model = resnet18(weights=None)
     if new_init:
-        model.apply(orthogonal)
-    identifier = properties_to_id('ResNet18', 'O', 'Untrained', 'PyTorch')
+        model.apply(init)
+    identifier = properties_to_id('ResNet18', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, resnet18_pt_layers
     
     model = resnet50(weights=None)
     if new_init:
-        model.apply(orthogonal)
-    identifier = properties_to_id('ResNet50', 'O', 'Untrained', 'PyTorch')
+        model.apply(init)
+    identifier = properties_to_id('ResNet50', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, resnet50_pt_layers
     
     model = alexnet(weights=None)
     if new_init:
-       model.apply(orthogonal)
-    identifier = properties_to_id('AlexNet', 'O', 'Untrained', 'PyTorch')
+       model.apply(init)
+    identifier = properties_to_id('AlexNet', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, alexnet_layers
     
@@ -171,38 +183,25 @@ def untrained_models():
     
     model = mnasnet1_3(weights=None)
     if new_init:
-        model.apply(orthogonal)
-    identifier = properties_to_id('MNASNet13', 'O', 'Untrained', 'PyTorch')
+        model.apply(init)
+    identifier = properties_to_id('MNASNet13', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, mnasnet_layers
     
     model = regnet_x_400mf(weights=None)
     if new_init:
-        model.apply(orthogonal)
-    identifier = properties_to_id('RegNet_400mf', 'O', 'Untrained', 'PyTorch')
+        model.apply(init)
+    identifier = properties_to_id('RegNet_400mf', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, regnet_layers
     
     model = resnext50_32x4d(weights=None)
     if new_init:
-        model.apply(orthogonal)
-    identifier = properties_to_id('ResNeXt50', 'O', 'Untrained', 'PyTorch')
+        model.apply(init)
+    identifier = properties_to_id('ResNeXt50', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, resnet50_pt_layers
     
-    #model = maxvit_t(weights=None)
-    #identifier = properties_to_id('MaxViT', 'Kai_Uni', 'Untr.', 'Py')
-    #if new_init:
-    #    model.apply(kai_uniform)
-    #model = wrap_pt(model, identifier)
-    #yield model, maxvit_layers
-    
-    #model = swin_t(weights=None)
-    #if new_init:
-    #    model.apply(kai_uniform)
-    #identifier = properties_to_id('Swin_t', 'Kai_Uni', 'Untrained', 'PyTorch')
-    #model = wrap_pt(model, identifier)
-    #yield model, swin_layers
 
 def pytorch_models():
 

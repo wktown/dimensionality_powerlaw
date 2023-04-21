@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 
 @timed
 def main(benchmark, pooling, debug=False):
-    save_path = f'results/encoding_O|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
+    save_path = f'results/encoding_N0.005|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return

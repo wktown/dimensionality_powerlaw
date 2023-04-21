@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --job-name=encoding
-#SBATCH --time=72:00:00
+#SBATCH --time=24:00:00
 #SBATCH --partition=a100
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -10,5 +10,5 @@
 #SBATCH --mail-user=wtownle1@jh.edu
 
 ml anaconda
-conda activate /home/wtownle1/dimensionality_powerlaw/env/dim-powerlaw
+conda activate /home/wtownle1/env_dim/dim-powerlaw
 python -m scripts.fit_encoding_models --pooling none
