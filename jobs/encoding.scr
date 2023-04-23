@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --job-name=encoding
-#SBATCH --time=24:00:00
+#SBATCH --time=7:09:00
 #SBATCH --partition=a100
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1

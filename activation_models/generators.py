@@ -13,6 +13,12 @@ from functools import partial
 from utils import properties_to_id
 #from counter_example.train_imagenet import LitResnet
 
+p = '/home/wtownle1/dimensionality_powerlaw/activation_models/AtlasNet/'
+import sys
+sys.path.append(p)
+#from AtlasNet.model_2L import EngineeredModel2L
+atlasnet_layers = ['c1', 'c2']
+
 resnet18_pt_layers = [f'layer1.{i}.relu' for i in range(2)] + \
                      [f'layer2.{i}.relu' for i in range(2)] + \
                      [f'layer3.{i}.relu' for i in range(2)] + \
@@ -50,8 +56,8 @@ vgg_layers = [f"features.{i}" for i in [1, 3, 6, 8, 11, 13, 15, 18, 20, 22, 25, 
 
 
 
-def get_activation_models(pytorch=False, untrained=True, transformers=False, vgg=False,
-                          vvs=False, taskonomy=False, pytorch_hub=False):
+def get_activation_models(pytorch=False, untrained=True, transformers=False, atlasnet=False,
+                          test=False, vvs=False, taskonomy=False, pytorch_hub=False):
     
     torch.manual_seed(seed=0)
     
@@ -64,7 +70,7 @@ def get_activation_models(pytorch=False, untrained=True, transformers=False, vgg
     if transformers:
         for model, layers in transformer_models():
             yield model, layers
-    if vgg:
+    if test:
         for model, layers in vgg_test():
             yield model, layers
     
@@ -87,24 +93,26 @@ def kai_uniform(m):
         #mnasnet = sigmoid instead of relu
 
 def uniform(m):
+    r = 0.025
     if isinstance(m, nn.Conv2d):
-        nn.init.uniform_(m.weight, a= -0.01, b=0.01)
+        nn.init.uniform_(m.weight, a= -r, b=r)
         if m.bias is not None:
-            nn.init.uniform_(m.bias, a= -0.01, b= 0.01)
+            nn.init.uniform_(m.bias, a= -r, b= r)
     if isinstance(m, nn.Linear):
-        nn.init.uniform_(m.weight, a= -0.01, b= 0.01)
+        nn.init.uniform_(m.weight, a= -r, b= r)
         if m.bias is not None:
-            nn.init.uniform_(m.bias, a= -0.01, b= 0.01)
+            nn.init.uniform_(m.bias, a= -r, b= r)
 
 def normal(m):
+    sdev = 0.025
     if isinstance(m, nn.Conv2d):
-        nn.init.normal_(m.weight, mean=0.0, std=0.005)
+        nn.init.normal_(m.weight, mean=0.0, std=sdev)
         if m.bias is not None:
-            nn.init.normal_(m.bias, mean=0.0, std=0.005)
+            nn.init.normal_(m.bias, mean=0.0, std=sdev)
     if isinstance(m, nn.Linear):
-        nn.init.normal_(m.weight, mean=0.0, std=0.005)
+        nn.init.normal_(m.weight, mean=0.0, std=sdev)
         if m.bias is not None:
-            nn.init.normal_(m.bias, mean=0.0, std=0.005)
+            nn.init.normal_(m.bias, mean=0.0, std=sdev)
             
 def sparse(m):
     if isinstance(m, nn.Conv2d):
@@ -152,8 +160,12 @@ def dirac(m):
 def untrained_models():
     
     new_init = True
-    init = uniform
-    task = 'N_0.005'
+    init = normal
+    task = 'N_0.025'
+    
+    #model = EngineeredModel2L(filters_2=1000).Build()
+    #identifier = properties_to_id('AtlasNet', f'{task}', 'Untrained', 'PyTorch')
+    #yield model, atlasnet_layers
     
     model = resnet18(weights=None)
     if new_init:
@@ -176,17 +188,12 @@ def untrained_models():
     model = wrap_pt(model, identifier)
     yield model, alexnet_layers
     
-    #model = convnext_tiny(weights=None)
-    #identifier = properties_to_id('ConvNeXt_Tiny', 'None', 'Untrained', 'PyTorch')
+    #model = mnasnet1_3(weights=None)
+    #if new_init:
+    #    model.apply(init)
+    #identifier = properties_to_id('MNASNet13', f'{task}', 'Untrained', 'PyTorch')
     #model = wrap_pt(model, identifier)
-    #yield model, convnext_layers
-    
-    model = mnasnet1_3(weights=None)
-    if new_init:
-        model.apply(init)
-    identifier = properties_to_id('MNASNet13', f'{task}', 'Untrained', 'PyTorch')
-    model = wrap_pt(model, identifier)
-    yield model, mnasnet_layers
+    #yield model, mnasnet_layers
     
     model = regnet_x_400mf(weights=None)
     if new_init:
@@ -220,11 +227,6 @@ def pytorch_models():
     model = wrap_pt(model, identifier)
     yield model, alexnet_layers
     
-    #model = convnext_tiny(weights="IMAGENET1K_V1")
-    #identifier = properties_to_id('ConvNeXt_Tiny', 'Object Classification', 'Supervised', 'PyTorch')
-    #model = wrap_pt(model, identifier)
-    #yield model, convnext_layers
-    
     model = mnasnet1_3(weights="IMAGENET1K_V1")
     identifier = properties_to_id('MNASNet13', 'Object Classification', 'Supervised', 'PyTorch')
     model = wrap_pt(model, identifier)
@@ -240,6 +242,16 @@ def pytorch_models():
     model = wrap_pt(model, identifier)
     yield model, resnet50_pt_layers
     
+    model = convnext_tiny(weights="IMAGENET1K_V1")
+    identifier = properties_to_id('ConvNeXt_Tiny', 'Object Classification', 'Supervised', 'PyTorch')
+    model = wrap_pt(model, identifier)
+    yield model, convnext_layers
+    
+    model = vgg16(weights="IMAGENET1K_V1")
+    identifier = properties_to_id('VGG16', 'Object Classification', 'Supervised', 'PyTorch')
+    model = wrap_pt(model, identifier)
+    yield model, vgg_layers
+    
     model = maxvit_t(weights="IMAGENET1K_V1")
     identifier = properties_to_id('MaxViT', 'ObjClass.', 'Sprvsd', 'Py')
     model = wrap_pt(model, identifier)
@@ -253,40 +265,45 @@ def pytorch_models():
 
 def transformer_models():
     
+    new_init = True
+    init = normal
+    task = 'N_0.025'
+    
     model = maxvit_t(weights=None)
-    model.apply(kai_uniform)
-    identifier = properties_to_id('MaxViT', 'ObjClass.', 'Untr.', 'Py')
+    if new_init:
+        model.apply(init)
+    identifier = properties_to_id('MaxViT', f'{task}', 'Untr.', 'Py')
     model = wrap_pt(model, identifier)
     yield model, maxvit_layers
     
-    #model = maxvit_t(weights="IMAGENET1K_V1")
-    #identifier = properties_to_id('MaxViT', 'ObjClass.', 'Sprvsd', 'Py')
-    #model = wrap_pt(model, identifier)
-    #yield model, maxvit_layers
-    
     model = swin_t(weights=None)
-    model.apply(kai_uniform)
-    identifier = properties_to_id('Swin_t', 'None', 'Untrained', 'PyTorch')
+    if new_init:
+        model.apply(init)
+    identifier = properties_to_id('Swin_t', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, swin_layers
     
-    #model = swin_t(weights="IMAGENET1K_V1")
-    #identifier = properties_to_id('Swin_t', 'Obj.Class.', 'Sprvsd', 'Py')
-    #model = wrap_pt(model, identifier)
-    #yield model, swin_layers
     
+def test():
     
-def vgg_test():
+    new_init = True
+    init = normal
+    task = 'N_0.025'
+    
     model = vgg16(weights=None)
-    identifier = properties_to_id('VGG16', 'None', 'Untrained', 'PyTorch')
+    if new_init:
+        model.apply(init)
+    identifier = properties_to_id('VGG16', f'{task}', 'Untrained', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, vgg_layers
     
-    model = vgg16(weights="IMAGENET1K_V1")
-    identifier = properties_to_id('VGG16', 'Object Classification', 'Supervised', 'PyTorch')
-    model = wrap_pt(model, identifier)
-    yield model, vgg_layers
-
+    
+    #model = convnext_tiny(weights=None)
+    #if new_init:
+    #    model.apply(init)
+    #identifier = properties_to_id('ConvNeXt_Tiny', f'{task}', 'Untrained', 'PyTorch')
+    #model = wrap_pt(model, identifier)
+    #yield model, convnext_layers
 
 
 def pytorch_hub_models():
