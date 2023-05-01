@@ -1,0 +1,3 @@
+layer,effective dimensionality,80% variance,alpha,architecture,task,kind,source
+c2,2.0785938430292275,14.0,1.443636557416814,AtlasNet,nf_10000,Untrained,PyTorch
+mp2,2.0785938430292275,14.0,1.443636557416814,AtlasNet,nf_10000,Untrained,PyTorch

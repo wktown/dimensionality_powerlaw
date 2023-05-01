@@ -1,0 +1,47 @@
+name: dim-powerlaw
+dependencies:
+  - python=3.7
+  - pip
+  - pip:
+    - git+https://github.com/brain-score/brain-score
+    - git+https://github.com/brain-score/model-tools
+    - git+https://github.com/wktown/candidate_models.git
+    #- git+https://github.com/wktown/unsup_vvs.git #candidate-models has unsup vss as a dependency
+    - git+https://github.com/alexsax/visual-prior.git
+    #- git+https://github.com/BonnerLab/bonnerlab-brainscore #for object2vec benchmark (default majaj)
+    - jupyterlab
+    - seaborn
+
+
+variables:
+  TORCH_HOME: "/data/shared/torch"
+  RESULTCACHING_HOME: "/data/keaton/result-caching"
+  MT_HOME: "/data/keaton/model-tools"
+  #MT_HOME: "/data/shared/.cache/brainscore/model-tools"
+  #export MT_HOME="/data/mbonner5/shared/brainscore/model-tools"
+  BRAINIO_HOME: "/data/keaton/brainio"
+  #BRAINIO_HOME: "/data/shared/.cache/brainscore/brainio"
+  #export BRAINIO_HOME="/data/mbonner5/shared/brainio/bonner-datasets"
+  CM_HOME: "/data/keaton/candidate-models"
+  #CM_HOME: "/data/shared/.cache/brainscore/candidate-models"
+  #export CM_HOME="/data/mbonner5/shared/brainscore/candidate-models"
+
+  BONNER_DATASETS_CACHE: "/data/shared/datasets"
+  BONNER_BRAINIO_CACHE: "/data/shared/brainio"
+  BONNER_BRAINIO_CATALOG_IDENTIFIER: "bonner-datasets"
+  BONNER_BRAINIO_CATALOG_CSV: "/home/wtownle1/bonner-datasets/catalog.csv"
+  BONNER_BRAINIO_LOCATION_TYPE: "rsync"
+  BONNER_BRAINIO_LOCATION: "cogsci-ml.win.ad.jhu.edu:/export/data2/shared/brainio/bonner-datasets"
+
+
+
+#/data/shared/datasets = no majaj, yes ilsvrc + imagenet21k, yes NSD
+#/data/shared/.cache/brainscore/brainio = yes majaj, no imagenet(s), no NSD
+# -> should work for eigenspectrum_encoding
+# - same with /data/shared/brainio/brain-score
+#data/shared/brainio/bonner-datasets = NSD only
+
+
+#export MT_HOME="/data/mbonner5/shared/brainscore/model-tools"
+#export BRAINIO_HOME="/data/mbonner5/shared/brainio/bonner-datasets"
+#export CM_HOME="/data/mbonner5/shared/brainscore/candidate-models"
