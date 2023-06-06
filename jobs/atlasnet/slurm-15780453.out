@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 78, in <module>
+    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, grayscale=args.grayscale, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 26, in main
+    for model, layers in get_activation_models():
+  File "/home/wtownle1/dimensionality_powerlaw/activation_models/generators.py", line 71, in get_activation_models
+    for model, layers in atlas_net():
+  File "/home/wtownle1/dimensionality_powerlaw/activation_models/generators.py", line 205, in atlas_net
+    model = EngineeredModel2L_SVD(filters_2=f, k_size=9, exponent=a).Build()
+  File "/home/wtownle1/dimensionality_powerlaw/activation_models/AtlasNet/model_2L_SVD.py", line 138, in Build
+    c_test = c2.weight.reshape(1000,1944)
+RuntimeError: shape '[1000, 1944]' is invalid for input of size 194400
+-0.2

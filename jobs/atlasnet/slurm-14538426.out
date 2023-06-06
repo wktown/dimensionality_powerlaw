@@ -1,0 +1,51 @@
+INFO:root:architecture:AtlasNet|task:alpha-0.5_elR|kind:Untrained|source:PyTorch|layer:c2|pooling:none|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:01<00:22, 41.92it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:04<00:29, 29.93it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:07<00:33, 24.69it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:10<00:35, 21.62it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:14<00:37, 18.91it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:19<00:38, 16.81it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:24<00:38, 14.97it/s][A[A
+
+activations:  50%|█████     | 512/1024 [00:30<00:37, 13.62it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:36<00:35, 12.48it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:42<00:33, 11.53it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:50<00:30, 10.56it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:57<00:26,  9.84it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [01:05<00:20,  9.18it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [01:14<00:15,  8.50it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [01:23<00:07,  8.02it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [01:33<00:00,  7.44it/s][A[Aactivations: 100%|██████████| 1024/1024 [01:33<00:00, 10.94it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:19<00:00, 19.99s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:19<00:00, 19.99s/it]
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[Aslurmstepd: error: Detected 1 oom-kill event(s) in StepId=14538426.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

@@ -32,8 +32,8 @@ def main(dataset, data_dir, pooling, grayscale, debug=False):
             break
 
     if not debug:
-        eigspec_df.to_csv(f'results/eigspectra_nf10-1000|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
-        eigmetrics_df.to_csv(f'results/eigmetrics_nf10-1000|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigspec_df.to_csv(f'results/eigspectra_Eig-MH|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigmetrics_df.to_csv(f'results/eigmetrics_Eig-MH|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
 
 
 def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_transform):

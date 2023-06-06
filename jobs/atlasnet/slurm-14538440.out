@@ -1,0 +1,52 @@
+INFO:root:architecture:AtlasNet|task:alpha-0.5_elR|kind:Untrained|source:PyTorch|layer:c2|pooling:none|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:01<00:19, 49.54it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:03<00:26, 33.58it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:06<00:30, 27.58it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:09<00:33, 23.00it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:13<00:34, 20.31it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:18<00:35, 17.98it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:22<00:35, 16.01it/s][A[A
+
+activations:  50%|█████     | 512/1024 [00:28<00:35, 14.36it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:34<00:34, 12.96it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:40<00:32, 11.77it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:47<00:29, 10.92it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:55<00:25, 10.13it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [01:02<00:20,  9.50it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [01:11<00:14,  8.90it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [01:19<00:07,  8.43it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [01:28<00:00,  8.02it/s][A[Aactivations: 100%|██████████| 1024/1024 [01:28<00:00, 11.57it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:20<00:00, 20.83s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:20<00:00, 20.83s/it]
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A/cm/local/apps/slurm/var/spool/job14538440/slurm_script: line 16: 43949 Killed                  python -m scripts.fit_encoding_models --pooling none
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=14538440.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_encoding_models.py", line 142, in <module>
+    regression=args.regression, data_dir=args.data_dir)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_encoding_models.py", line 99, in get_benchmark
+    benchmark._identifier = benchmark.identifier.replace('pls', f'ridge_alpha={alpha}')
+NameError: name 'alpha' is not defined
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv

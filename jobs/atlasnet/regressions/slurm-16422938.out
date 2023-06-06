@@ -1,0 +1,9 @@
+INFO:root:architecture:AtlasNet|task:Eig-OLS-0.2|kind:Untrained|source:PyTorch|layer:c2|pooling:none|n_components:1000
+INFO:root:c2
+INFO:root:architecture:AtlasNet|task:Eig-OLS-0.2|kind:Untrained|source:PyTorch|layer:mp2|pooling:none|n_components:1000
+INFO:root:mp2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+0.32025453704991264
+0.017520407428394624
+main total runtime: 0:00:02.495233

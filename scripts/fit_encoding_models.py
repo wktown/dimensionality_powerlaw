@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 
 @timed
 def main(benchmark, pooling, debug=False):
-    save_path = f'results/encoding_nf10-1000|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
+    save_path = f'results/encoding_ScaledSVD-OLS|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
@@ -45,7 +45,7 @@ def fit_encoder(benchmark, model, layers, pooling, hooks=None):
     for layer in layers:
         if pooling == 'max':
             handle = GlobalMaxPool2d.hook(model)
-            model.identifier = model_identifier + f'|lyr:{layer}|pooling:max'
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:max'
         elif pooling == 'avg':
             handle = GlobalAvgPool2d.hook(model)
             model.identifier = model_identifier + f'|layer:{layer}|pooling:avg'
@@ -95,8 +95,9 @@ def get_benchmark(benchmark, region, regression, data_dir):
             benchmark._similarity_metric.regression = linear_regression()
             benchmark._similarity_metric.regression._regression.alpha = 0.1
         elif regression == 'l2':
-            benchmark._identifier = benchmark.identifier.replace('pls', 'l2')
-            benchmark._similarity_metric.regression = ridge_regression()
+            alpha = 1000
+            benchmark._identifier = benchmark.identifier.replace('pls', f'ridge_alpha={alpha}')
+            benchmark._similarity_metric.regression = ridge_regression(regression_kwargs= {'alpha':alpha})
     elif benchmark == 'freeman2013':
         assert region == 'V1'
         identifier = f'movshon.FreemanZiemba2013public.{region}-pls'
@@ -112,7 +113,7 @@ def get_benchmark(benchmark, region, regression, data_dir):
         if region == 'all':
             region = None
         regions = region if region is None or ',' not in region else region.split(',')
-        benchmark = Object2VecEncoderBenchmark(data_dir=data_dir, regions=regions, regression=regression)
+        #benchmark = Object2VecEncoderBenchmark(data_dir=data_dir, regions=regions, regression=regression)
     else:
         raise ValueError(f'Unknown benchmark: {benchmark}')
     return benchmark

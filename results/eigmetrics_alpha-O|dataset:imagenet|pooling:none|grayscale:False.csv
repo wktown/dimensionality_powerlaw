@@ -1,0 +1,9 @@
+layer,effective dimensionality,80% variance,alpha,architecture,task,kind,source
+c2,111.80913950174993,335.0,0.7703896040008968,AtlasNet,O_-0.5,Untrained,PyTorch
+mp2,38.31815982192071,297.0,0.895037426472623,AtlasNet,O_-0.5,Untrained,PyTorch
+c2,139.32541146114787,324.0,0.7671855831464832,AtlasNet,O_-1,Untrained,PyTorch
+mp2,45.18283154100976,264.0,0.89513677499936,AtlasNet,O_-1,Untrained,PyTorch
+c2,124.83228886230106,209.0,0.8967173180305915,AtlasNet,O_-2,Untrained,PyTorch
+mp2,34.396356374435754,99.0,1.207195334185562,AtlasNet,O_-2,Untrained,PyTorch
+c2,99.34828194995332,162.0,1.0380523272260502,AtlasNet,O_-3,Untrained,PyTorch
+mp2,29.75333584195632,70.0,1.5630686538453489,AtlasNet,O_-3,Untrained,PyTorch

@@ -3,7 +3,7 @@ dependencies:
   - python=3.7
   - pip
   - pip:
-    - git+https://github.com/brain-score/brain-score
+    - git+https://github.com/wktown/brain-score.git@ridge
     - git+https://github.com/brain-score/model-tools
     - git+https://github.com/wktown/candidate_models.git
     #- git+https://github.com/wktown/unsup_vvs.git #candidate-models has unsup vss as a dependency
