@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_encoding_models.py", line 15, in <module>
+    from custom_model_tools.layer_PCA_max import LayerPCA_MaxPool
+ImportError: cannot import name 'LayerPCA_MaxPool' from 'custom_model_tools.layer_PCA_max' (/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layer_PCA_max.py)

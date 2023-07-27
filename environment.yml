@@ -11,10 +11,17 @@ dependencies:
     #- git+https://github.com/BonnerLab/bonnerlab-brainscore #for object2vec benchmark (default majaj)
     - jupyterlab
     - seaborn
+    - umap-learn
+    - git+https://github.com/johnmarktaylor91/torchlens.git
 
 
 variables:
+#*if these files are created when the environment is created:
+#brainio  candidate-models  models  model-tools  result-caching  torchhub
+# - those folders are used by the variables below
+
   TORCH_HOME: "/data/shared/torch"
+  #***??TORCH_HOME: "/data/keaton/torchhub"
   RESULTCACHING_HOME: "/data/keaton/result-caching"
   MT_HOME: "/data/keaton/model-tools"
   #MT_HOME: "/data/shared/.cache/brainscore/model-tools"

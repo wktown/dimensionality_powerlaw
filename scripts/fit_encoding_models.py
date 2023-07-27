@@ -11,23 +11,33 @@ from brainscore.metrics.regression import linear_regression, ridge_regression
 from model_tools.activations.pca import LayerPCA
 from model_tools.brain_transformation.neural import LayerScores
 from activation_models.generators import get_activation_models
-from custom_model_tools.hooks import GlobalMaxPool2d, GlobalAvgPool2d, RandomSpatial
+from custom_model_tools.hooks import GlobalMaxPool2d, GlobalAvgPool2d, RandomSpatial, MaxPool_PCA
+from custom_model_tools.layer_PCA_max import LayerPCA_Modified
 from utils import timed, id_to_properties
 import logging
 
+#logging.getLogger('pca.LayerPCA')
 logging.basicConfig(level=logging.INFO)
 
 
+
 @timed
-def main(benchmark, pooling, debug=False):
-    save_path = f'results/encoding_ScaledSVD-OLS|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
+def main(benchmark, seed, pooling, debug=False):
+    if pooling == 'layerPCA':
+        n_pcs = 1000
+    elif pooling == 'max':
+        n_pcs = 'NA'
+    elif pooling == 'max_PCA':
+        n_pcs = 1000
+    
+    save_path = f'results/nPCs/encoding_test6|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
     
     scores = pd.DataFrame()
-    for model, layers in get_activation_models():
-        layer_scores = fit_encoder(benchmark, model, layers, pooling)
+    for model, layers in get_activation_models(seed, pooling, n_pcs):
+        layer_scores = fit_encoder(benchmark, model, layers, pooling, n_pcs)
         scores = scores.append(layer_scores)
         if debug:
             break
@@ -35,7 +45,7 @@ def main(benchmark, pooling, debug=False):
         scores.to_csv(save_path, index=False)
 
 
-def fit_encoder(benchmark, model, layers, pooling, hooks=None):
+def fit_encoder(benchmark, model, layers, pooling, n_pcs, hooks=None):
     """Fit layers one at a time to save on memory"""
 
     layer_scores = pd.DataFrame()
@@ -52,9 +62,16 @@ def fit_encoder(benchmark, model, layers, pooling, hooks=None):
         elif pooling == 'random_spatial':
             handle = RandomSpatial.hook(model)
             model.identifier = model_identifier + f'|layer:{layer}|pooling:random_spatial'
-        elif pooling == 'none':
-            handle = LayerPCA.hook(model, n_components=1000)
-            model.identifier = model_identifier + f'|layer:{layer}|pooling:none|n_components:1000'
+        elif pooling == 'layerPCA':
+            handle = LayerPCA.hook(model, n_components=n_pcs)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:layerPCA|n_components:{n_pcs}'
+        elif pooling == 'max_PCA':
+            #handle = MaxPool_PCA.hook(model, n_components=n_pcs)
+            #handle = GlobalMaxPool2d.hook(model)
+            #handle = LayerPCA.hook(model, n_components=n_pcs)
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='max_pool') #max_pooling=True
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+            print('post-handle')
         
 
         handles = []
@@ -66,8 +83,10 @@ def fit_encoder(benchmark, model, layers, pooling, hooks=None):
         model_scores = LayerScores(model_identifier=model.identifier,
                                    activations_model=model,
                                    visual_degrees=8)
+        print('post- model_scores')
         score = model_scores(benchmark=benchmark, layers=[layer], prerun=True)
         handle.remove()
+        print('post scoring')
 
         for h in handles:
             h.remove()
@@ -132,15 +151,18 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory for neural benchmark (only required for "object2vec")')
     parser.add_argument('--pooling', dest='pooling', type=str,
-                        choices=['max','avg','none', 'random_spatial'],
-                        help='Choose global max-pooling, global avg-pooling, no pooling, or random spatial positions prior to fitting')
+                        choices=['max','avg','layerPCA', 'random_spatial', 'max_PCA'],
+                        help='Choose global max-pooling, global avg-pooling, no pooling (layerPCA), or random spatial positions prior to fitting')
+    parser.add_argument('--seed', dest='seed', type=int, default=0,
+                        help='Choose a random seed for analysis (torch and numpy)')
     parser.add_argument('--debug', action='store_true',
                         help='Just run a single model to make sure there are no errors')
     args = parser.parse_args()
 
     benchmark = get_benchmark(benchmark=args.bench, region=args.region,
                               regression=args.regression, data_dir=args.data_dir)
-    main(benchmark=benchmark, pooling=args.pooling, debug=args.debug)
+    
+    main(benchmark=benchmark, seed=args.seed, pooling=args.pooling, debug=args.debug)
 
 #pooling
 #fit_encoding_models.py def fit_encoder

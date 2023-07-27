@@ -95,8 +95,8 @@ class EigenspectrumBase:
 
     def as_df(self):
         df = pd.DataFrame()
-        for layer, eigspec in self._layer_eigenspectra.items():
-            layer_df = pd.DataFrame({'n': range(1, len(eigspec) + 1), 'variance': eigspec})
+        for layer, rdm in self._layer_eigenspectra.items():
+            layer_df = pd.DataFrame({'n': range(1, len(rdm) + 1), 'variance': rdm})
             layer_df = layer_df.assign(layer=layer)
             df = df.append(layer_df)
         properties = id_to_properties(self._extractor.identifier)
@@ -135,7 +135,7 @@ class EigenspectrumBase:
                 handle = GlobalMaxPool2d.hook(self._extractor)
             elif pooling == 'avg':
                 handle = GlobalAvgPool2d.hook(self._extractor)
-            elif pooling == 'none':
+            elif pooling == 'projections':
                 handle = RandomProjection.hook(self._extractor)
             elif pooling == 'random_spatial':
                 handle = RandomSpatial.hook(self._extractor)
@@ -159,6 +159,7 @@ class EigenspectrumBase:
                 self._logger.debug('Retrieving stimulus activations')
                 activations = self._extractor(image_paths, layers=[layer])
                 activations = activations.sel(layer=layer).values
+
                 logging.info(identifier)
                 logging.info(layer)
                 print(layer)

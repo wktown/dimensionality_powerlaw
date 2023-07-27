@@ -1,3 +1,10 @@
+if mod == 'z_score':
+    activations = flatten(actitvations)
+    activations = scipy.stats.zscore(activations, axis=0)
+
+
+
+
 #random projection
 #def apply(layer, activations):
 n_components = 1024

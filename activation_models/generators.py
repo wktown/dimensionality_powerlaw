@@ -22,7 +22,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-atlasnet_layers = ['c2', 'mp2']
+atlasnet_layers = ['c2']#, 'mp2']
 
 resnet18_pt_layers = [f'layer1.{i}.relu' for i in range(2)] + \
                      [f'layer2.{i}.relu' for i in range(2)] + \
@@ -61,14 +61,14 @@ vgg_layers = [f"features.{i}" for i in [1, 3, 6, 8, 11, 13, 15, 18, 20, 22, 25, 
 
 
 
-def get_activation_models(pytorch=False, untrained=False, transformers=False, atlasnet=True,
+def get_activation_models(seed, pooling, n_pcs=1000, pytorch=False, untrained=False, transformers=False, atlasnet=True,
                           test=False, vvs=False, taskonomy=False, pytorch_hub=False):
     
-    torch.manual_seed(seed=0)
-    np.random.seed(seed=0)
+    #torch.manual_seed(seed=seed)
+    #np.random.seed(seed=seed)
     
     if atlasnet:
-        for model, layers in atlas_net():
+        for model, layers in atlas_net(seed, pooling, n_pcs):
             yield model, layers
     if pytorch:
         for model, layers in pytorch_models():
@@ -167,7 +167,8 @@ def dirac(m):
 
 
 
-def atlas_net():
+def atlas_net(seed, pooling, n_pcs):
+    test = False
     eig = True
     eig_filters = False
     SVD = False
@@ -176,22 +177,43 @@ def atlas_net():
     L_3 = False
         
     if eig:
-        alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+        #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+        alphas = [-2]
+        #v_scales = [1, 2, 5, 10, 20, 100]
+        #for v in v_scales:
+        if pooling == 'layerPCA':
+            pcs = n_pcs
+        elif pooling == 'max':
+            pcs = 'NA'
+        elif pooling == 'max_PCA':
+            pcs = n_pcs
+        task = 'Eig'
         for a in alphas:
-            task = f'Eig-MH{a}'
-            
-            model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a).Build()
-            identifier = properties_to_id('AtlasNet', task, a, 'PyTorch')
+            model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
+            identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{pcs}')
             model = wrap_atlasnet(model, identifier)
             yield model, atlasnet_layers
             
     if SVD:
         alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+        if pooling == 'layerPCA':
+            pcs = n_pcs
+        elif pooling == 'max':
+            pcs = 'NA'
+        elif pooling == 'max_PCA':
+            pcs = n_pcs
+        task = 'SVD'
         for a in alphas:
-            task = f'SVD-MH_{a}'
+            model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
+            identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{pcs}')
+            model = wrap_atlasnet(model, identifier)
+            yield model, atlasnet_layers
             
-            model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a).Build()
-            identifier = properties_to_id('AtlasNet', task, a, 'PyTorch')
+    if test:
+        inits = [1]
+        for i in inits:
+            model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=-1).Build()
+            identifier = properties_to_id('AtlasNet', f'i_{i}', 'Test', 'Unk')
             model = wrap_atlasnet(model, identifier)
             yield model, atlasnet_layers
             
@@ -223,10 +245,11 @@ def atlas_net():
     if standard:
         k_size = 9
         n_filters = 1000
-        task = f'f_{n_filters}'
+        task = 'StandardAN'
+        n_pcs = 1000
         
         model = EngineeredModel2L(filters_2=n_filters, k_size=k_size).Build()
-        identifier = properties_to_id('AtlasNet', f'{task}', 'Untrained', 'PyTorch')
+        identifier = properties_to_id('AtlasNet', task, f'a:none', f'pcs:{n_pcs}')
         model = wrap_atlasnet(model, identifier)
         yield model, atlasnet_layers
 

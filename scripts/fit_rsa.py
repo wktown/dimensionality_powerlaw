@@ -9,20 +9,28 @@ from model_tools.activations.pca import LayerPCA
 from model_tools.brain_transformation.neural import LayerScores
 from activation_models.generators import get_activation_models
 from custom_model_tools.hooks import GlobalMaxPool2d
+from custom_model_tools.layer_PCA_max import LayerPCA_MaxPool
 from benchmarks.majajhong2015_rsa import DicarloMajajHong2015V4RSA, DicarloMajajHong2015ITRSA
 from utils import timed, id_to_properties
 
 
 @timed
-def main(benchmark, pooling, debug=False):
-    save_path = f'results/rsa|benchmark:{benchmark._identifier}|pooling:{pooling}.csv'
+def main(benchmark, seed, pooling, debug=False):
+    if pooling == 'layerPCA':
+        n_pcs = 1000
+    elif pooling == 'max':
+        n_pcs = 'NA'
+    elif pooling == 'max_PCA':
+        n_pcs = 1000
+        
+    save_path = f'results/nPCs/rsa_Eig|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
     
     scores = pd.DataFrame()
-    for model, layers in get_activation_models():
-        layer_scores = fit_rsa(benchmark, model, layers, pooling)
+    for model, layers in get_activation_models(seed, pooling, n_pcs):
+        layer_scores = fit_rsa(benchmark, model, layers, pooling, n_pcs)
         scores = scores.append(layer_scores)
         if debug:
             break
@@ -30,7 +38,7 @@ def main(benchmark, pooling, debug=False):
         scores.to_csv(save_path, index=False)
 
 
-def fit_rsa(benchmark, model, layers, pooling, hooks=None):
+def fit_rsa(benchmark, model, layers, pooling, n_pcs, hooks=None):
     """Fit layers one at a time to save on memory"""
 
     layer_scores = pd.DataFrame()
@@ -38,12 +46,16 @@ def fit_rsa(benchmark, model, layers, pooling, hooks=None):
     model_properties = id_to_properties(model_identifier)
 
     for layer in layers:
-        if pooling:
+        if pooling == 'max':
             handle = GlobalMaxPool2d.hook(model)
-            model.identifier = model_identifier + f'|layer:{layer}|pooling:True'
-        else:
-            handle = LayerPCA.hook(model, n_components=1000)
-            model.identifier = model_identifier + f'|layer:{layer}|pooling:False|n_components:1000'
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}'
+        elif pooling == 'layerPCA':
+            #npcs = 1000
+            handle = LayerPCA.hook(model, n_components=n_pcs)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+        elif pooling == 'max_PCA':
+            handle = LayerPCA_MaxPool.hook(model, n_components=n_pcs, max_pooling=True)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
 
         handles = []
         if hooks is not None:
@@ -87,11 +99,17 @@ if __name__ == '__main__':
                         help='Neural benchmark dataset to fit')
     parser.add_argument('--region', type=str, default='IT',
                         help='Region(s) to fit. Valid region(s) depend on the neural benchmark')
-    parser.add_argument('--no_pooling', dest='pooling', action='store_false',
-                        help='Do not perform global max-pooling prior to fitting')
+    parser.add_argument('--pooling', dest='pooling', type=str,
+                    choices=['max','avg','layerPCA', 'max_PCA'],
+                    help='Choose global max-pooling, global avg-pooling, or no pooling (layerPCA) prior to fitting')
+    #parser.add_argument('--no_pooling', dest='pooling', action='store_false',
+    #                    help='Do not perform global max-pooling prior to fitting')
     parser.add_argument('--debug', action='store_true',
                         help='Just run a single model to make sure there are no errors')
+    parser.add_argument('--seed', dest='seed', type=int, default=0,
+                        help='Choose a random seed for analysis (torch and numpy)')
     args = parser.parse_args()
 
     benchmark = get_benchmark(benchmark=args.bench, region=args.region)
-    main(benchmark=benchmark, pooling=args.pooling, debug=args.debug)
+    
+    main(benchmark=benchmark, seed=args.seed, pooling=args.pooling, debug=args.debug)

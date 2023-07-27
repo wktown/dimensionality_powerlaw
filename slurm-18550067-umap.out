@@ -1,0 +1,2 @@
+/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py:85: FutureWarning: arrays to stack must be passed as a "sequence" type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
+  exec(code, run_globals)

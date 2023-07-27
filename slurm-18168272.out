@@ -1,0 +1,4 @@
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+Results already exists: results/nPCs/encoding_Eig|seed:0|pooling:layerPCA|nPCs:50|benchmark:dicarlo.MajajHong2015.IT.public-pls.csv
+main total runtime: 0:00:06.166884

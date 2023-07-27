@@ -1,0 +1,15 @@
+#!/bin/bash -l
+#SBATCH --job-name=umap
+#SBATCH --time=1:00:00
+#SBATCH --partition=defq
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=64G
+#SBATCH --account=mbonner5
+#SBATCH --mail-type=end
+#SBATCH --mail-user=wtownle1@jh.edu
+
+ml anaconda
+conda activate /home/wtownle1/env_dim/dim-powerlaw
+python -m umap_test
