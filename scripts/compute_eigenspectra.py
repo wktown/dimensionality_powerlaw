@@ -19,11 +19,12 @@ logging.basicConfig(level=logging.INFO)
 
 
 @timed
-def main(dataset, data_dir, pooling, grayscale, debug=False):
+def main(dataset, data_dir, pooling, seed, grayscale, debug=False):
     image_transform = ImageDatasetTransformer('grayscale', Grayscale()) if grayscale else None
     eigspec_df = pd.DataFrame()
     eigmetrics_df = pd.DataFrame()
-    for model, layers in get_activation_models():
+    n_pcs = 'NA'
+    for model, layers in get_activation_models(seed, n_pcs):
         eigspec = get_eigenspectrum(dataset, data_dir, model, pooling, image_transform)
         eigspec.fit(layers)
         eigspec_df = eigspec_df.append(eigspec.as_df())
@@ -32,8 +33,8 @@ def main(dataset, data_dir, pooling, grayscale, debug=False):
             break
 
     if not debug:
-        eigspec_df.to_csv(f'results/eigspectra_nPCsEig|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
-        eigmetrics_df.to_csv(f'results/eigmetrics_nPCsEig|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigspec_df.to_csv(f'results/inits/eigspectra_ANinits|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigmetrics_df.to_csv(f'results/inints/eigmetrics_ANinits|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
 
 
 def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_transform):
@@ -67,8 +68,10 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory containing stimuli')
     parser.add_argument('--pooling', dest='pooling', type=str, default=None,
-                        choices=['max', 'avg', 'projections', 'spatial_pca', 'random_spatial'],
+                        choices=['max', 'avg', 'projections', 'spatial_pca', 'random_spatial'], #zscore
                         help='Choose global max pooling, avg pooling, no pooling, to select one random spatial position, or to compute the eigenspectrum at each spatial position in the final layer(s) of the model prior to computing the eigenspectrum')
+    parser.add_argument('--seed', dest='seed', type=int, default=0,
+                        help='Choose a random seed for analysis (torch and numpy)')
     parser.add_argument('--grayscale', action='store_true',
                         help='Compute the eigenspectrum on grayscale inputs')
     parser.add_argument('--debug', action='store_true',

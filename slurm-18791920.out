@@ -1,0 +1,327 @@
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.2|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+results/nPCs/rsa_Eig|seed:0|pooling:PCA_maxpool|nPCs:500|benchmark:dicarlo.MajajHong2015.IT.public-rsa.csv
+0.32025453704991264
+0.017520407428394624
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:29,  3.29s/it][A
+cross-validation:  20%|██        | 2/10 [00:06<00:26,  3.30s/it][A
+cross-validation:  30%|███       | 3/10 [00:09<00:23,  3.31s/it][A
+cross-validation:  40%|████      | 4/10 [00:13<00:19,  3.29s/it][A
+cross-validation:  50%|█████     | 5/10 [00:16<00:16,  3.29s/it][A
+cross-validation:  60%|██████    | 6/10 [00:19<00:13,  3.29s/it][A
+cross-validation:  70%|███████   | 7/10 [00:23<00:09,  3.28s/it][A
+cross-validation:  80%|████████  | 8/10 [00:26<00:06,  3.28s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:29<00:03,  3.29s/it][A
+cross-validation: 100%|██████████| 10/10 [00:32<00:00,  3.29s/it][Across-validation: 100%|██████████| 10/10 [00:32<00:00,  3.29s/it]
+layers: 100%|██████████| 1/1 [00:33<00:00, 33.11s/it]layers: 100%|██████████| 1/1 [00:33<00:00, 33.11s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.3|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.37255671354036585
+0.013386234635974107
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:29,  3.27s/it][A
+cross-validation:  20%|██        | 2/10 [00:06<00:26,  3.28s/it][A
+cross-validation:  30%|███       | 3/10 [00:09<00:23,  3.29s/it][A
+cross-validation:  40%|████      | 4/10 [00:13<00:19,  3.28s/it][A
+cross-validation:  50%|█████     | 5/10 [00:16<00:16,  3.28s/it][A
+cross-validation:  60%|██████    | 6/10 [00:19<00:13,  3.28s/it][A
+cross-validation:  70%|███████   | 7/10 [00:22<00:09,  3.28s/it][A
+cross-validation:  80%|████████  | 8/10 [00:26<00:06,  3.28s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:29<00:03,  3.29s/it][A
+cross-validation: 100%|██████████| 10/10 [00:32<00:00,  3.29s/it][Across-validation: 100%|██████████| 10/10 [00:32<00:00,  3.28s/it]
+layers: 100%|██████████| 1/1 [00:33<00:00, 33.07s/it]layers: 100%|██████████| 1/1 [00:33<00:00, 33.07s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.4|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.44998855587926534
+0.011707480891510866
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:30,  3.42s/it][A
+cross-validation:  20%|██        | 2/10 [00:06<00:27,  3.43s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:23,  3.41s/it][A
+cross-validation:  40%|████      | 4/10 [00:13<00:20,  3.48s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.51s/it][A
+cross-validation:  60%|██████    | 6/10 [00:20<00:14,  3.54s/it][A
+cross-validation:  70%|███████   | 7/10 [00:24<00:10,  3.55s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.56s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:31<00:03,  3.56s/it][A
+cross-validation: 100%|██████████| 10/10 [00:35<00:00,  3.58s/it][Across-validation: 100%|██████████| 10/10 [00:35<00:00,  3.53s/it]
+layers: 100%|██████████| 1/1 [00:35<00:00, 35.55s/it]layers: 100%|██████████| 1/1 [00:35<00:00, 35.55s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.5|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.5405896318661934
+0.010911917931292753
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.58s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.59s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.60s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.61s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.60s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.60s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.60s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.60s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.60s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.60s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.26s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.26s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.6|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.6397823566754836
+0.010508162771130506
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.61s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:29,  3.63s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.62s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.63s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.62s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.63s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.62s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.61s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.42s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.42s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.7|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.7429860627396743
+0.010294833295424641
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.61s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.61s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.61s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.62s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.62s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.61s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.61s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.37s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.37s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.8|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.8474540449896283
+0.010178780513137638
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.61s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.62s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.62s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.62s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.61s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.61s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.39s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.39s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-0.9|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+0.9534924223952587
+0.010114039015400823
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.61s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.61s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.61s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.62s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.60s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.61s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.61s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.34s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.34s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-1.0|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+1.0552014868159694
+0.010077028850817134
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.62s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.62s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.63s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.63s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.62s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.62s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.62s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.48s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.48s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-1.2|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+1.2665430776347815
+0.010042260486655501
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.62s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:29,  3.64s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.63s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.64s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.62s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.63s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.63s/it][A
+cross-validation:  80%|████████  | 8/10 [00:29<00:07,  3.63s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.63s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.55s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.55s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-1.4|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+1.4801247617514406
+0.010028993692880895
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.62s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.62s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.62s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.63s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.62s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.62s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.62s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.63s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.53s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.53s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-1.6|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+1.6939691343487162
+0.010023288018598014
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.65s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:29,  3.64s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.64s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.64s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.65s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.66s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.66s/it][A
+cross-validation:  80%|████████  | 8/10 [00:29<00:07,  3.67s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.66s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.65s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.65s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.77s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.77s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-1.8|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+1.9026860458023132
+0.010020526493335603
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.62s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.61s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.62s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.61s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.62s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.62s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.62s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.63s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.48s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.48s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-2|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+2.1016720608054884
+0.010019042316907943
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.58s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.58s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.59s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.58s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.59s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.60s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.61s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.29s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.29s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-2.2|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+2.317600855032536
+0.010018173820186804
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.61s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.60s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.60s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.59s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.60s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.60s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.33s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.33s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-2.4|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+2.5238405796749266
+0.010017631232935803
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.60s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.59s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.59s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.59s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:18,  3.60s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.32s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.32s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-2.6|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+2.7292725936317703
+0.01001727513023036
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.60s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.60s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.59s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.59s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.60s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.61s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.32s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.32s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-2.8|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+2.929568664892991
+0.010017032550155545
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.59s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.58s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.59s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.59s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:18,  3.60s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.61s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.61s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.29s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.29s/it]
+INFO:root:architecture:AtlasNet|task:Eig_seed=0|kind:a_-3|source:pcs_500|layer:c2|pooling:PCA_maxpool|n_components:500
+INFO:root:c2
+3.1246905895085333
+0.010016862501983054
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.60s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.60s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.60s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.60s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.61s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.62s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.62s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.62s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.62s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.63s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.62s/it]
+layers: 100%|██████████| 1/1 [00:36<00:00, 36.41s/it]layers: 100%|██████████| 1/1 [00:36<00:00, 36.41s/it]
+main total runtime: 0:11:44.024052

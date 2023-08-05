@@ -9,27 +9,29 @@ from model_tools.activations.pca import LayerPCA
 from model_tools.brain_transformation.neural import LayerScores
 from activation_models.generators import get_activation_models
 from custom_model_tools.hooks import GlobalMaxPool2d
-from custom_model_tools.layer_PCA_max import LayerPCA_MaxPool
+from custom_model_tools.layerPCA_modified import LayerPCA_Modified
 from benchmarks.majajhong2015_rsa import DicarloMajajHong2015V4RSA, DicarloMajajHong2015ITRSA
 from utils import timed, id_to_properties
+
+import logging
+logging.basicConfig(level=logging.INFO)
 
 
 @timed
 def main(benchmark, seed, pooling, debug=False):
-    if pooling == 'layerPCA':
-        n_pcs = 1000
-    elif pooling == 'max':
+    if pooling=='max' or pooling=='avg': #projections, spatial_PCA, random_spatial
         n_pcs = 'NA'
-    elif pooling == 'max_PCA':
+    elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
         n_pcs = 1000
         
     save_path = f'results/nPCs/rsa_Eig|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
+    print(save_path)
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
     
     scores = pd.DataFrame()
-    for model, layers in get_activation_models(seed, pooling, n_pcs):
+    for model, layers in get_activation_models(seed, n_pcs):
         layer_scores = fit_rsa(benchmark, model, layers, pooling, n_pcs)
         scores = scores.append(layer_scores)
         if debug:
@@ -50,16 +52,21 @@ def fit_rsa(benchmark, model, layers, pooling, n_pcs, hooks=None):
             handle = GlobalMaxPool2d.hook(model)
             model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}'
         elif pooling == 'layerPCA':
-            #npcs = 1000
             handle = LayerPCA.hook(model, n_components=n_pcs)
             model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
-        elif pooling == 'max_PCA':
-            handle = LayerPCA_MaxPool.hook(model, n_components=n_pcs, max_pooling=True)
+        elif pooling == 'PCA_maxpool':
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='max_pool')
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+        elif pooling == 'PCA_zscore':
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='z_score')
             model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
 
         handles = []
         if hooks is not None:
             handles = [cls.hook(model) for cls in hooks]
+            
+        logging.info(model.identifier)
+        logging.info(layer)
 
         model_scores = LayerScores(model_identifier=model.identifier,
                                    activations_model=model,
@@ -100,8 +107,9 @@ if __name__ == '__main__':
     parser.add_argument('--region', type=str, default='IT',
                         help='Region(s) to fit. Valid region(s) depend on the neural benchmark')
     parser.add_argument('--pooling', dest='pooling', type=str,
-                    choices=['max','avg','layerPCA', 'max_PCA'],
-                    help='Choose global max-pooling, global avg-pooling, or no pooling (layerPCA) prior to fitting')
+                    choices=['max', 'avg', 'layerPCA', 'PCA_maxpool', 'PCA_zscore'],
+                    #projections, spatial_PCA, random_spatial
+                    help='Choose global max-pooling, avg-pooling, or no pooling (layerPCA) prior to fitting')
     #parser.add_argument('--no_pooling', dest='pooling', action='store_false',
     #                    help='Do not perform global max-pooling prior to fitting')
     parser.add_argument('--debug', action='store_true',

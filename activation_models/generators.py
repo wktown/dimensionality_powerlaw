@@ -61,15 +61,13 @@ vgg_layers = [f"features.{i}" for i in [1, 3, 6, 8, 11, 13, 15, 18, 20, 22, 25, 
 
 
 
-def get_activation_models(seed, pooling, n_pcs=1000, pytorch=False, untrained=False, transformers=False, atlasnet=True,
+def get_activation_models(seed, n_pcs, pytorch=False, untrained=False, transformers=False, atlasnet=True,
                           test=False, vvs=False, taskonomy=False, pytorch_hub=False):
     
-    #torch.manual_seed(seed=seed)
-    #np.random.seed(seed=seed)
-    
     if atlasnet:
-        for model, layers in atlas_net(seed, pooling, n_pcs):
+        for model, layers in atlas_net(seed, n_pcs):
             yield model, layers
+    
     if pytorch:
         for model, layers in pytorch_models():
             yield model, layers
@@ -94,26 +92,37 @@ def get_activation_models(seed, pooling, n_pcs=1000, pytorch=False, untrained=Fa
             yield model, layers
     
 
-def kai_uniform(m):
+def kai_uniform(m, seed):
+    torch.manual_seed(seed=seed)
     if isinstance(m, nn.Conv2d):
-        nn.init.kaiming_uniform_(m.weight, a=0, mode='fan_out', nonlinearity='relu')
+        nn.init.kaiming_uniform_(m.weight, mode='fan_out', nonlinearity='relu') #a=0 only used with 'leaky_relu'
     if isinstance(m, nn.Linear):
-        nn.init.kaiming_uniform_(m.weight, a=0, mode='fan_out', nonlinearity='relu')
+        nn.init.kaiming_uniform_(m.weight, mode='fan_out', nonlinearity='relu')
+        #mnasnet = sigmoid instead of relu
+        
+def kai_normal(m, seed):
+    torch.manual_seed(seed=seed)
+    if isinstance(m, nn.Conv2d):
+        nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu') #a=0 only used with 'leaky_relu'
+    if isinstance(m, nn.Linear):
+        nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
         #mnasnet = sigmoid instead of relu
 
-def uniform(m):
-    r = 0.025
+def uniform(m, range, seed):
+    #range = 0.025
+    torch.manual_seed(seed=seed)
     if isinstance(m, nn.Conv2d):
-        nn.init.uniform_(m.weight, a= -r, b=r)
+        nn.init.uniform_(m.weight, a= -range, b=range)
         if m.bias is not None:
-            nn.init.uniform_(m.bias, a= -r, b= r)
+            nn.init.uniform_(m.bias, a= -range, b= range)
     if isinstance(m, nn.Linear):
-        nn.init.uniform_(m.weight, a= -r, b= r)
+        nn.init.uniform_(m.weight, a= -range, b= range)
         if m.bias is not None:
-            nn.init.uniform_(m.bias, a= -r, b= r)
+            nn.init.uniform_(m.bias, a= -range, b= range)
 
-def normal(m):
-    sdev = 0.025
+def normal(m, sdev, seed):
+    #sdev = 0.025
+    torch.manual_seed(seed=seed)
     if isinstance(m, nn.Conv2d):
         nn.init.normal_(m.weight, mean=0.0, std=sdev)
         if m.bias is not None:
@@ -122,7 +131,21 @@ def normal(m):
         nn.init.normal_(m.weight, mean=0.0, std=sdev)
         if m.bias is not None:
             nn.init.normal_(m.bias, mean=0.0, std=sdev)
-            
+
+def orthogonal(m, seed):
+    torch.manual_seed(seed=seed)
+    if isinstance(m, nn.Conv2d):
+        nn.init.orthogonal_(m.weight)
+        if m.bias is not None:
+            if len(m.bias.size()) > 1:
+                nn.init.orthogonal_(m.bias)
+    if isinstance(m, nn.Linear):
+        nn.init.orthogonal_(m.weight)
+        if m.bias is not None:
+            if len(m.bias.size()) > 1:
+                nn.init.orthogonal_(m.bias)
+
+#_________________
 def sparse(m):
     if isinstance(m, nn.Conv2d):
         print(m.size)
@@ -134,18 +157,6 @@ def sparse(m):
         nn.init.sparse_(m.weight, sparsity=s, std=0.05)
         if m.bias is not None:
             nn.init.sparse_(m.bias, sparsity=s, std=0.05)
-
-def orthogonal(m):
-    if isinstance(m, nn.Conv2d):
-        nn.init.orthogonal_(m.weight)
-        if m.bias is not None:
-            if len(m.bias.size()) > 1:
-                nn.init.orthogonal_(m.bias)
-    if isinstance(m, nn.Linear):
-        nn.init.orthogonal_(m.weight)
-        if m.bias is not None:
-            if len(m.bias.size()) > 1:
-                nn.init.orthogonal_(m.bias)
 
 def xavier_uniform(m):
     if isinstance(m, nn.Conv2d):
@@ -167,32 +178,54 @@ def dirac(m):
 
 
 
-def atlas_net(seed, pooling, n_pcs):
-    test = False
-    eig = True
+def atlas_net(seed, n_pcs):
+    eig = False
+    eig_init = True
     eig_filters = False
     SVD = False
     SVD_filters = False
     standard = False
-    L_3 = False
         
     if eig:
-        #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
-        alphas = [-2]
-        #v_scales = [1, 2, 5, 10, 20, 100]
-        #for v in v_scales:
-        if pooling == 'layerPCA':
-            pcs = n_pcs
-        elif pooling == 'max':
-            pcs = 'NA'
-        elif pooling == 'max_PCA':
-            pcs = n_pcs
+        alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+        #alphas = [-1.0]
+        
+        #if pooling=='max' or pooling=='projections' or pooling=='avg' or pooling=='spatial_PCA' or pooling=='random_spatial':
+        #    pcs = 'NA' (but really still = n_pcs)
+        #elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
+        #    pcs = n_pcs
+        
         task = 'Eig'
         for a in alphas:
             model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
-            identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{pcs}')
+            identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{n_pcs}')
             model = wrap_atlasnet(model, identifier)
             yield model, atlasnet_layers
+            
+    if eig_init:
+        model = EngineeredModel2L(filters_2=1000, k_size=9, seed=seed).Build()
+        init_funcs = [kai_uniform, kai_normal, uniform, normal, orthogonal, 'standard']
+        for init in init_funcs:
+            if init == uniform:
+                kind = init.__name__
+                ranges = [0.02, 0.05, 0.1, 0.2, 0.3]
+                for range in ranges:
+                    model.apply(lambda m: init(m, range, seed))
+            elif init == normal:
+                kind = init.__name__
+                st_devs = [0.01, 0.025, 0.05, 0.1, 0.15]
+                for sdev in st_devs:
+                    model.apply(lambda m: init(m, sdev, seed))
+            elif init == 'standard':
+                kind = init
+            else:
+                kind = init.__name__
+                model.apply(lambda m: init(m, seed))
+        
+            identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'init_{kind}', f'a+pcs_{n_pcs}')
+            model = wrap_atlasnet(model, identifier)
+            yield model, atlasnet_layers
+            
             
     if SVD:
         alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
@@ -200,20 +233,14 @@ def atlas_net(seed, pooling, n_pcs):
             pcs = n_pcs
         elif pooling == 'max':
             pcs = 'NA'
-        elif pooling == 'max_PCA':
+        elif pooling == 'PCA_maxpool':
+            pcs = n_pcs
+        elif pooling == 'PCA_zscore':
             pcs = n_pcs
         task = 'SVD'
         for a in alphas:
             model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
             identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{pcs}')
-            model = wrap_atlasnet(model, identifier)
-            yield model, atlasnet_layers
-            
-    if test:
-        inits = [1]
-        for i in inits:
-            model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=-1).Build()
-            identifier = properties_to_id('AtlasNet', f'i_{i}', 'Test', 'Unk')
             model = wrap_atlasnet(model, identifier)
             yield model, atlasnet_layers
             

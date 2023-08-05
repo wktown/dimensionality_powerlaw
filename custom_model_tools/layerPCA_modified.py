@@ -9,7 +9,7 @@ from tqdm import tqdm
 import numpy as np
 import torch
 from torch.nn import functional as F
-
+from scipy import stats
 from model_tools.activations.core import flatten, change_dict
 from model_tools.utils import fullname, s3
 from result_caching import store_dict
@@ -34,17 +34,16 @@ class LayerPCA_Modified:
         def apply_pca(layer, activations):
             pca = self._layer_pcas[layer]
             if self._mod == 'max_pool':
-                print('activations pre-apply transform')
-                print(activations.shape)
                 activations = torch.from_numpy(activations)
                 activations = F.adaptive_max_pool2d(activations, 1)
                 activations = activations.numpy()
-                print('pre transform post max pool')
-                print(activations.shape)
-            
-            activations = flatten(activations)
-            print('post flatten pre transform')
-            print(activations.shape)
+                activations = flatten(activations)
+            elif self._mod == 'z_score':
+                activations = flatten(activations)
+                activations = stats.zscore(activations, axis=0)
+            elif self._mod == 'none':
+                activations = flatten(activations)
+           
             if pca is None:
                 return activations
             return pca.transform(activations)
@@ -80,18 +79,17 @@ class LayerPCA_Modified:
         imagenet_paths = _get_imagenet_val(num_images=n_components)
         self.handle.disable()
         
-        #handles_2 = []
-        #handle_2 = GlobalMaxPool2d.hook(self._extractor)
-        #**max pool before this
-        
         imagenet_activations = self._extractor(imagenet_paths, layers=layers)
-        print('imagenet activations shape (extractor):')
-        print(imagenet_activations.shape)
-        imagenet_activations = {layer: imagenet_activations.sel(layer=layer).values
-                                for layer in np.unique(imagenet_activations['layer'])}
-        print('imagenet activations shape (dict):')
-        print(imagenet_activations.shape)
-        print(len(imagenet_activations))
+        #print('imagenet activations shape (extractor):')
+        #print(imagenet_activations.shape)
+        imagenet_activations = imagenet_activations.reset_index("neuroid")
+        imagenet_activations = imagenet_activations.set_index({"neuroid": ["channel", "channel_x", "channel_y"]}).unstack(dim="neuroid")
+        imagenet_activations = {layer: imagenet_activations.where(imagenet_activations.layer == layer, drop=True).values 
+                                for layer in np.unique(imagenet_activations.layer.values)}
+        #imagenet_activations = {layer: imagenet_activations.sel(layer=layer).values
+                                #for layer in np.unique(imagenet_activations['layer'])}
+        print('imagenet dict [0] shape')
+        print(list(imagenet_activations.values())[0].shape)
         
         assert len(set(activations.shape[0] for activations in imagenet_activations.values())) == 1, "stimuli differ"
         
@@ -105,15 +103,27 @@ class LayerPCA_Modified:
         #7
         def init_and_progress(layer, activations):
             if self._mod == 'max_pool':
+                print('max pool')
                 print('activations post imagenet dict (one layer?)')
+                print(activations.shape)
                 activations = torch.from_numpy(activations)
                 activations = F.adaptive_max_pool2d(activations, 1)
                 activations = activations.numpy()
                 print('activations post pool')
                 print(activations.shape)
-            activations = flatten(activations)
-            print('shape of activations post max pool & flattene (pre  PCA fit):')
-            print(activations.shape)
+                activations = flatten(activations)
+                print('shape of activations post flatten:')
+                print(activations.shape)
+            elif self._mod == 'z_score':
+                print('zscore')
+                activations = flatten(activations)
+                activations = stats.zscore(activations, axis=0)
+                print('activations zcore shape:')
+                print(activations.shape)
+            elif self._mod == 'none':
+                print('not modified')
+                activations = flatten(activations)
+                
             if activations.shape[1] < n_components:
                 self._logger.debug(f"Not computing principal components for {layer} "
                                    f"activations {activations.shape} as shape is small enough already")
@@ -134,9 +144,9 @@ class LayerPCA_Modified:
         return layer_pcas
 
     @classmethod
-    def hook(cls, activations_extractor, n_components, max_pooling=True):
+    def hook(cls, activations_extractor, n_components, mod='max_pool'):
         #1
-        hook = LayerPCA_Modified(activations_extractor=activations_extractor, n_components=n_components, max_pooling=max_pooling)
+        hook = LayerPCA_Modified(activations_extractor=activations_extractor, n_components=n_components, mod=mod)
         assert not cls.is_hooked(activations_extractor), "PCA already hooked"
         handle = activations_extractor.register_batch_activations_hook(hook)
         hook.handle = handle
