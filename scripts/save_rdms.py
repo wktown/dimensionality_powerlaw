@@ -9,6 +9,7 @@ from utils import timed#, id_to_properties
 from torchvision.transforms import Grayscale
 from custom_model_tools.hooks import GlobalMaxPool2d,  RandomProjection
 from model_tools.activations.pca import LayerPCA
+from custom_model_tools.layerPCA_modified import LayerPCA_Modified
 from activation_models.generators import get_activation_models
 from custom_model_tools.image_transform import ImageDatasetTransformer
 from typing import Optional, List
@@ -38,34 +39,30 @@ logging.basicConfig(level=logging.INFO)
 # - same as above but z-score pc data first (could be similar to variance scale in eig script)
 
 @timed
-def main(dataset, data_dir, seed, pooling, grayscale, n_pcs=1000, debug=False):
+def main(dataset, data_dir, seed, pooling, grayscale, debug=False):
     image_transform = ImageDatasetTransformer('grayscale', Grayscale()) if grayscale else None
     
+    if pooling=='max' or pooling=='none': #projections, spatial_PCA, random_spatial
+        n_pcs = 'NA'
+    elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
+        n_pcs = 25
+    
+    inlcude_euclidean = True
     pearson_rdms = {}
     euclidean_rdms = {}
-    for model, layers in get_activation_models(seed, pooling, n_pcs=n_pcs):
+    for model, layers in get_activation_models(seed, n_pcs):
         properties = id_to_properties(model.identifier)
         
-        pearson = get_rdms(dataset, data_dir, model, pooling, image_transform, d_metric='correlation')
+        pearson = get_rdms(dataset, data_dir, model, pooling, n_pcs, image_transform, d_metric='correlation')
         pearson.get(layers)
-        #pearson_rdms = {**pearson._rdms}
-        euclidean = get_rdms(dataset, data_dir, model, pooling, image_transform, d_metric='euclidean')
-        euclidean.get(layers)
-        #euclidean_rdms = {**euclidean._rdms}   
-        
-        #task = properties['task']
-        #alpha = properties['kind']
-        #n_pcs = properties['source']
-        
-        #key_pearson = properties['architecture']+'_pearson'
-        #key_euclidean = properties['architecture']+'_euclidean'
-        #key = properties['architecture']
-        #model_rdms[key] = pearson_rdms
-        #model_rdms[key] = euclidean_rdms
+        if inlcude_euclidean:
+            euclidean = get_rdms(dataset, data_dir, model, pooling, n_pcs, image_transform, d_metric='euclidean')
+            euclidean.get(layers)
         
         key = properties['architecture']+'|'+properties['kind']
         pearson_rdms[key] = pearson._rdms
-        euclidean_rdms[key] = euclidean._rdms
+        if inlcude_euclidean:
+            euclidean_rdms[key] = euclidean._rdms
         
         
         #for layer in layers:
@@ -96,17 +93,21 @@ def main(dataset, data_dir, seed, pooling, grayscale, n_pcs=1000, debug=False):
             pool = f'layerPCA:{n_pcs}'
         elif pooling == 'max':
             pool = f'pooling:{pooling}'
-        elif pooling == 'max_PCA':
-            pool = f'maxpool_PCA:{n_pcs}'
+        elif pooling == 'PCA_maxpool':
+           pool = f'maxpool_PCA:{n_pcs}'
+        elif pooling == 'PCA_zscore':
+            pool = f'Zscore_PCA:{n_pcs}'
+    
         
-        alphas = ['-0.3', '-0.6', '-1.0', '-2', '-3']
+        alphas = ['-0.2', '-0.6', '-1.0', '-2', '-3']
         for model in pearson_rdms.keys():
             a = model.split('|')[1].split('_')[1]
             if a in alphas:
                 architecture = model.split('|')[0]
-                path = f'/home/wtownle1/dimensionality_powerlaw/figures/keaton/RDMs/{architecture}'
+                path = f'/home/wtownle1/dimensionality_powerlaw/figures/keaton/RDMs/{architecture}/presentation'
                 if not os.path.exists(path):
                     os.makedirs(path)
+                
                 
                 for layer_rdms in pearson_rdms[model].items():
                     layer = layer_rdms[0]
@@ -114,38 +115,39 @@ def main(dataset, data_dir, seed, pooling, grayscale, n_pcs=1000, debug=False):
                     
                     fig, ax = plt.subplots(figsize=(10,10))
                     ax = sns.heatmap(rdm, square=True, cbar_kws={"shrink": .8})
-                    ax.set(title=f'Pearson RDM (seed:{seed}|alpha:{a}|{pool}|{m})')
+                    #ax.set(title=f'Pearson RDM (seed:{seed}|alpha:{a}|{pool}|{m})')
+                    ax.set(title=f'RDM (1-pearson r|alpha:{a}|{pool})')
                     ax.set_xticklabels([])
                     ax.set_yticklabels([])
                     plt.savefig(f'{path}/PearsonRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|{m}.png')#, dpi=300)
-                    
-                for layer_rdms in euclidean_rdms[model].items():
-                    layer = layer_rdms[0]
-                    rdm = layer_rdms[1]
-                    
-                    fig, ax = plt.subplots(figsize=(10,10))
-                    ax = sns.heatmap(rdm, square=True, cbar_kws={"shrink": .8})
-                    ax.set(title=f'Euclidean RDM (seed:{seed}|alpha:{a}|{pool}|{m})')
-                    ax.set_xticklabels([])
-                    ax.set_yticklabels([])
-                    plt.savefig(f'{path}/EuclideanRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|{m}.png')#, dpi=300)
+                    #plt.savefig(f'{path}/PearsonRDM|alpha={a}|{pool}|.png')
+                
+                if inlcude_euclidean:
+                    for layer_rdms in euclidean_rdms[model].items():
+                        layer = layer_rdms[0]
+                        rdm = layer_rdms[1]
+                        
+                        fig, ax = plt.subplots(figsize=(10,10))
+                        ax = sns.heatmap(rdm, square=True, cbar_kws={"shrink": .8})
+                        #ax.set(title=f'Euclidean RDM (seed:{seed}|alpha:{a}|{pool}|{m})')
+                        ax.set(title=f'RDM (euclidean|alpha:{a}|{pool})')
+                        ax.set_xticklabels([])
+                        ax.set_yticklabels([])
+                        plt.savefig(f'{path}/EuclideanRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|{m}.png')#, dpi=300)
+                        #plt.savefig(f'{path}/EuclideanRDM|alpha={a}|{pool}|.png')
             
-            
-            #key_plot = 'AtlasNet|'+properties['task']+f'|a_{a}|pcs_{pcs}|layer:c2'
-            #rdm_pearson = pearson_rdms[key_plot]
-            #rdm_euclidean = euclidean_rdms[key_plot]
-            #fig ...
             
         #*np.save(f'results/RDM_{method}_pearson|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}', pearson_rdms)
         #*np.save(f'results/RDM_{method}_euclidean|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}', euclidean_rdms)
         
         
-def get_rdms(dataset, data_dir, activations_extractor, pooling, image_transform, d_metric):
+def get_rdms(dataset, data_dir, activations_extractor, pooling, n_pcs, image_transform, d_metric):
     if dataset == 'imagenet':
         return EigenspectrumImageNet(activations_extractor=activations_extractor,
                                      d_metric=d_metric,
                                      dataset=dataset,
                                      pooling=pooling,
+                                     n_pcs=n_pcs,
                                      image_transform=image_transform)
         
     elif dataset == 'majajhong2015':
@@ -153,6 +155,7 @@ def get_rdms(dataset, data_dir, activations_extractor, pooling, image_transform,
                                           d_metric=d_metric,
                                           dataset=dataset,
                                           pooling=pooling,
+                                          n_pcs=n_pcs,
                                           image_transform=image_transform)
        
     elif dataset == 'imagenet21k':
@@ -168,12 +171,13 @@ def get_rdms(dataset, data_dir, activations_extractor, pooling, image_transform,
         
 class EigenspectrumBase:
 
-    def __init__(self, activations_extractor, d_metric, dataset, pooling=True, stimuli_identifier=None,
+    def __init__(self, activations_extractor, d_metric, dataset, pooling, n_pcs, stimuli_identifier=None,
                  image_transform: Optional[ImageDatasetTransformer] = None,
                  hooks: Optional[List] = None):
         self._logger = logging.getLogger(fullname(self))
         self._extractor = activations_extractor
         self._pooling = pooling
+        self._n_pcs = n_pcs
         self._hooks = hooks
         self._stimuli_identifier = stimuli_identifier
         self._image_transform = image_transform
@@ -188,12 +192,13 @@ class EigenspectrumBase:
                                                         stimuli_identifier=self._stimuli_identifier,
                                                         layers=layers,
                                                         pooling=self._pooling,
+                                                        n_pcs = self._n_pcs,
                                                         image_transform_name=transform_name)
         
         #np.save(f'results/modelRDM_{self._metric}|dataset:{self._dataset}|pooling:{self._pooling}|grayscale:{self._image_transform}', self._rdms)
 
     @store_dict(dict_key='layers', identifier_ignore=['layers'])
-    def rdms(self, identifier, stimuli_identifier, layers, pooling, image_transform_name):
+    def rdms(self, identifier, stimuli_identifier, layers, pooling, n_pcs, image_transform_name):
         image_paths = self.get_image_paths()
         if self._image_transform is not None:
             image_paths = self._image_transform.transform_dataset(self._stimuli_identifier, image_paths)
@@ -207,11 +212,19 @@ class EigenspectrumBase:
         for layer in layers:
             if pooling == 'max':
                 handle = GlobalMaxPool2d.hook(self._extractor)
+                self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:max'
             elif pooling == 'none':
                 handle = RandomProjection.hook(self._extractor)
+                self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:none'
             elif pooling == 'layerPCA':
-                n_pcs = 1000
                 handle = LayerPCA.hook(self._extractor, n_components=n_pcs)
+                self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:layerPCA|n_components:{n_pcs}'
+            elif pooling == 'PCA_maxpool':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=n_pcs, mod='max_pool')
+                self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+            elif pooling == 'PCA_zscore':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=n_pcs, mod='z_score')
+                self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
                 
             handles = []
             if self._hooks is not None:
@@ -328,7 +341,7 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory containing stimuli')
     parser.add_argument('--pooling', dest='pooling', type=str, default=None,
-                        choices=['max', 'none', 'layerPCA'],
+                        choices=['max', 'none', 'layerPCA', 'PCA_zscore', 'PCA_maxpool'],
                         help='Choose global max pooling, random projection, or layer PCA prior to computing RDMs')
     parser.add_argument('--seed', dest='seed', type=int, default=0,
                         help='Choose a random seed for analysis (torch and numpy)')

@@ -61,13 +61,17 @@ vgg_layers = [f"features.{i}" for i in [1, 3, 6, 8, 11, 13, 15, 18, 20, 22, 25, 
 
 
 
-def get_activation_models(seed, n_pcs, pytorch=False, untrained=False, transformers=False, atlasnet=True,
-                          test=False, vvs=False, taskonomy=False, pytorch_hub=False):
+def get_activation_models(seed, n_pcs, pytorch=False, untrained=False, atlasnet=True, alexnetonly=False,
+                          test=False, transformers=False, vvs=False, taskonomy=False, pytorch_hub=False):
     
     if atlasnet:
         for model, layers in atlas_net(seed, n_pcs):
             yield model, layers
-    
+            
+    if alexnetonly:
+        for model, layers in alexnet_only(seed, n_pcs):
+            yield model, layers
+        
     if pytorch:
         for model, layers in pytorch_models():
             yield model, layers
@@ -109,10 +113,10 @@ def kai_normal(m, seed):
         #mnasnet = sigmoid instead of relu
 
 def uniform(m, range, seed):
-    #range = 0.025
+    print(range)
     torch.manual_seed(seed=seed)
     if isinstance(m, nn.Conv2d):
-        nn.init.uniform_(m.weight, a= -range, b=range)
+        nn.init.uniform_(m.weight, a= -range, b= range)
         if m.bias is not None:
             nn.init.uniform_(m.bias, a= -range, b= range)
     if isinstance(m, nn.Linear):
@@ -121,16 +125,16 @@ def uniform(m, range, seed):
             nn.init.uniform_(m.bias, a= -range, b= range)
 
 def normal(m, sdev, seed):
-    #sdev = 0.025
+    print(sdev)
     torch.manual_seed(seed=seed)
     if isinstance(m, nn.Conv2d):
-        nn.init.normal_(m.weight, mean=0.0, std=sdev)
+        nn.init.normal_(m.weight, mean=0.0, std= sdev)
         if m.bias is not None:
-            nn.init.normal_(m.bias, mean=0.0, std=sdev)
+            nn.init.normal_(m.bias, mean=0.0, std= sdev)
     if isinstance(m, nn.Linear):
-        nn.init.normal_(m.weight, mean=0.0, std=sdev)
+        nn.init.normal_(m.weight, mean=0.0, std= sdev)
         if m.bias is not None:
-            nn.init.normal_(m.bias, mean=0.0, std=sdev)
+            nn.init.normal_(m.bias, mean=0.0, std= sdev)
 
 def orthogonal(m, seed):
     torch.manual_seed(seed=seed)
@@ -179,52 +183,86 @@ def dirac(m):
 
 
 def atlas_net(seed, n_pcs):
-    eig = False
-    eig_init = True
+    eig = True
+    layer_init = False
+    kernel_size = False
     eig_filters = False
     SVD = False
     SVD_filters = False
     standard = False
         
     if eig:
-        alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
-        #alphas = [-1.0]
+        #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+        alphas = [-0.2, -0.6, -1.0, -2, -3]
         
         #if pooling=='max' or pooling=='projections' or pooling=='avg' or pooling=='spatial_PCA' or pooling=='random_spatial':
         #    pcs = 'NA' (but really still = n_pcs)
         #elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
         #    pcs = n_pcs
         
-        task = 'Eig'
+        #task = 'Eig'
         for a in alphas:
             model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
-            identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{n_pcs}')
+            identifier = properties_to_id('AtlasNet', f'Eig_seed={seed}', f'a_{a}', f'pcs_{n_pcs}')
             model = wrap_atlasnet(model, identifier)
             yield model, atlasnet_layers
             
-    if eig_init:
-        model = EngineeredModel2L(filters_2=1000, k_size=9, seed=seed).Build()
-        init_funcs = [kai_uniform, kai_normal, uniform, normal, orthogonal, 'standard']
+    if kernel_size:
+        #k_sizes = [1, 3, 5, 9, 12, 15, 22, 31] #26, 30 | 23, 24, 25, 27 | 28, 29
+        #k_sizes = [1, 3, 5, 9, 17, 25, 35, 45, 55, 64, 73]
+        k_sizes = [17, 25, 35, 45] #55, 64, 73 [1, 3, 5, 9]
+        #previously used k_sizes are pulling from old...
+        wrap_py = False #takes up too much memory at kernel size 17
+        for k in k_sizes:
+            model = EngineeredModel2L(filters_2=1000, k_size=k, seed=seed).Build()
+            if wrap_py:
+                identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'pyksize_{k}', f'pcs_{n_pcs}')
+                model = wrap_pt(model, identifier)#takes up too much memory at kernel size 17
+            else:
+                identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'ksize_{k}', f'pcs_{n_pcs}')
+                model = wrap_atlasnet(model, identifier)
+            yield model, atlasnet_layers
+            
+    if layer_init:
+        #init_funcs = [kai_uniform, kai_normal, uniform, normal, orthogonal, 'standard']
+        init_funcs = [uniform, normal]
         for init in init_funcs:
             if init == uniform:
-                kind = init.__name__
-                ranges = [0.02, 0.05, 0.1, 0.2, 0.3]
+                #ranges = [0.02, 0.05, 0.1, 0.2, 0.3]
+                ranges = [0.001, 5.0]
                 for range in ranges:
-                    model.apply(lambda m: init(m, range, seed))
+                    init_name = init.__name__
+                    kind = init_name+f'{range}'
+                    model = EngineeredModel2L(filters_2=1000, k_size=9, seed=seed).Build()
+                    model.apply(lambda m: uniform(m, range, seed))
+                    identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'init_{kind}', f'a+pcs_{n_pcs}')
+                    model = wrap_atlasnet(model, identifier)
+                    yield model, atlasnet_layers
             elif init == normal:
-                kind = init.__name__
-                st_devs = [0.01, 0.025, 0.05, 0.1, 0.15]
+                #st_devs = [0.01, 0.025, 0.05, 0.1, 0.15]
+                st_devs = [0.0001, 3.0]  
                 for sdev in st_devs:
-                    model.apply(lambda m: init(m, sdev, seed))
+                    init_name = init.__name__
+                    kind = init_name+f'{sdev}'
+                    model = EngineeredModel2L(filters_2=1000, k_size=9, seed=seed).Build()
+                    model.apply(lambda m: normal(m, sdev, seed))
+                    identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'init_{kind}', f'a+pcs_{n_pcs}')
+                    model = wrap_atlasnet(model, identifier)
+                    yield model, atlasnet_layers
             elif init == 'standard':
                 kind = init
+                model = EngineeredModel2L(filters_2=1000, k_size=9, seed=seed).Build()
+                identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'init_{kind}', f'a+pcs_{n_pcs}')
+                model = wrap_atlasnet(model, identifier)
+                yield model, atlasnet_layers
             else:
                 kind = init.__name__
+                model = EngineeredModel2L(filters_2=1000, k_size=9, seed=seed).Build()
                 model.apply(lambda m: init(m, seed))
-        
-            identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'init_{kind}', f'a+pcs_{n_pcs}')
-            model = wrap_atlasnet(model, identifier)
-            yield model, atlasnet_layers
+                identifier = properties_to_id('AtlasNet', f'seed_{seed}', f'init_{kind}', f'a+pcs_{n_pcs}')
+                model = wrap_atlasnet(model, identifier)
+                yield model, atlasnet_layers
+                
             
             
     if SVD:
@@ -275,10 +313,58 @@ def atlas_net(seed, n_pcs):
         task = 'StandardAN'
         n_pcs = 1000
         
-        model = EngineeredModel2L(filters_2=n_filters, k_size=k_size).Build()
+        model = EngineeredModel2L(filters_2=n_filters, k_size=k_size, seed=0).Build()
         identifier = properties_to_id('AtlasNet', task, f'a:none', f'pcs:{n_pcs}')
         model = wrap_atlasnet(model, identifier)
         yield model, atlasnet_layers
+        
+
+def alexnet_only(seed, n_pcs):
+    
+    new_init = True
+    if new_init:
+        init_funcs = [kai_uniform, kai_normal, uniform, normal, orthogonal, 'standard']
+        for init in init_funcs:
+            
+            if init == uniform:
+                ranges = [0.02, 0.05, 0.1, 0.2, 0.3]
+                #st_devs = [0.0001, 3.0]
+                for range in ranges:
+                    init_name = init.__name__
+                    kind = init_name+f'{range}'
+                    model = alexnet(weights=None)
+                    model.apply(lambda m: uniform(m, range, seed))
+                    identifier = properties_to_id('AlexNet', f'seed_{seed}', f'init_{kind}', f'pcs_{n_pcs}')
+                    model = wrap_pt(model, identifier)
+                    yield model, alexnet_layers
+            
+            elif init == normal:
+                st_devs = [0.01, 0.025, 0.05, 0.1, 0.15]
+                #st_devs = [0.0001, 3.0]
+                for sdev in st_devs:
+                    init_name = init.__name__
+                    kind = init_name+f'{sdev}'
+                    model = alexnet(weights=None)
+                    model.apply(lambda m: normal(m, sdev, seed))
+                    identifier = properties_to_id('AlexNet', f'seed_{seed}', f'init_{kind}', f'pcs_{n_pcs}')
+                    model = wrap_pt(model, identifier)
+                    yield model, alexnet_layers
+            
+            elif init == 'standard':
+                kind = init
+                model = alexnet(weights=None)
+                identifier = properties_to_id('AlexNet', f'seed_{seed}', f'init_{kind}', f'pcs_{n_pcs}')
+                model = wrap_pt(model, identifier)
+                yield model, alexnet_layers
+            
+            else:
+                kind = init.__name__
+                model = alexnet(weights=None)
+                model.apply(lambda m: init(m, seed))
+                identifier = properties_to_id('AlexNet', f'seed_{seed}', f'init_{kind}', f'pcs_{n_pcs}')
+                model = wrap_pt(model, identifier)
+                yield model, alexnet_layers
+
 
 def untrained_models():
     

@@ -1,0 +1,3 @@
+layer,score,score_error,architecture,task,kind,source
+c2,0.18324905221893245,0.004517897816126492,AtlasNet,seed_0,ksize_28,pcs_1000
+c2,0.18549959846211747,0.0050134274019724995,AtlasNet,seed_0,ksize_29,pcs_1000

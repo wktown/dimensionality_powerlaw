@@ -11,6 +11,7 @@ from torchvision.transforms import Grayscale
 from activation_models.generators import get_activation_models
 from custom_model_tools.eigenspectrum import EigenspectrumImageNet, EigenspectrumImageNet21k, \
     EigenspectrumObject2Vec, EigenspectrumMajajHong2015
+from custom_model_tools.zscore_eigenspectrum import ZScore_EigenspectrumImageNet
 from custom_model_tools.image_transform import ImageDatasetTransformer
 from utils import timed
 import logging
@@ -33,15 +34,25 @@ def main(dataset, data_dir, pooling, seed, grayscale, debug=False):
             break
 
     if not debug:
-        eigspec_df.to_csv(f'results/inits/eigspectra_ANinits|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
-        eigmetrics_df.to_csv(f'results/inints/eigmetrics_ANinits|dataset:{dataset}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
-
+        if dataset == 'imagenet_zscore_acts':
+            dataset_csv = 'imagenet'
+        else:
+            dataset_csv = dataset
+        eigspec_df.to_csv(f'results/inits/eigspectra_ANksize_py1-9|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigmetrics_df.to_csv(f'results/inits/eigmetrics_ANksize_py1-9|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        
 
 def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_transform):
     if dataset == 'imagenet':
         return EigenspectrumImageNet(activations_extractor=activations_extractor,
                                      pooling=pooling,
                                      image_transform=image_transform)
+        
+    elif dataset == 'imagenet_zscore_acts':
+        return ZScore_EigenspectrumImageNet(activations_extractor=activations_extractor,
+                                            pooling=pooling,
+                                            image_transform=image_transform)
+        
     elif dataset == 'imagenet21k':
         return EigenspectrumImageNet21k(data_dir=data_dir,
                                         activations_extractor=activations_extractor,
@@ -63,7 +74,7 @@ def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_t
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Compute and store eigenspectra of models')
     parser.add_argument('--dataset', type=str,
-                        choices=['imagenet', 'imagenet21k', 'object2vec', 'majajhong2015'],
+                        choices=['imagenet', 'imagenet21k', 'object2vec', 'majajhong2015', 'imagenet_zscore_acts'],
                         help='Dataset of concepts for which to compute the eigenspectrum')
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory containing stimuli')
@@ -78,4 +89,4 @@ if __name__ == '__main__':
                         help='Just run a single model to make sure there are no errors')
     args = parser.parse_args()
 
-    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, grayscale=args.grayscale, debug=args.debug)
+    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, seed=args.seed, grayscale=args.grayscale, debug=args.debug)

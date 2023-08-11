@@ -25,9 +25,9 @@ def main(benchmark, seed, pooling, debug=False):
     if pooling=='max' or pooling=='avg': #projections, spatial_PCA, random_spatial
         n_pcs = 'NA'
     elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
-        n_pcs = 1000
+        n_pcs = 1000 #default = 1000
     
-    save_path = f'results/inits/encoding_ANinits|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
+    save_path = f'results/inits/encoding_ANinit4|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
