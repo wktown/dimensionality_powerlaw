@@ -183,8 +183,8 @@ def dirac(m):
 
 
 def atlas_net(seed, n_pcs):
-    eig = True
-    SVD = True
+    eig = False
+    SVD = False
     standard = True
     layer_init = False
     kernel_size = False

@@ -24,7 +24,7 @@ def main(benchmark, seed, pooling, debug=False):
     elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
         n_pcs = 1000
         
-    save_path = f'results/nPCs/rsa_Eig|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
+    save_path = f'results/variance_SVD/rsa_None|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
     print(save_path)
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')

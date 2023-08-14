@@ -1,0 +1,451 @@
+INFO:root:architecture:AtlasNet_seed=0|task:Standard|kind:a_NA|source:pcs_1000|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:06, 159.31it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:00<00:06, 139.68it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:06, 128.04it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:02<00:06, 118.29it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:02<00:06, 109.01it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:06, 101.60it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:06, 95.19it/s] [A[A
+
+activations:  50%|█████     | 512/1024 [00:05<00:05, 88.08it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:05<00:05, 82.81it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:06<00:04, 78.38it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:07<00:04, 73.29it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:08<00:03, 69.64it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:09<00:02, 66.11it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:11<00:02, 62.18it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:12<00:01, 59.60it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:13<00:00, 57.34it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:13<00:00, 75.88it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.63s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.63s/it]
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [00:59<00:00, 59.48s/it][A[Alayer principal components: 100%|██████████| 1/1 [00:59<00:00, 59.48s/it]
+
+activations:   2%|▏         | 64/3200 [01:25<1:09:44,  1.33s/it][A
+activations:   4%|▍         | 128/3200 [01:26<28:27,  1.80it/s] [A
+activations:   6%|▌         | 192/3200 [01:26<15:22,  3.26it/s][A
+activations:   8%|▊         | 256/3200 [01:27<09:18,  5.27it/s][A
+activations:  10%|█         | 320/3200 [01:28<06:00,  7.99it/s][A
+activations:  12%|█▏        | 384/3200 [01:28<04:03, 11.57it/s][A
+activations:  14%|█▍        | 448/3200 [01:29<02:49, 16.24it/s][A
+activations:  16%|█▌        | 512/3200 [01:30<02:02, 21.99it/s][A
+activations:  18%|█▊        | 576/3200 [01:30<01:30, 28.88it/s][A
+activations:  20%|██        | 640/3200 [01:31<01:10, 36.41it/s][A
+activations:  22%|██▏       | 704/3200 [01:32<00:55, 44.76it/s][A
+activations:  24%|██▍       | 768/3200 [01:33<00:46, 52.65it/s][A
+activations:  26%|██▌       | 832/3200 [01:33<00:39, 60.44it/s][A
+activations:  28%|██▊       | 896/3200 [01:34<00:34, 67.63it/s][A
+activations:  30%|███       | 960/3200 [01:35<00:30, 73.27it/s][A
+activations:  32%|███▏      | 1024/3200 [01:35<00:28, 76.39it/s][A
+activations:  34%|███▍      | 1088/3200 [01:36<00:26, 80.53it/s][A
+activations:  36%|███▌      | 1152/3200 [01:37<00:24, 83.66it/s][A
+activations:  38%|███▊      | 1216/3200 [01:37<00:22, 86.64it/s][A
+activations:  40%|████      | 1280/3200 [01:38<00:22, 86.98it/s][A
+activations:  42%|████▏     | 1344/3200 [01:39<00:21, 88.28it/s][A
+activations:  44%|████▍     | 1408/3200 [01:40<00:20, 88.91it/s][A
+activations:  46%|████▌     | 1472/3200 [01:40<00:19, 90.44it/s][A
+activations:  48%|████▊     | 1536/3200 [01:41<00:18, 90.78it/s][A
+activations:  50%|█████     | 1600/3200 [01:42<00:17, 89.91it/s][A
+activations:  52%|█████▏    | 1664/3200 [01:42<00:17, 90.22it/s][A
+activations:  54%|█████▍    | 1728/3200 [01:43<00:16, 91.41it/s][A
+activations:  56%|█████▌    | 1792/3200 [01:44<00:15, 90.21it/s][A
+activations:  58%|█████▊    | 1856/3200 [01:44<00:14, 90.83it/s][A
+activations:  60%|██████    | 1920/3200 [01:45<00:14, 90.85it/s][A
+activations:  62%|██████▏   | 1984/3200 [01:46<00:13, 91.16it/s][A
+activations:  64%|██████▍   | 2048/3200 [01:47<00:12, 91.50it/s][A
+activations:  66%|██████▌   | 2112/3200 [01:47<00:11, 92.30it/s][A
+activations:  68%|██████▊   | 2176/3200 [01:48<00:11, 92.12it/s][A
+activations:  70%|███████   | 2240/3200 [01:49<00:10, 91.51it/s][A
+activations:  72%|███████▏  | 2304/3200 [01:49<00:09, 91.15it/s][A
+activations:  74%|███████▍  | 2368/3200 [01:50<00:09, 91.60it/s][A
+activations:  76%|███████▌  | 2432/3200 [01:51<00:08, 91.64it/s][A
+activations:  78%|███████▊  | 2496/3200 [01:51<00:07, 91.83it/s][A
+activations:  80%|████████  | 2560/3200 [01:52<00:06, 91.64it/s][A
+activations:  82%|████████▏ | 2624/3200 [01:53<00:06, 91.88it/s][A
+activations:  84%|████████▍ | 2688/3200 [01:54<00:05, 91.70it/s][A
+activations:  86%|████████▌ | 2752/3200 [01:54<00:04, 91.82it/s][A
+activations:  88%|████████▊ | 2816/3200 [01:55<00:04, 91.37it/s][A
+activations:  90%|█████████ | 2880/3200 [01:56<00:03, 91.44it/s][A
+activations:  92%|█████████▏| 2944/3200 [01:56<00:02, 91.03it/s][A
+activations:  94%|█████████▍| 3008/3200 [01:57<00:02, 91.37it/s][A
+activations:  96%|█████████▌| 3072/3200 [01:58<00:01, 91.07it/s][A
+activations:  98%|█████████▊| 3136/3200 [01:58<00:00, 91.57it/s][A
+activations: 100%|██████████| 3200/3200 [01:59<00:00, 91.22it/s][Aactivations: 100%|██████████| 3200/3200 [01:59<00:00, 26.74it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+conv1 torch.Size([64, 24, 96, 96])
+mp1 torch.Size([64, 24, 32, 32])
+conv2 torch.Size([64, 1000, 24, 24])
+mp2 torch.Size([64, 1000, 12, 12])
+output torch.Size([64, 1000, 12, 12])
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 81.89it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:01<00:13,  1.49s/it][A
+cross-validation:  20%|██        | 2/10 [00:03<00:12,  1.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:04<00:10,  1.53s/it][A
+cross-validation:  40%|████      | 4/10 [00:06<00:08,  1.49s/it][A
+cross-validation:  50%|█████     | 5/10 [00:07<00:07,  1.50s/it][A
+cross-validation:  60%|██████    | 6/10 [00:09<00:06,  1.51s/it][A
+cross-validation:  70%|███████   | 7/10 [00:10<00:04,  1.54s/it][A
+cross-validation:  80%|████████  | 8/10 [00:12<00:03,  1.53s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:13<00:01,  1.56s/it][A
+cross-validation: 100%|██████████| 10/10 [00:15<00:00,  1.56s/it][Across-validation: 100%|██████████| 10/10 [00:15<00:00,  1.54s/it]
+layers: 100%|██████████| 1/1 [02:15<00:00, 135.38s/it]layers: 100%|██████████| 1/1 [02:15<00:00, 135.38s/it]
+main total runtime: 0:02:21.528369

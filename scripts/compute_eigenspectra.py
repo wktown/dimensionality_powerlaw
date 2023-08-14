@@ -42,8 +42,8 @@ def main(dataset, data_dir, pooling, seed, grayscale, debug=False):
             dataset_csv = 'imagenet'
         else:
             dataset_csv = dataset
-        eigspec_df.to_csv(f'results/variance_SVD/eigspectra|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
-        eigmetrics_df.to_csv(f'results/variance_SVD/eigmetrics|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigspec_df.to_csv(f'results/variance_SVD/eigspectra_None|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigmetrics_df.to_csv(f'results/variance_SVD/eigmetrics_None|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
         
 
 def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_transform):
