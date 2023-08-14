@@ -114,12 +114,14 @@ class LayerPCA_Modified:
                 activations = flatten(activations)
                 print('shape of activations post flatten:')
                 print(activations.shape)
+                
             elif self._mod == 'z_score':
                 print('zscore')
                 activations = flatten(activations)
                 activations = stats.zscore(activations, axis=0)
                 print('activations zcore shape:')
                 print(activations.shape)
+                
             elif self._mod == 'none':
                 print('not modified')
                 activations = flatten(activations)

@@ -9,6 +9,8 @@ from tqdm import tqdm
 from model_tools.activations.core import flatten
 from model_tools.utils import fullname
 from custom_model_tools.hooks import GlobalMaxPool2d, GlobalAvgPool2d, RandomProjection, SpatialPCA, RandomSpatial
+from model_tools.activations.pca import LayerPCA
+from custom_model_tools.layerPCA_modified import LayerPCA_Modified
 from custom_model_tools.image_transform import ImageDatasetTransformer
 from utils import id_to_properties, get_imagenet_val
 from typing import Optional, List
@@ -139,6 +141,12 @@ class EigenspectrumBase:
                 handle = RandomProjection.hook(self._extractor)
             elif pooling == 'random_spatial':
                 handle = RandomSpatial.hook(self._extractor)
+            elif pooling == 'layerPCA':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='none')
+                #handle = LayerPCA.hook(self._extractor, n_components=1000)
+            elif pooling == 'PCA_zscore':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='z_score')
+            
             
             elif pooling == 'spatial_pca':
                 split_position = layer.split('.position',1)

@@ -184,34 +184,66 @@ def dirac(m):
 
 def atlas_net(seed, n_pcs):
     eig = True
+    SVD = True
+    standard = True
     layer_init = False
     kernel_size = False
     eig_filters = False
-    SVD = False
-    SVD_filters = False
-    standard = False
-        
+    
+    
     if eig:
+        variance_scaled = True
         #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
-        alphas = [-0.2, -0.6, -1.0, -2, -3]
+        alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
+        standard_devs = [0.1, 1.0]
         
+        if variance_scaled:
+            var_scales = [0.1, 1, 10]
+            for a in alphas:    
+                for v in var_scales:
+                    for sd in standard_devs:
+                        model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, var_scale=v, dist_stdev=sd, seed=seed).Build()
+                        identifier = properties_to_id(f'AtlasNet_seed={seed}', f'Eig_varscale={v}|stdev:{sd}', f'a_{a}', f'pcs_{n_pcs}')
+                        model = wrap_atlasnet(model, identifier)
+                        yield model, atlasnet_layers
+                    
+        else:
+            for a in alphas:
+                for sd in standard_devs:
+                    model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, dist_stdev=sd, seed=seed).Build()
+                    identifier = properties_to_id(f'AtlasNet_seed={seed}', f'Eig_varscale={v}|stdev:{sd}', f'a_{a}', f'pcs_{n_pcs}')
+                    model = wrap_atlasnet(model, identifier)
+                    yield model, atlasnet_layers
+            
+    if SVD:
         #if pooling=='max' or pooling=='projections' or pooling=='avg' or pooling=='spatial_PCA' or pooling=='random_spatial':
         #    pcs = 'NA' (but really still = n_pcs)
         #elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
         #    pcs = n_pcs
-        
-        #task = 'Eig'
+        scaled = [True, False]
+        alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
+        #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
         for a in alphas:
-            model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
-            identifier = properties_to_id('AtlasNet', f'Eig_seed={seed}', f'a_{a}', f'pcs_{n_pcs}')
-            model = wrap_atlasnet(model, identifier)
-            yield model, atlasnet_layers
+            for s in scaled:
+                model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, scaled=s, seed=seed).Build()
+                identifier = properties_to_id(f'AtlasNet_seed={seed}', f'SVD_scaled={s}', f'a_{a}', f'pcs_{n_pcs}')
+                model = wrap_atlasnet(model, identifier)
+                yield model, atlasnet_layers
+            
+        
+            
+    if standard:
+        k_size = 9
+        n_filters = 1000
+        
+        model = EngineeredModel2L(filters_2=n_filters, k_size=k_size, seed=0).Build()
+        identifier = properties_to_id(f'AtlasNet_seed={seed}', 'Standard', 'a_NA', f'pcs_{n_pcs}')
+        model = wrap_atlasnet(model, identifier)
+        yield model, atlasnet_layers
+            
             
     if kernel_size:
-        #k_sizes = [1, 3, 5, 9, 12, 15, 22, 31] #26, 30 | 23, 24, 25, 27 | 28, 29
-        #k_sizes = [1, 3, 5, 9, 17, 25, 35, 45, 55, 64, 73]
         k_sizes = [17, 25, 35, 45] #55, 64, 73 [1, 3, 5, 9]
-        #previously used k_sizes are pulling from old...
         wrap_py = False #takes up too much memory at kernel size 17
         for k in k_sizes:
             model = EngineeredModel2L(filters_2=1000, k_size=k, seed=seed).Build()
@@ -263,37 +295,7 @@ def atlas_net(seed, n_pcs):
                 model = wrap_atlasnet(model, identifier)
                 yield model, atlasnet_layers
                 
-            
-            
-    if SVD:
-        alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
-        if pooling == 'layerPCA':
-            pcs = n_pcs
-        elif pooling == 'max':
-            pcs = 'NA'
-        elif pooling == 'PCA_maxpool':
-            pcs = n_pcs
-        elif pooling == 'PCA_zscore':
-            pcs = n_pcs
-        task = 'SVD'
-        for a in alphas:
-            model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
-            identifier = properties_to_id('AtlasNet', f'{task}_seed={seed}', f'a_{a}', f'pcs_{pcs}')
-            model = wrap_atlasnet(model, identifier)
-            yield model, atlasnet_layers
-            
-    if SVD_filters:
-        alphas = [-0.2, -0.4, -0.6, -0.8, -1.0, -1.2, -1.4, -1.6, -2, -3]
-        filters = [100, 1000, 10000]
-        for f in filters:
-            for a in alphas:
-                task = f'SVD{a}_filters{f}'
-                
-                model = EngineeredModel2L_SVD(filters_2=f, k_size=9, exponent=a).Build()
-                identifier = properties_to_id('AtlasNet', task, 'Untrained', 'PyTorch')
-                model = wrap_atlasnet(model, identifier)
-                yield model, atlasnet_layers
-                
+    
     if eig_filters:
         alphas = [-0.2, -0.4, -0.6, -0.8, -1.0, -1.2, -1.4, -1.6 -2, -3]
         filters = [100, 1000, 10000]
@@ -305,19 +307,8 @@ def atlas_net(seed, n_pcs):
                 identifier = properties_to_id('AtlasNet', task, 'Untrained', 'PyTorch')
                 model = wrap_atlasnet(model, identifier)
                 yield model, atlasnet_layers
-            
-    
-    if standard:
-        k_size = 9
-        n_filters = 1000
-        task = 'StandardAN'
-        n_pcs = 1000
         
-        model = EngineeredModel2L(filters_2=n_filters, k_size=k_size, seed=0).Build()
-        identifier = properties_to_id('AtlasNet', task, f'a:none', f'pcs:{n_pcs}')
-        model = wrap_atlasnet(model, identifier)
-        yield model, atlasnet_layers
-        
+
 
 def alexnet_only(seed, n_pcs):
     

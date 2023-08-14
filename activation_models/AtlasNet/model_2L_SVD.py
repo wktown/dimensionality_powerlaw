@@ -84,7 +84,7 @@ class EngineeredModel2L_SVD:
     """
     
     def __init__(self, curv_params = {'n_ories':8,'n_curves':3,'gau_sizes':(5,),'spatial_fre':[1.2]},
-                 filters_2=5000, k_size=9, exponent=-1, seed=0, batches_2=1):
+                 filters_2=5000, k_size=9, exponent=-1, scaled=False, seed=0, batches_2=1):
         
         self.curv_params = curv_params
         self.filters_1 = self.curv_params['n_ories']*self.curv_params['n_curves']*len(self.curv_params['gau_sizes']*len(self.curv_params['spatial_fre']))
@@ -92,6 +92,7 @@ class EngineeredModel2L_SVD:
         self.batches_2 = batches_2
         self.k_size = k_size
         self.exponent = exponent
+        self.scaled = scaled
         self.seed = seed
     
     
@@ -130,9 +131,11 @@ class EngineeredModel2L_SVD:
             
             #calculate data with specified eigenvalues
             X1 = U @ S @ V_T
-            scale = np.max(X1) * 2
-            X = X1 / scale
-            
+            if self.scaled:
+                scale = np.max(X1) * 2
+                X = X1 / scale
+            else:
+                X = X1
             # change weights
             c2_w = torch.tensor(X, dtype=torch.float32).reshape(self.filters_2, in_size, self.k_size, self.k_size)
             c2.weight = torch.nn.Parameter(data= c2_w)

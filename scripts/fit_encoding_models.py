@@ -8,10 +8,10 @@ tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 import brainscore.benchmarks as bench
 from brainscore.metrics.regression import linear_regression, ridge_regression
 #from bonnerlab_brainscore.benchmarks.object2vec import Object2VecEncoderBenchmark
-from model_tools.activations.pca import LayerPCA
 from model_tools.brain_transformation.neural import LayerScores
 from activation_models.generators import get_activation_models
 from custom_model_tools.hooks import GlobalMaxPool2d, GlobalAvgPool2d, RandomSpatial, MaxPool_PCA
+from model_tools.activations.pca import LayerPCA
 from custom_model_tools.layerPCA_modified import LayerPCA_Modified
 from utils import timed, id_to_properties
 import logging
