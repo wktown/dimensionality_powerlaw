@@ -183,9 +183,9 @@ def dirac(m):
 
 
 def atlas_net(seed, n_pcs):
-    eig = False
+    eig = True
     SVD = False
-    standard = True
+    standard = False
     layer_init = False
     kernel_size = False
     eig_filters = False
@@ -203,7 +203,7 @@ def atlas_net(seed, n_pcs):
                 for v in var_scales:
                     for sd in standard_devs:
                         model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, var_scale=v, dist_stdev=sd, seed=seed).Build()
-                        identifier = properties_to_id(f'AtlasNet_seed={seed}', f'Eig_varscale={v}|stdev:{sd}', f'a_{a}', f'pcs_{n_pcs}')
+                        identifier = properties_to_id(f'AtlasNet_seed={seed}', f'Eig_varscale={v}', sd, f'a_{a}')
                         model = wrap_atlasnet(model, identifier)
                         yield model, atlasnet_layers
                     

@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --job-name=eigenspectra
-#SBATCH --time=24:00:00
+#SBATCH --time=6:00:00
 #SBATCH --qos=qos_gpu
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
