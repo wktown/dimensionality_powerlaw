@@ -1,0 +1,79 @@
+name: dim-powerlaw
+dependencies:
+  - python=3.7
+  - pip
+  - pip:
+    #- git+https://github.com/wktown/brain-score.git@ridge
+    #- git+https://github.com/wktown/model-tools.git
+    #- git+https://github.com/wktown/candidate_models.git
+    #- git+https://github.com/alexsax/visual-prior.git
+    #- git+https://github.com/johnmarktaylor91/torchlens.git
+    - jupyterlab
+    - numpy
+    - pandas
+    - xarray
+    - torch
+    - scipy
+    - sklearn
+    - seaborn
+    - matplotlib
+    - umap-learn
+
+    
+
+
+variables:
+#*if these files are created when the environment is created:
+#brainio  candidate-models  models  model-tools  result-caching  torchhub
+# - those folders are used by the variables below
+
+  TORCH_HOME: "/home/keaton/data/dim-powerlaw/torch"
+  RESULTCACHING_HOME: "home/keaton/data/dim-powerlaw/result-caching"
+  MT_HOME: "/home/keaton/data/dim-powerlaw/model-tools"
+  BRAINIO_HOME: "home/keaton/data/dim-powerlaw/brainio"
+  CM_HOME: "/home/keaton/data/dim-powerlaw/candidate-models"
+
+#used for Bonner_libraries and such only:
+  #BONNER_DATASETS_CACHE: "/data/shared/datasets"
+  #BONNER_BRAINIO_CACHE: "/data/shared/brainio"
+  #BONNER_BRAINIO_CATALOG_IDENTIFIER: "bonner-datasets"
+  #BONNER_BRAINIO_CATALOG_CSV: "/home/wtownle1/bonner-datasets/catalog.csv"
+  #BONNER_BRAINIO_LOCATION_TYPE: "rsync"
+  #BONNER_BRAINIO_LOCATION: "cogsci-ml.win.ad.jhu.edu:/export/data2/shared/brainio/bonner-datasets"
+
+
+
+
+#majaj downloaded**
+# - brainio_home?****
+#imagnet is downloaded to mt_home
+# - also exists in /data/shared/.cache/brainscore/model-tools /imagenet2012.hdf5-files'
+
+#majaj exists at:
+# - /data/shared/brainio/brain-score
+# - /data/shared/.cache/brainscore/brainio /image_dicarlo_hvm-public
+
+
+#old torch hubs: (just barlowtwins(?))
+# - /data/shared/.cache/torch/hub
+# - /data/shared/torch/hub
+# /data/keaton/torchhub should be empty
+
+#/data/shared/datasets = ilsvrc, imagenet21k, NSD (wrong imagenet folders I believe)
+#/data/shared/brainio/bonner-datasets = NSD
+#/data/shared/brainio/brain-score: assy_majajj.nc, catalog.csv, dicarlo.hvm-public, image_dicarlo-public, image_dicarlo.zip
+
+#/data/shared/.cache also has:
+# - /brainscore
+#   - /brainio
+#     - assy_majaj
+#     - assy_Freeman
+#     - image_dicarlo_hvm-public
+#     - image_Freeman-public
+#       - see /data/shared/brainio/brain-score above
+#   - /candidate-models
+#     - unsup_vvs (mine, delete)
+#   - /model-tools
+#     - imagenet2012 (must be mine, delete)
+#   - result-caching
+#     - looks like mine (delete)

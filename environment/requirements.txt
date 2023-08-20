@@ -1,0 +1,10 @@
+git+https://github.com/wktown/brain-score.git@ridge
+git+https://github.com/wktown/model-tools.git
+#git+https://github.com/wktown/unsup_vvs.git requirement of candidate_models
+git+https://github.com/wktown/candidate_models.git
+git+https://github.com/alexsax/visual-prior.git
+#git+https://github.com/BonnerLab/bonnerlab-brainscore #for object2vec benchmark (default majaj)
+seaborn
+umap-learn
+git+https://github.com/johnmarktaylor91/torchlens.git
+jupyterlab

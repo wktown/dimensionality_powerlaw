@@ -1,0 +1,10 @@
+jupyterlab
+numpy
+pandas
+xarray
+torch
+scipy
+sklearn
+seaborn
+matplotlib
+umap-learn
