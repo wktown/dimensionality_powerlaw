@@ -1,10 +1,10 @@
+torch
 jupyterlab
 numpy
 pandas
 xarray
-torch
 scipy
-sklearn
+scikit-learn
 seaborn
 matplotlib
 umap-learn

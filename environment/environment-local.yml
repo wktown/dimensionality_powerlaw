@@ -8,11 +8,11 @@ dependencies:
     #- git+https://github.com/wktown/candidate_models.git
     #- git+https://github.com/alexsax/visual-prior.git
     #- git+https://github.com/johnmarktaylor91/torchlens.git
+    - torch
     - jupyterlab
     - numpy
     - pandas
     - xarray
-    - torch
     - scipy
     - sklearn
     - seaborn
