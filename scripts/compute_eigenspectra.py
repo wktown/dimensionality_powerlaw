@@ -24,7 +24,7 @@ def main(dataset, data_dir, pooling, seed, grayscale, debug=False):
     image_transform = ImageDatasetTransformer('grayscale', Grayscale()) if grayscale else None
     eigspec_df = pd.DataFrame()
     eigmetrics_df = pd.DataFrame()
-    if pooling == 'layerPCA' or 'PCA_zscore':
+    if pooling=='layerPCA' or pooling=='maxpool_PCA' or pooling=='zscore_PCA' or pooling=='PCAtrans_zscore' or pooling == 'PCAtrans_reshape':
         n_pcs = 1000
     else:
         n_pcs = 'NA'
@@ -42,8 +42,13 @@ def main(dataset, data_dir, pooling, seed, grayscale, debug=False):
             dataset_csv = 'imagenet'
         else:
             dataset_csv = dataset
-        eigspec_df.to_csv(f'results/variance_SVD/eigspectra_None|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
-        eigmetrics_df.to_csv(f'results/variance_SVD/eigmetrics_None|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        
+        # -> pooling was: PCAtrans_reshape
+        
+        #eigspec_df.to_csv(f'results/fall2023/eigspectra_adjSVD_rows2|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigspec_df.to_csv(f'results/VSS2024/eigspectra_spatialPCA|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        #eigmetrics_df.to_csv(f'results/fall2023/eigmetrics_adjSVD_rows2|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
+        eigmetrics_df.to_csv(f'results/VSS2024/eigmetrics_spatialPCA|seed:{seed}|dataset:{dataset_csv}|pooling:{pooling}|grayscale:{grayscale}.csv', index=False)
         
 
 def get_eigenspectrum(dataset, data_dir, activations_extractor, pooling, image_transform):
@@ -83,7 +88,7 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory containing stimuli')
     parser.add_argument('--pooling', dest='pooling', type=str, default=None,
-                        choices=['max', 'avg', 'projections', 'spatial_pca', 'random_spatial', 'layerPCA', 'PCA_zscore'], #zscore
+                        choices=['max', 'avg', 'projections', 'spatial_pca', 'random_spatial', 'layerPCA', 'zscore_PCA', 'PCAtrans_zscore', 'PCAtrans_reshape'], #zscore
                         help='Choose global max pooling, avg pooling, no pooling, to select one random spatial position, or to compute the eigenspectrum at each spatial position in the final layer(s) of the model prior to computing the eigenspectrum')
     parser.add_argument('--seed', dest='seed', type=int, default=0,
                         help='Choose a random seed for analysis (torch and numpy)')

@@ -1,0 +1,7 @@
+layer,score,score_error,architecture,task,kind,source
+c2,0.001687296275930153,0.0003574017192783996,AtlasNet_seed=0,SVD_scaled=False,a_-0.2,weightPCs_None
+c2,0.00169161796955367,0.000349538179965441,AtlasNet_seed=0,SVD_scaled=False,a_-0.6,weightPCs_None
+c2,0.001745331265099213,0.0003389472236799808,AtlasNet_seed=0,SVD_scaled=False,a_-1.0,weightPCs_None
+c2,0.0015634751037158496,0.0003524774252468052,AtlasNet_seed=0,SVD_scaled=False,a_-1.4,weightPCs_None
+c2,0.00072000697592327,0.00032832608970614354,AtlasNet_seed=0,SVD_scaled=False,a_-2,weightPCs_None
+c2,0.00024156657236856213,0.0002992069847717201,AtlasNet_seed=0,SVD_scaled=False,a_-3,weightPCs_None

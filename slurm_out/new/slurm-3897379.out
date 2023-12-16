@@ -1,0 +1,73 @@
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+-0.2
+0.25997624946025255
+0.9994461658110113
+-0.2
+activations:   0%|          | 0/10048 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A
+activations:   6%|▋         | 64/1024 [00:01<00:22, 41.79it/s][A
+activations:  12%|█▎        | 128/1024 [00:03<00:22, 39.62it/s][A
+activations:  19%|█▉        | 192/1024 [00:04<00:21, 38.58it/s][A
+activations:  25%|██▌       | 256/1024 [00:06<00:19, 38.89it/s][A
+activations:  31%|███▏      | 320/1024 [00:08<00:18, 38.02it/s][A
+activations:  38%|███▊      | 384/1024 [00:10<00:17, 37.10it/s][A
+activations:  44%|████▍     | 448/1024 [00:12<00:16, 35.64it/s][A
+activations:  50%|█████     | 512/1024 [00:14<00:14, 34.51it/s][A
+activations:  56%|█████▋    | 576/1024 [00:15<00:13, 34.11it/s][A
+activations:  62%|██████▎   | 640/1024 [00:17<00:10, 34.96it/s][A
+activations:  69%|██████▉   | 704/1024 [00:19<00:08, 37.02it/s][A
+activations:  75%|███████▌  | 768/1024 [00:20<00:06, 37.70it/s][A
+activations:  81%|████████▏ | 832/1024 [00:22<00:04, 39.92it/s][A
+activations:  88%|████████▊ | 896/1024 [00:23<00:03, 42.21it/s][A
+activations:  94%|█████████▍| 960/1024 [00:24<00:01, 44.20it/s][A
+activations: 100%|██████████| 1024/1024 [00:25<00:00, 46.67it/s][Aactivations: 100%|██████████| 1024/1024 [00:25<00:00, 39.41it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.52s/it][Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.52s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A
+layer principal components: 100%|██████████| 1/1 [02:22<00:00, 142.53s/it][Aactivations:   0%|          | 0/10048 [03:09<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 96, in <module>
+    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, seed=args.seed, grayscale=args.grayscale, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 34, in main
+    eigspec.fit(layers)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 68, in fit
+    image_transform_name=transform_name)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 223, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 213, in _fit
+    activations = self._extractor(image_paths, layers=[layer])
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 41, in __call__
+    return self._extractor(*args, **kwargs)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 43, in __call__
+    return self.from_paths(stimuli_paths=stimuli, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 73, in from_paths
+    activations = fnc(layers=layers, stimuli_paths=reduced_paths)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 85, in _from_paths
+    layer_activations = self._get_activations_batched(stimuli_paths, layers=layers, batch_size=self._batch_size)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 135, in _get_activations_batched
+    batch_activations = hook(batch_activations)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 36, in __call__
+    self._ensure_initialized(batch_activations.keys())
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 190, in _ensure_initialized
+    n_components=self._n_components)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 223, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 267, in _pcas
+    multithread=os.getenv('MT_MULTITHREAD', '1') == '1')
+ValueError: not enough values to unpack (expected 4, got 1)
+not modified
+pca eigenvalues:
+(1000, 576000)
+layer principal components: 100%|██████████| 1/1 [02:22<00:00, 142.86s/it]

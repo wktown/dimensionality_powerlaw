@@ -84,7 +84,7 @@ class EngineeredModel2L_SVD:
     """
     
     def __init__(self, curv_params = {'n_ories':8,'n_curves':3,'gau_sizes':(5,),'spatial_fre':[1.2]},
-                 filters_2=5000, k_size=9, exponent=-1, scaled=False, seed=0, batches_2=1):
+                 filters_2=5000, k_size=9, exponent=-1, scaled=False, seed=0, n_weight_pcs=None, batches_2=1):
         
         self.curv_params = curv_params
         self.filters_1 = self.curv_params['n_ories']*self.curv_params['n_curves']*len(self.curv_params['gau_sizes']*len(self.curv_params['spatial_fre']))
@@ -94,6 +94,7 @@ class EngineeredModel2L_SVD:
         self.exponent = exponent
         self.scaled = scaled
         self.seed = seed
+        self.weight_pcs = n_weight_pcs
     
     
     def Build(self):
@@ -116,6 +117,7 @@ class EngineeredModel2L_SVD:
             n_channels = c2_w.shape[0] # =n_samples =n_filters_2
             n_elements = c2_w.shape[-1] # =n_features =in*k*k
             power_law_exponent = self.exponent  # Exponent of power law decay
+            
             print(power_law_exponent)
             #variance_scale = 1  # Scaling factor for eigenvectors' variances
             n_components = min(n_channels, n_elements)
@@ -126,6 +128,8 @@ class EngineeredModel2L_SVD:
             V_T = V.T
 
             eigenvalues = np.power(np.arange(1, n_components+1, dtype=float), power_law_exponent)
+            if self.weight_pcs is not None:
+                eigenvalues[self.weight_pcs:] = 0
             S = np.zeros((n_components, n_components))
             np.fill_diagonal(S, val=np.sqrt( (eigenvalues*(n_channels-1)) ))
             

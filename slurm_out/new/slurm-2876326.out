@@ -1,0 +1,106 @@
+INFO:root:architecture:AtlasNet_seed=0|task:EP|kind:wtA_-0.2|source:wtPCs_1000|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+results/fall2023/rsa_EP_nwPCs|seed:0|pooling:layerPCA|nPCs:1000|benchmark:dicarlo.MajajHong2015.IT.public-rsa.csv
+14.265476777531973
+1.013114270148911
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:14, 65.05it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:01<00:13, 65.50it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:02<00:13, 63.80it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:03<00:11, 64.95it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:05<00:11, 62.52it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:06<00:10, 61.25it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:07<00:09, 61.36it/s][A[A
+
+activations:  50%|█████     | 512/1024 [00:08<00:08, 62.59it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:09<00:07, 61.36it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:10<00:06, 60.54it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:11<00:05, 58.89it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:12<00:04, 57.75it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:13<00:03, 57.45it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:14<00:02, 57.03it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:16<00:01, 55.83it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:17<00:00, 55.38it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:17<00:00, 59.26it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.69s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.69s/it]
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [01:07<00:00, 67.54s/it][A[Alayer principal components: 100%|██████████| 1/1 [01:07<00:00, 67.54s/it]
+activations:   0%|          | 0/3200 [01:38<?, ?it/s]
+layers:   0%|          | 0/1 [01:38<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_rsa.py", line 130, in <module>
+    main(benchmark=benchmark, seed=args.seed, pooling=args.pooling, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_rsa.py", line 35, in main
+    layer_scores = fit_rsa(benchmark, model, layers, pooling, n_pcs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_rsa.py", line 81, in fit_rsa
+    score = model_scores(benchmark=benchmark, layers=[layer], prerun=True)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/brain_transformation/neural.py", line 108, in __call__
+    model=self._activations_model, benchmark=benchmark, layers=layers, prerun=prerun)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 312, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/brain_transformation/neural.py", line 122, in _call
+    score = benchmark(layer_model)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/benchmarks/_neural_common.py", line 26, in __call__
+    source_assembly = candidate.look_at(stimulus_set, number_of_trials=self._number_of_trials)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/brain_transformation/neural.py", line 143, in look_at
+    self._model(layers=self._layers, stimuli=stimuli)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 41, in __call__
+    return self._extractor(*args, **kwargs)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 41, in __call__
+    return self.from_stimulus_set(stimulus_set=stimuli, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 55, in from_stimulus_set
+    activations = self.from_paths(stimuli_paths=stimuli_paths, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 73, in from_paths
+    activations = fnc(layers=layers, stimuli_paths=reduced_paths)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 312, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 79, in _from_paths_stored
+    return self._from_paths(layers=layers, stimuli_paths=stimuli_paths)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 85, in _from_paths
+    layer_activations = self._get_activations_batched(stimuli_paths, layers=layers, batch_size=self._batch_size)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 135, in _get_activations_batched
+    batch_activations = hook(batch_activations)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pca.py", line 23, in __call__
+    self._ensure_initialized(batch_activations.keys())
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pca.py", line 40, in _ensure_initialized
+    n_components=self._n_components)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 231, in wrapper
+    self.save(result, function_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 125, in save
+    os.rename(savepath_part, path)
+FileNotFoundError: [Errno 2] No such file or directory: '/scratch4/mbonner5/keaton/result-caching/model_tools.activations.pca.LayerPCA._pcas/identifier=architecture:AtlasNet_seed=0|task:EP|kind:wtA_-0.2|source:wtPCs_1000|layer:c2|pooling:layerPCA|n_components:1000,n_components=1000.pkl.filepart' -> '/scratch4/mbonner5/keaton/result-caching/model_tools.activations.pca.LayerPCA._pcas/identifier=architecture:AtlasNet_seed=0|task:EP|kind:wtA_-0.2|source:wtPCs_1000|layer:c2|pooling:layerPCA|n_components:1000,n_components=1000.pkl'

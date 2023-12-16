@@ -1,0 +1,4 @@
+usage: fit_rsa.py [-h] [--bench {majajhong2015}] [--region REGION]
+                  [--pooling {max,avg,layerPCA,maxpool_PCA,zscore_PCA,PCAtrans_zscore}]
+                  [--debug] [--seed SEED]
+fit_rsa.py: error: argument --pooling: invalid choice: 'projections' (choose from 'max', 'avg', 'layerPCA', 'maxpool_PCA', 'zscore_PCA', 'PCAtrans_zscore')

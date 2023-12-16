@@ -1,0 +1,7 @@
+layer,effective dimensionality,80% variance,alpha,architecture,task,kind,source
+c2,2.069807107980571,13.0,1.0863213267482903,AtlasNet_seed=0,SVD_scaled=False,a_-0.2,weightPCs_None
+c2,2.091404743500562,13.0,1.0911518741497808,AtlasNet_seed=0,SVD_scaled=False,a_-0.6,weightPCs_None
+c2,2.1362893281902786,11.0,1.1234648102530618,AtlasNet_seed=0,SVD_scaled=False,a_-1.0,weightPCs_None
+c2,2.1458089850543516,5.0,1.2160775022297974,AtlasNet_seed=0,SVD_scaled=False,a_-1.4,weightPCs_None
+c2,2.011987274242526,2.0,1.4339594225732788,AtlasNet_seed=0,SVD_scaled=False,a_-2,weightPCs_None
+c2,1.7823106278458873,2.0,1.8073094850497595,AtlasNet_seed=0,SVD_scaled=False,a_-3,weightPCs_None

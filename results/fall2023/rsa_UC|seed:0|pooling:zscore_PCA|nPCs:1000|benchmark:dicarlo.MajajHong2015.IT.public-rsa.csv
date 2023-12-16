@@ -1,0 +1,3 @@
+layer,score,score_error,architecture,task,kind,source
+c2,0.012173493713645756,0.00023739537997743222,AtlasNet_seed=0,Standard,a_NA,init_kaiNormal
+c2,0.012299884603223048,0.00023997402662776358,AtlasNet_seed=0,Standard,a_NA,init_kaiUniform

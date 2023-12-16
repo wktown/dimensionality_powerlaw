@@ -13,4 +13,4 @@
 
 ml anaconda
 conda activate /home/wtownle1/env_dim/dim-powerlaw
-python -m scripts.save_rdms --dataset majajhong2015 --pooling PCA_zscore --seed 0
+python -m scripts.save_rdms --dataset imagenet --pooling PCA --seed 0

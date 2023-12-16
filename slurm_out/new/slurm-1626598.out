@@ -1,0 +1,19 @@
+INFO:root:architecture:AtlasNet_seed=0|task:Standard_Norm|kind:a_NA|source:pcs_1000|layer:c2|pooling:zscore_PCA|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+results/fall2023/rsa_NormZ-P|seed:0|pooling:zscore_PCA|nPCs:1000|benchmark:dicarlo.MajajHong2015.IT.public-rsa.csv
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:31,  3.46s/it][A
+cross-validation:  20%|██        | 2/10 [00:06<00:27,  3.47s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:24,  3.47s/it][A
+cross-validation:  40%|████      | 4/10 [00:13<00:20,  3.45s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.45s/it][A
+cross-validation:  60%|██████    | 6/10 [00:20<00:13,  3.45s/it][A
+cross-validation:  70%|███████   | 7/10 [00:24<00:10,  3.43s/it][A
+cross-validation:  80%|████████  | 8/10 [00:27<00:06,  3.42s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:30<00:03,  3.43s/it][A
+cross-validation: 100%|██████████| 10/10 [00:34<00:00,  3.42s/it][Across-validation: 100%|██████████| 10/10 [00:34<00:00,  3.44s/it]
+layers: 100%|██████████| 1/1 [00:34<00:00, 34.67s/it]layers: 100%|██████████| 1/1 [00:34<00:00, 34.67s/it]
+main total runtime: 0:00:36.340080

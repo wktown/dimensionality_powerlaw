@@ -82,7 +82,7 @@ class EngineeredModel2L_Eig:
     """
     
     def __init__(self, curv_params = {'n_ories':8,'n_curves':3,'gau_sizes':(5,),'spatial_fre':[1.2]},
-                 filters_2=5000, k_size=9, exponent=-1, var_scale=1, dist_stdev=1.0, seed=0, batches_2=1):
+                 filters_2=5000, k_size=9, exponent=-1, var_scale=1, dist_stdev=1.0, seed=0, n_weight_pcs=None, batches_2=1):
         
         self.curv_params = curv_params
         self.filters_1 = self.curv_params['n_ories']*self.curv_params['n_curves']*len(self.curv_params['gau_sizes']*len(self.curv_params['spatial_fre']))
@@ -93,6 +93,7 @@ class EngineeredModel2L_Eig:
         self.var_scale = var_scale
         self.dist_stdev = dist_stdev
         self.seed = seed
+        self.weight_pcs = n_weight_pcs
     
     
     def Build(self):
@@ -120,11 +121,15 @@ class EngineeredModel2L_Eig:
 
             # Generate principal components
             eigenvalues = np.power(np.arange(1, n_elements+1, dtype=float), power_law_exponent)
+            if self.weight_pcs is not None:
+                eigenvalues[self.weight_pcs:] = 0
+            
             eigenvectors = np.random.randn(n_elements, n_elements)
             eigenvectors, _ = np.linalg.qr(eigenvectors)
 
             # Scale eigenvectors' variances
-            eigenvectors = eigenvectors * np.sqrt(eigenvalues)[np.newaxis, :] * variance_scale
+            #**eigenvectors = eigenvectors * np.sqrt(eigenvalues)[np.newaxis, :] * variance_scale
+            eigenvectors = eigenvectors * np.sqrt(eigenvalues)[:, np.newaxis] * variance_scale
 
             # Generate random data
             X = np.random.normal(loc=0.0, scale=self.dist_stdev, size=(n_channels, n_elements)) @ eigenvectors #scale was for analysese 0.1

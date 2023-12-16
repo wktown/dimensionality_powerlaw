@@ -61,8 +61,8 @@ vgg_layers = [f"features.{i}" for i in [1, 3, 6, 8, 11, 13, 15, 18, 20, 22, 25, 
 
 
 
-def get_activation_models(seed, n_pcs, pytorch=False, untrained=False, atlasnet=True, alexnetonly=False,
-                          test=False, transformers=False, vvs=False, taskonomy=False, pytorch_hub=False):
+def get_activation_models(seed, n_pcs, atlasnet=False, untrained=False, more_pytorch=False, alexnetonly=False, transformers=False,
+                          pytorch=True, vvs=True, taskonomy=True, pytorch_hub=True, test=False):
     
     if atlasnet:
         for model, layers in atlas_net(seed, n_pcs):
@@ -75,6 +75,11 @@ def get_activation_models(seed, n_pcs, pytorch=False, untrained=False, atlasnet=
     if pytorch:
         for model, layers in pytorch_models():
             yield model, layers
+    
+    if more_pytorch:
+        for model, layers in pytorch_large():
+            yield model, layers
+    
     if untrained:
         for model, layers in untrained_models():
             yield model, layers
@@ -183,8 +188,8 @@ def dirac(m):
 
 
 def atlas_net(seed, n_pcs):
-    eig = True
-    SVD = False
+    eig = False
+    SVD = True
     standard = False
     layer_init = False
     kernel_size = False
@@ -192,26 +197,34 @@ def atlas_net(seed, n_pcs):
     
     
     if eig:
-        variance_scaled = True
-        #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
-        alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
-        standard_devs = [0.1, 1.0]
+        #variance_scaled = False
+        new_alpha = False
+        standard_devs = [1.0]
         
-        if variance_scaled:
-            var_scales = [0.1, 1, 10]
+        #if variance_scaled:
+        if new_alpha:
+            #var_scales = [0.1, 1, 10]
+            new_alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
+            alphas = [-1.0]
             for a in alphas:    
-                for v in var_scales:
+                #for v in var_scales:
+                for na in new_alphas:
                     for sd in standard_devs:
-                        model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, var_scale=v, dist_stdev=sd, seed=seed).Build()
-                        identifier = properties_to_id(f'AtlasNet_seed={seed}', f'Eig_varscale={v}', sd, f'a_{a}')
+                        model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, dist_stdev=sd, seed=seed).Build()
+                        identifier = properties_to_id(f'AtlasNet_{seed}', f'EP', f'wtA_{a}', f'adjA_{na}')
                         model = wrap_atlasnet(model, identifier)
                         yield model, atlasnet_layers
                     
         else:
+            #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+            alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
             for a in alphas:
-                for sd in standard_devs:
-                    model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, dist_stdev=sd, seed=seed).Build()
-                    identifier = properties_to_id(f'AtlasNet_seed={seed}', f'Eig_varscale={v}|stdev:{sd}', f'a_{a}', f'pcs_{n_pcs}')
+                
+                #for sd in standard_devs:
+                n_weight_pcs = [None] #[10, 50, 100, 500, 1000]
+                for n in n_weight_pcs:
+                    model = EngineeredModel2L_Eig(filters_2=1000, k_size=9, exponent=a, dist_stdev=1.0, seed=seed, n_weight_pcs=n).Build()
+                    identifier = properties_to_id(f'AtlasNet_{seed}', f'EP_rows', f'wtA_{a}', f'wtPCs_{n}')
                     model = wrap_atlasnet(model, identifier)
                     yield model, atlasnet_layers
             
@@ -220,26 +233,54 @@ def atlas_net(seed, n_pcs):
         #    pcs = 'NA' (but really still = n_pcs)
         #elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
         #    pcs = n_pcs
-        scaled = [True, False]
-        alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
-        #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
-        for a in alphas:
-            for s in scaled:
-                model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, scaled=s, seed=seed).Build()
-                identifier = properties_to_id(f'AtlasNet_seed={seed}', f'SVD_scaled={s}', f'a_{a}', f'pcs_{n_pcs}')
-                model = wrap_atlasnet(model, identifier)
-                yield model, atlasnet_layers
+        
+        new_alpha = True
+        #scaled = [False]
+        
+        if new_alpha:
+            new_alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
+            alphas = [-0.2, -1.0, -3]
+            for a in alphas:
+                for na in new_alphas:
+                    model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, seed=seed).Build()
+                    identifier = properties_to_id(f'AtlasNet_seed=0', f'adjSVD_rows2', f'wtA_{a}', f'adjA_{na}') #adj_nIms
+                    model = wrap_atlasnet(model, identifier)
+                    yield model, atlasnet_layers
+        
+        else:
+            alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
+            #alphas = [-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.2, -1.4, -1.6, -1.8, -2, -2.2, -2.4, -2.6, -2.8, -3]
+            for a in alphas:
+                n_weight_pcs = [None]
+                #n_weight_pcs = [10, 50, 100, 500, 1000]
+                for n in n_weight_pcs:
+                    model = EngineeredModel2L_SVD(filters_2=1000, k_size=9, exponent=a, seed=seed, n_weight_pcs=n).Build()
+                    identifier = properties_to_id(f'AtlasNet_seed={seed}', f'SVD', f'Weight_Alpha_{a}', f'weightPCs_{n}')
+                    model = wrap_atlasnet(model, identifier)
+                    yield model, atlasnet_layers
             
         
-            
     if standard:
+        new_alpha = True
+        
         k_size = 9
         n_filters = 1000
         
-        model = EngineeredModel2L(filters_2=n_filters, k_size=k_size, seed=0).Build()
-        identifier = properties_to_id(f'AtlasNet_seed={seed}', 'Standard', 'a_NA', f'pcs_{n_pcs}')
-        model = wrap_atlasnet(model, identifier)
-        yield model, atlasnet_layers
+        init_methods = ['kaiNormal', 'kaiUniform']
+        for i in init_methods:
+            
+            if new_alpha:
+                new_alphas = [-0.2, -0.6, -1.0, -1.4, -2, -3]
+                for na in new_alphas:
+                    model = EngineeredModel2L(filters_2=n_filters, k_size=k_size, seed=seed, init=i).Build()
+                    identifier = properties_to_id(f'AtlasNet_seed={seed}', f'{i}', 'a_NA', f'adjA_{na}')
+                    model = wrap_atlasnet(model, identifier)
+                    yield model, atlasnet_layers
+            else:
+                model = EngineeredModel2L(filters_2=n_filters, k_size=k_size, seed=0, init=i).Build()
+                identifier = properties_to_id(f'AtlasNet_seed={seed}', 'Standard', 'a_NA', f'init_{i}')
+                model = wrap_atlasnet(model, identifier)
+                yield model, atlasnet_layers
             
             
     if kernel_size:
@@ -409,9 +450,34 @@ def untrained_models():
     model = wrap_pt(model, identifier)
     yield model, resnet50_pt_layers
     
+    
 
 def pytorch_models():
 
+    model = resnet18(weights="IMAGENET1K_V1")
+    identifier = properties_to_id('ResNet18', 'Object Classification', 'Supervised', 'PyTorch')
+    model = wrap_pt(model, identifier)
+    yield model, resnet18_pt_layers
+
+    model = resnet50(weights="IMAGENET1K_V1") #also V2
+    identifier = properties_to_id('ResNet50', 'Object Classification', 'Supervised', 'PyTorch')
+    model = wrap_pt(model, identifier)
+    yield model, resnet50_pt_layers
+    
+    model = resnet18(weights=None)
+    identifier = properties_to_id('ResNet18', 'None', 'Untrained', 'PyTorch')
+    model = wrap_pt(model, identifier)
+    yield model, resnet18_pt_layers
+    
+    model = resnet50(weights=None)
+    identifier = properties_to_id('ResNet50', 'None', 'Untrained', 'PyTorch')
+    model = wrap_pt(model, identifier)
+    yield model, resnet50_pt_layers
+    
+    
+    
+
+def pytorch_large():
     model = resnet18(weights="IMAGENET1K_V1")
     identifier = properties_to_id('ResNet18', 'Object Classification', 'Supervised', 'PyTorch')
     model = wrap_pt(model, identifier)
@@ -451,16 +517,6 @@ def pytorch_models():
     identifier = properties_to_id('VGG16', 'Object Classification', 'Supervised', 'PyTorch')
     model = wrap_pt(model, identifier)
     yield model, vgg_layers
-    
-    model = maxvit_t(weights="IMAGENET1K_V1")
-    identifier = properties_to_id('MaxViT', 'ObjClass.', 'Sprvsd', 'Py')
-    model = wrap_pt(model, identifier)
-    yield model, maxvit_layers
-    
-    model = swin_t(weights="IMAGENET1K_V1")
-    identifier = properties_to_id('Swin_t', 'Obj.Class.', 'Sprvsd', 'Py')
-    model = wrap_pt(model, identifier)
-    yield model, swin_layers
 
 
 def transformer_models():

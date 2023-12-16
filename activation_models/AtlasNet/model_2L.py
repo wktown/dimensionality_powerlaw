@@ -80,7 +80,7 @@ class EngineeredModel2L:
     """
     
     def __init__(self, curv_params = {'n_ories':8,'n_curves':3,'gau_sizes':(5,),'spatial_fre':[1.2]},
-                 filters_2=5000,k_size=9, seed=0, batches_2=1):
+                 filters_2=5000,k_size=9, seed=0, init='kaiNormal', batches_2=1):
     
         
         self.curv_params = curv_params
@@ -89,6 +89,7 @@ class EngineeredModel2L:
         self.k_size = k_size
         self.batches_2 = batches_2
         self.seed = seed
+        self.init = init
         
     
     
@@ -100,14 +101,26 @@ class EngineeredModel2L:
     
         c1 = StandardConvolution(filter_size=15,filter_type='curvature',curv_params=self.curv_params)     
         mp1 = nn.MaxPool2d(kernel_size=3)
-        if torch.cuda.is_available():
-            c2 = nn.Conv2d(24, self.filters_2, kernel_size=(self.k_size, self.k_size), device='cuda')
-        else:
-            c2 = nn.Conv2d(24, self.filters_2, kernel_size=(self.k_size, self.k_size), device='cpu')
+        
+        if self.init == 'kaiNormal':
+            if torch.cuda.is_available():
+                c2 = nn.Conv2d(24, self.filters_2, kernel_size=(self.k_size, self.k_size), device='cuda')
+                nn.init.kaiming_normal_(c2.weight)
+            else:
+                c2 = nn.Conv2d(24, self.filters_2, kernel_size=(self.k_size, self.k_size), device='cpu')
+                nn.init.kaiming_normal_(c2.weight)
+                
+        elif self.init == 'kaiUniform':
+            if torch.cuda.is_available():
+                c2 = nn.Conv2d(24, self.filters_2, kernel_size=(self.k_size, self.k_size), device='cuda')
+                nn.init.kaiming_uniform_(c2.weight)
+            else:
+                c2 = nn.Conv2d(24, self.filters_2, kernel_size=(self.k_size, self.k_size), device='cpu')
+                nn.init.kaiming_uniform_(c2.weight)
         
         mp2 = nn.MaxPool2d(kernel_size=2)
 
         last = Output()
 
-        return Model(c1,mp1,c2,mp2,self.batches_2,last)  
+        return Model(c1,mp1,c2,mp2,self.batches_2,last)
     

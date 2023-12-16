@@ -1,0 +1,5 @@
+INFO:root:architecture:AtlasNet_seed=0|task:Standard|kind:a_NA|source:pcs_1000|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+main total runtime: 0:00:12.476837

@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --job-name=encoding
-#SBATCH --time=4:00:00
+#SBATCH --time=2:00:00
 #SBATCH --qos=qos_gpu
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
@@ -14,4 +14,4 @@
 
 ml anaconda
 conda activate /home/wtownle1/env_dim/dim-powerlaw
-python -m scripts.fit_encoding_models --pooling PCA_zscore --regression pls --seed 0
+python -m scripts.fit_encoding_models --pooling PCAtrans_reshape --regression pls --seed 0

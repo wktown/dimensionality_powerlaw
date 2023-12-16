@@ -24,10 +24,11 @@ logging.basicConfig(level=logging.INFO)
 def main(benchmark, seed, pooling, debug=False):
     if pooling=='max' or pooling=='avg': #projections, spatial_PCA, random_spatial
         n_pcs = 'NA'
-    elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
+    elif pooling=='layerPCA' or pooling=='maxpool_PCA' or pooling=='zscore_PCA' or pooling=='PCAtrans_zscore' or pooling == 'PCAtrans_reshape':
         n_pcs = 1000 #default = 1000
     
-    save_path = f'results/variance_SVD/encoding_Eig|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
+    save_path = f'results/fall2023/encoding_adjSVD_rows2|seed:{seed}|pooling:{pooling}|nPCs:{n_pcs}|benchmark:{benchmark._identifier}.csv'
+    #adjSVD_nIms
     if os.path.exists(save_path):
         print(f'Results already exists: {save_path}')
         return
@@ -50,7 +51,7 @@ def fit_encoder(benchmark, model, layers, pooling, n_pcs, hooks=None):
     model_identifier = model.identifier
     model_properties = id_to_properties(model_identifier)
     
-    for layer in layers:
+    for layer in layers:    
         if pooling == 'max':
             handle = GlobalMaxPool2d.hook(model)
             model.identifier = model_identifier + f'|layer:{layer}|pooling:max'
@@ -60,12 +61,23 @@ def fit_encoder(benchmark, model, layers, pooling, n_pcs, hooks=None):
         elif pooling == 'layerPCA':
             handle = LayerPCA.hook(model, n_components=n_pcs)
             model.identifier = model_identifier + f'|layer:{layer}|pooling:layerPCA|n_components:{n_pcs}'
-        elif pooling == 'PCA_maxpool':
-            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='max_pool')
+        elif pooling == 'maxpool_PCA':
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='max_pool') #ret='transformed'
             model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
-        elif pooling == 'PCA_zscore':
-            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='z_score')
+        elif pooling == 'zscore_PCA':
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='z_score') #ret='transformed'
             model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+        elif pooling == 'PCAtrans_zscore':
+            #newalpha = float(model_properties['source'].split('_')[-1])
+            #print('new_alpha from properties')
+            #print(newalpha)
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='none', ret='trans_zscored', new_alpha = None)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+        elif pooling == 'PCAtrans_reshape':
+            newalpha = float(model_properties['source'].split('_')[-1])
+            print(newalpha)
+            handle = LayerPCA_Modified.hook(model, n_components=n_pcs, mod='none', ret='trans_reshape_3', new_alpha = newalpha)
+            model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|ret_pcs:{n_pcs}'
         
 
         handles = []
@@ -75,8 +87,8 @@ def fit_encoder(benchmark, model, layers, pooling, n_pcs, hooks=None):
         logging.info(model.identifier)
         logging.info(layer)
         model_scores = LayerScores(model_identifier=model.identifier,
-                                   activations_model=model,
-                                   visual_degrees=8)
+                                activations_model=model,
+                                visual_degrees=8)
         score = model_scores(benchmark=benchmark, layers=[layer], prerun=True)
         handle.remove()
 
@@ -143,7 +155,7 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory for neural benchmark (only required for "object2vec")')
     parser.add_argument('--pooling', dest='pooling', type=str,
-                        choices=['max', 'avg', 'layerPCA', 'PCA_maxpool', 'PCA_zscore'], 
+                        choices=['max', 'avg', 'layerPCA', 'maxpool_PCA', 'zscore_PCA', 'PCAtrans_zscore', 'PCAtrans_reshape'], 
                         #projections, spatial_PCA, random_spatial
                         help='Choose global max-pooling, global avg-pooling, no pooling (layerPCA), or random spatial positions prior to fitting')
     parser.add_argument('--seed', dest='seed', type=int, default=0,

@@ -1,0 +1,57 @@
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-0.2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+results/fall2023/rsa_adjA_EPsqrt|seed:0|pooling:PCAtrans_reshape|nPCs:1000|benchmark:dicarlo.MajajHong2015.IT.public-rsa.csv
+-0.2
+0.25997624946025255
+0.9994461658110113
+-0.2
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][Aactivations:   0%|          | 0/3200 [00:04<?, ?it/s]
+layers:   0%|          | 0/1 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_rsa.py", line 131, in <module>
+    main(benchmark=benchmark, seed=args.seed, pooling=args.pooling, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_rsa.py", line 35, in main
+    layer_scores = fit_rsa(benchmark, model, layers, pooling, n_pcs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/fit_rsa.py", line 82, in fit_rsa
+    score = model_scores(benchmark=benchmark, layers=[layer], prerun=True)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/brain_transformation/neural.py", line 108, in __call__
+    model=self._activations_model, benchmark=benchmark, layers=layers, prerun=prerun)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 312, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/brain_transformation/neural.py", line 122, in _call
+    score = benchmark(layer_model)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/benchmarks/_neural_common.py", line 26, in __call__
+    source_assembly = candidate.look_at(stimulus_set, number_of_trials=self._number_of_trials)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/brain_transformation/neural.py", line 143, in look_at
+    self._model(layers=self._layers, stimuli=stimuli)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 41, in __call__
+    return self._extractor(*args, **kwargs)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 41, in __call__
+    return self.from_stimulus_set(stimulus_set=stimuli, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 55, in from_stimulus_set
+    activations = self.from_paths(stimuli_paths=stimuli_paths, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 73, in from_paths
+    activations = fnc(layers=layers, stimuli_paths=reduced_paths)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 312, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 79, in _from_paths_stored
+    return self._from_paths(layers=layers, stimuli_paths=stimuli_paths)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 85, in _from_paths
+    layer_activations = self._get_activations_batched(stimuli_paths, layers=layers, batch_size=self._batch_size)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 135, in _get_activations_batched
+    batch_activations = hook(batch_activations)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 34, in __call__
+    self._ensure_initialized(batch_activations.keys())
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 200, in _ensure_initialized
+    self._layer_pcas = {**self._layer_pcas, **layer_pcas}
+TypeError: 'str' object is not a mapping

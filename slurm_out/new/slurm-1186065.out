@@ -1,0 +1,125 @@
+INFO:root:architecture:AtlasNet_seed=0|task:stdev_0.1|kind:a_-1.2|source:pcs_1000
+INFO:root:c2
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+1.266543077634793
+0.010042260486655498
+activations:   0%|          | 0/1024 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A
+activations:   6%|▋         | 64/1024 [00:00<00:05, 178.13it/s][A
+activations:  12%|█▎        | 128/1024 [00:01<00:15, 59.53it/s][A
+activations:  19%|█▉        | 192/1024 [00:03<00:17, 48.05it/s][A
+activations:  25%|██▌       | 256/1024 [00:05<00:17, 43.51it/s][A
+activations:  31%|███▏      | 320/1024 [00:06<00:17, 40.85it/s][A
+activations:  38%|███▊      | 384/1024 [00:08<00:16, 38.98it/s][A
+activations:  44%|████▍     | 448/1024 [00:10<00:15, 37.57it/s][A
+activations:  50%|█████     | 512/1024 [00:12<00:13, 36.60it/s][A
+activations:  56%|█████▋    | 576/1024 [00:14<00:12, 35.44it/s][A
+activations:  62%|██████▎   | 640/1024 [00:16<00:11, 34.47it/s][A
+activations:  69%|██████▉   | 704/1024 [00:18<00:09, 33.32it/s][A
+activations:  75%|███████▌  | 768/1024 [00:20<00:07, 32.74it/s][A
+activations:  81%|████████▏ | 832/1024 [00:22<00:06, 31.96it/s][A
+activations:  88%|████████▊ | 896/1024 [00:24<00:04, 31.14it/s][A
+activations:  94%|█████████▍| 960/1024 [00:26<00:02, 30.26it/s][A
+activations: 100%|██████████| 1024/1024 [00:28<00:00, 31.21it/s][Aactivations: 100%|██████████| 1024/1024 [00:28<00:00, 35.43it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.64s/it][Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.64s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A
+layer principal components: 100%|██████████| 1/1 [01:05<00:00, 65.42s/it][Alayer principal components: 100%|██████████| 1/1 [01:05<00:00, 65.42s/it]
+activations:   6%|▋         | 64/1024 [01:58<29:43,  1.86s/it]activations:  12%|█▎        | 128/1024 [01:59<11:32,  1.29it/s]activations:  19%|█▉        | 192/1024 [02:00<05:53,  2.35it/s]activations:  25%|██▌       | 256/1024 [02:01<03:21,  3.82it/s]activations:  31%|███▏      | 320/1024 [02:01<02:00,  5.82it/s]activations:  38%|███▊      | 384/1024 [02:02<01:15,  8.51it/s]activations:  44%|████▍     | 448/1024 [02:03<00:48, 11.85it/s]activations:  50%|█████     | 512/1024 [02:04<00:31, 16.28it/s]activations:  56%|█████▋    | 576/1024 [02:05<00:20, 21.79it/s]activations:  62%|██████▎   | 640/1024 [02:06<00:13, 28.22it/s]activations:  69%|██████▉   | 704/1024 [02:06<00:09, 35.41it/s]activations:  75%|███████▌  | 768/1024 [02:07<00:05, 42.85it/s]activations:  81%|████████▏ | 832/1024 [02:08<00:03, 50.22it/s]activations:  88%|████████▊ | 896/1024 [02:09<00:02, 57.10it/s]activations:  94%|█████████▍| 960/1024 [02:09<00:01, 62.73it/s]activations: 100%|██████████| 1024/1024 [02:10<00:00, 68.18it/s]activations: 100%|██████████| 1024/1024 [02:10<00:00,  7.84it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s]layer packaging: 100%|██████████| 1/1 [00:00<00:00, 105.94it/s]
+('stimulus_path', 'neuroid')
+Coordinates:
+  * stimulus_path  (stimulus_path) <U78 '/data/mbonner5/shared/brainscore/mod...
+  * neuroid        (neuroid) MultiIndex
+  - neuroid_num    (neuroid) int64 0 1 2 3 4 5 6 ... 993 994 995 996 997 998 999
+  - model          (neuroid) object 'architecture:AtlasNet_seed=0|task:stdev_...
+  - layer          (neuroid) object 'c2' 'c2' 'c2' 'c2' ... 'c2' 'c2' 'c2' 'c2'
+  - channel        (neuroid) int64 0 1 2 3 4 5 6 ... 993 994 995 996 997 998 999
+  - channel_x      (neuroid) float64 nan nan nan nan nan ... nan nan nan nan nan
+  - channel_y      (neuroid) float64 nan nan nan nan nan ... nan nan nan nan nan
+  - neuroid_id     (neuroid) object 'architecture:AtlasNet_seed=0|task:stdev_...
+{}
+(1000, 1000)
+RDMs:   0%|          | 0/1 [00:00<?, ?it/s]RDMs: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]RDMs: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]
+INFO:root:architecture:AtlasNet_seed=0|task:stdev_1.0|kind:a_-1.2|source:pcs_1000
+INFO:root:c2
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+---activations---
+nimages x npcs (x nfeatures?)
+(1000, 1000)
+---flattened activations---
+(1000, 1000)
+---correlations---
+(1000, 1000)
+---flattened correlations---
+(1000, 1000)
+1.266543077570855
+1.0042260489055763
+activations:   0%|          | 0/1024 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A
+activations:   6%|▋         | 64/1024 [00:00<00:05, 182.78it/s][A
+activations:  12%|█▎        | 128/1024 [00:00<00:05, 154.36it/s][A
+activations:  19%|█▉        | 192/1024 [00:01<00:05, 139.63it/s][A
+activations:  25%|██▌       | 256/1024 [00:01<00:05, 128.44it/s][A
+activations:  31%|███▏      | 320/1024 [00:02<00:05, 117.90it/s][A
+activations:  38%|███▊      | 384/1024 [00:03<00:05, 108.95it/s][A
+activations:  44%|████▍     | 448/1024 [00:03<00:05, 102.05it/s][A
+activations:  50%|█████     | 512/1024 [00:04<00:05, 94.50it/s] [A
+activations:  56%|█████▋    | 576/1024 [00:05<00:05, 88.98it/s][A
+activations:  62%|██████▎   | 640/1024 [00:06<00:04, 83.18it/s][A
+activations:  69%|██████▉   | 704/1024 [00:07<00:04, 78.66it/s][A
+activations:  75%|███████▌  | 768/1024 [00:08<00:03, 73.78it/s][A
+activations:  81%|████████▏ | 832/1024 [00:09<00:02, 65.30it/s][A
+activations:  88%|████████▊ | 896/1024 [00:10<00:02, 63.02it/s][A
+activations:  94%|█████████▍| 960/1024 [00:11<00:01, 61.17it/s][A
+activations: 100%|██████████| 1024/1024 [00:12<00:00, 59.25it/s][Aactivations: 100%|██████████| 1024/1024 [00:12<00:00, 79.50it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.61s/it][Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.61s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A
+layer principal components: 100%|██████████| 1/1 [00:59<00:00, 59.40s/it][Alayer principal components: 100%|██████████| 1/1 [00:59<00:00, 59.40s/it]
+activations:   6%|▋         | 64/1024 [01:33<23:20,  1.46s/it]activations:  12%|█▎        | 128/1024 [01:34<09:04,  1.65it/s]activations:  19%|█▉        | 192/1024 [01:34<04:39,  2.98it/s]activations:  25%|██▌       | 256/1024 [01:35<02:39,  4.81it/s]activations:  31%|███▏      | 320/1024 [01:36<01:36,  7.28it/s]activations:  38%|███▊      | 384/1024 [01:37<01:00, 10.50it/s]activations:  44%|████▍     | 448/1024 [01:38<00:39, 14.73it/s]activations:  50%|█████     | 512/1024 [01:38<00:25, 20.00it/s]activations:  56%|█████▋    | 576/1024 [01:39<00:17, 26.32it/s]activations:  62%|██████▎   | 640/1024 [01:40<00:11, 33.44it/s]activations:  69%|██████▉   | 704/1024 [01:41<00:07, 41.00it/s]activations:  75%|███████▌  | 768/1024 [01:41<00:05, 48.76it/s]activations:  81%|████████▏ | 832/1024 [01:42<00:03, 56.13it/s]activations:  88%|████████▊ | 896/1024 [01:43<00:02, 62.67it/s]activations:  94%|█████████▍| 960/1024 [01:44<00:00, 67.43it/s]activations: 100%|██████████| 1024/1024 [01:44<00:00, 72.26it/s]activations: 100%|██████████| 1024/1024 [01:44<00:00,  9.77it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s]layer packaging: 100%|██████████| 1/1 [00:00<00:00, 113.72it/s]
+('stimulus_path', 'neuroid')
+Coordinates:
+  * stimulus_path  (stimulus_path) <U78 '/data/mbonner5/shared/brainscore/mod...
+  * neuroid        (neuroid) MultiIndex
+  - neuroid_num    (neuroid) int64 0 1 2 3 4 5 6 ... 993 994 995 996 997 998 999
+  - model          (neuroid) object 'architecture:AtlasNet_seed=0|task:stdev_...
+  - layer          (neuroid) object 'c2' 'c2' 'c2' 'c2' ... 'c2' 'c2' 'c2' 'c2'
+  - channel        (neuroid) int64 0 1 2 3 4 5 6 ... 993 994 995 996 997 998 999
+  - channel_x      (neuroid) float64 nan nan nan nan nan ... nan nan nan nan nan
+  - channel_y      (neuroid) float64 nan nan nan nan nan ... nan nan nan nan nan
+  - neuroid_id     (neuroid) object 'architecture:AtlasNet_seed=0|task:stdev_...
+{}
+(1000, 1000)
+RDMs:   0%|          | 0/1 [00:00<?, ?it/s]RDMs: 100%|██████████| 1/1 [00:00<00:00,  1.79it/s]RDMs: 100%|██████████| 1/1 [00:00<00:00,  1.79it/s]
+---activations---
+nimages x npcs (x nfeatures?)
+(1000, 1000)
+---flattened activations---
+(1000, 1000)
+---correlations---
+(1000, 1000)
+---flattened correlations---
+(1000, 1000)
+main total runtime: 0:04:00.462578

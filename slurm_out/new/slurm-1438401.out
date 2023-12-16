@@ -1,0 +1,30 @@
+0.32042240283507173
+1.7520407432430691
+{'architecture': 'AtlasNet_seed=0', 'task': 'stdev_1.0', 'kind': 'a_-0.2', 'source': 'pcs_1000'}
+AtlasNet_seed=0|a_-0.2
+['AtlasNet_seed=0|a_-0.2']
+3.1247094463584784
+1.0016862504141928
+{'architecture': 'AtlasNet_seed=0', 'task': 'stdev_1.0', 'kind': 'a_-3', 'source': 'pcs_1000'}
+AtlasNet_seed=0|a_-3
+['AtlasNet_seed=0|a_-0.2', 'AtlasNet_seed=0|a_-3']
+--exit--
+un-needed dict key, try returning layer_pcas instead of pcs[layer]
+c2
+OrderedDict([('c2', PCA(n_components=1000, random_state=0))])
+layer_pcs 0.02
+c2
+PCA(n_components=1000, random_state=0)
+assumed layer pc dict key
+c2
+OrderedDict([('c2', PCA(n_components=1000, random_state=0))])
+layer_pcs 3 key
+c2
+PCA(n_components=1000, random_state=0)
+(1000, 576000)
+True
+(1000, 576000)
+True
+distance shape:
+(1000, 1000)
+main total runtime: 0:16:24.072034

@@ -1,0 +1,13 @@
+0.32059995233369215
+1.7520407432430691
+{'architecture': 'AtlasNet_seed=0', 'task': 'stdev_1.0', 'kind': 'a_-0.2', 'source': 'pcs_1000'}
+AtlasNet_seed=0|a_-0.2
+['AtlasNet_seed=0|a_-0.2']
+3.1246122797600426
+1.001686250414193
+{'architecture': 'AtlasNet_seed=0', 'task': 'stdev_1.0', 'kind': 'a_-3', 'source': 'pcs_1000'}
+AtlasNet_seed=0|a_-3
+['AtlasNet_seed=0|a_-0.2', 'AtlasNet_seed=0|a_-3']
+--exit--
+(1000, 1000)
+main total runtime: 0:00:06.347998

@@ -1,0 +1,72 @@
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+-0.2
+0.25997624946025255
+0.9994461658110113
+-0.2
+activations:   0%|          | 0/10048 [00:00<?, ?it/s]activations:   0%|          | 0/10048 [00:06<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 96, in <module>
+    main(dataset=args.dataset, data_dir=args.data_dir, pooling=args.pooling, seed=args.seed, grayscale=args.grayscale, debug=args.debug)
+  File "/home/wtownle1/dimensionality_powerlaw/utils.py", line 29, in wrap
+    result = func(*args, **kwargs)
+  File "/home/wtownle1/dimensionality_powerlaw/scripts/compute_eigenspectra.py", line 34, in main
+    eigspec.fit(layers)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 68, in fit
+    image_transform_name=transform_name)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/result_caching/__init__.py", line 223, in wrapper
+    result = function(**reduced_call_args)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/eigenspectrum.py", line 213, in _fit
+    activations = self._extractor(image_paths, layers=[layer])
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/pytorch.py", line 41, in __call__
+    return self._extractor(*args, **kwargs)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 43, in __call__
+    return self.from_paths(stimuli_paths=stimuli, layers=layers, stimuli_identifier=stimuli_identifier)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 73, in from_paths
+    activations = fnc(layers=layers, stimuli_paths=reduced_paths)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 85, in _from_paths
+    layer_activations = self._get_activations_batched(stimuli_paths, layers=layers, batch_size=self._batch_size)
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 135, in _get_activations_batched
+    batch_activations = hook(batch_activations)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 128, in __call__
+    multithread=os.getenv('MT_MULTITHREAD', '1') == '1')
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 247, in change_dict
+    results = map_fnc(apply_change, d.items())
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/multiprocessing/pool.py", line 268, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/multiprocessing/pool.py", line 657, in get
+    raise self._value
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/multiprocessing/pool.py", line 121, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/multiprocessing/pool.py", line 44, in mapstar
+    return list(map(*args))
+  File "/home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/model_tools/activations/core.py", line 244, in apply_change
+    values = change_function(values) if not keep_name else change_function(layer, values)
+  File "/home/wtownle1/dimensionality_powerlaw/custom_model_tools/layerPCA_modified.py", line 103, in apply_pca
+    pca_check.fit(X_new)
+UnboundLocalError: local variable 'X_new' referenced before assignment
+activations shape
+(64, 576000)
+n_new_components
+64
+activations_new shape
+(64, 1000)
+singular value all close:
+False
+[0.02914974 0.02537632 0.02339971 0.02209137 0.02112714 0.02037063
+ 0.01975218 0.01923165 0.01878392 0.01839224 0.01804497 0.01773366
+ 0.01745203 0.01719527 0.01695963 0.01674213 0.01654036 0.01635235
+ 0.01617648 0.01601138 0.0158559  0.01570906 0.01557002 0.01543805
+ 0.01531252 0.01519288 0.01507863 0.01496935 0.01486466 0.01476422
+ 0.01466771 0.01457487 0.01448545 0.01439922 0.01431598 0.01423555
+ 0.01415775 0.01408244 0.01400947 0.01393871 0.01387005 0.01380336
+ 0.01373855 0.01367553 0.0136142  0.01355449 0.01349631 0.0134396
+ 0.01338429 0.01333032 0.01327763 0.01322617 0.01317588 0.01312671
+ 0.01307863 0.01303158 0.01298553 0.01294044 0.01289627 0.012853
+ 0.01281058 0.01276898 0.01272819 0.01268816]
+SVD eigenvalues all close:
+True
+0.9999999999999998

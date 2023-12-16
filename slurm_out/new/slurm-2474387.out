@@ -1,0 +1,7 @@
+usage: fit_encoding_models.py [-h]
+                              [--bench {majajhong2015,freeman2013,object2vec}]
+                              [--region REGION] [--regression {pls,lin,l2}]
+                              [--data_dir DATA_DIR]
+                              [--pooling {max,avg,layerPCA,maxpool_PCA,zscore_PCA,PCAtrans_zscore}]
+                              [--seed SEED] [--debug]
+fit_encoding_models.py: error: argument --pooling: invalid choice: 'projections' (choose from 'max', 'avg', 'layerPCA', 'maxpool_PCA', 'zscore_PCA', 'PCAtrans_zscore')

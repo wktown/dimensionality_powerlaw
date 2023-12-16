@@ -1,0 +1,3 @@
+layer,effective dimensionality,80% variance,alpha,architecture,task,kind,source
+c2,560.5253985782525,497.0,0.36161536281099405,AtlasNet_seed=0,Standard,a_NA,init_kaiNormal
+c2,561.127954116142,498.0,0.3617797795016972,AtlasNet_seed=0,Standard,a_NA,init_kaiUniform

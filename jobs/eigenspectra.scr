@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --job-name=eigenspectra
-#SBATCH --time=6:00:00
+#SBATCH --time=72:00:00
 #SBATCH --qos=qos_gpu
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
@@ -14,4 +14,4 @@
 
 ml anaconda
 conda activate /home/wtownle1/env_dim/dim-powerlaw
-python -m scripts.compute_eigenspectra --dataset imagenet --pooling PCA_zscore --seed 0
+python -m scripts.compute_eigenspectra --dataset imagenet --pooling spatial_pca --seed 0

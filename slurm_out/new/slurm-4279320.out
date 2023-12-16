@@ -1,0 +1,66 @@
+INFO:root:architecture:AtlasNet_0|task:EP|kind:wtA_-1.0|source:adjA_-0.2|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+INFO:root:architecture:AtlasNet_0|task:EP|kind:wtA_-1.0|source:adjA_-0.6|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+INFO:root:architecture:AtlasNet_0|task:EP|kind:wtA_-1.0|source:adjA_-1.0|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+INFO:root:architecture:AtlasNet_0|task:EP|kind:wtA_-1.0|source:adjA_-1.4|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+1.0579333450241997
+0.9386200511372381
+1.0579333450241997
+0.9386200511372381
+1.0579333450241997
+0.9386200511372381
+1.0579333450241997
+0.9386200511372381
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:01<00:13,  1.47s/it][A
+cross-validation:  20%|██        | 2/10 [00:03<00:12,  1.52s/it][A
+cross-validation:  30%|███       | 3/10 [00:04<00:10,  1.47s/it][A
+cross-validation:  40%|████      | 4/10 [00:05<00:08,  1.47s/it][A
+cross-validation:  50%|█████     | 5/10 [00:07<00:07,  1.49s/it][A
+cross-validation:  60%|██████    | 6/10 [00:08<00:05,  1.48s/it][A
+cross-validation:  70%|███████   | 7/10 [00:10<00:04,  1.47s/it][A
+cross-validation:  80%|████████  | 8/10 [00:11<00:02,  1.46s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:13<00:01,  1.46s/it][A
+cross-validation: 100%|██████████| 10/10 [00:14<00:00,  1.46s/it][Across-validation: 100%|██████████| 10/10 [00:14<00:00,  1.47s/it]
+layers: 100%|██████████| 1/1 [00:15<00:00, 15.06s/it]layers: 100%|██████████| 1/1 [00:15<00:00, 15.06s/it]
+INFO:root:architecture:AtlasNet_0|task:EP|kind:wtA_-1.0|source:adjA_-2|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+1.0579333450241997
+0.9386200511372381
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:01<00:13,  1.45s/it][A
+cross-validation:  20%|██        | 2/10 [00:03<00:12,  1.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:04<00:10,  1.49s/it][A
+cross-validation:  40%|████      | 4/10 [00:05<00:08,  1.48s/it][A
+cross-validation:  50%|█████     | 5/10 [00:07<00:07,  1.49s/it][A
+cross-validation:  60%|██████    | 6/10 [00:08<00:05,  1.49s/it][A
+cross-validation:  70%|███████   | 7/10 [00:10<00:04,  1.48s/it][A
+cross-validation:  80%|████████  | 8/10 [00:11<00:02,  1.47s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:13<00:01,  1.46s/it][A
+cross-validation: 100%|██████████| 10/10 [00:14<00:00,  1.47s/it][Across-validation: 100%|██████████| 10/10 [00:14<00:00,  1.48s/it]
+layers: 100%|██████████| 1/1 [00:15<00:00, 15.08s/it]layers: 100%|██████████| 1/1 [00:15<00:00, 15.08s/it]
+INFO:root:architecture:AtlasNet_0|task:EP|kind:wtA_-1.0|source:adjA_-3|layer:c2|pooling:layerPCA|n_components:1000
+INFO:root:c2
+1.0579333450241997
+0.9386200511372381
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:01<00:13,  1.48s/it][A
+cross-validation:  20%|██        | 2/10 [00:03<00:12,  1.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:04<00:10,  1.49s/it][A
+cross-validation:  40%|████      | 4/10 [00:05<00:08,  1.49s/it][A
+cross-validation:  50%|█████     | 5/10 [00:07<00:07,  1.49s/it][A
+cross-validation:  60%|██████    | 6/10 [00:08<00:05,  1.49s/it][A
+cross-validation:  70%|███████   | 7/10 [00:10<00:04,  1.48s/it][A
+cross-validation:  80%|████████  | 8/10 [00:11<00:02,  1.45s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:13<00:01,  1.45s/it][A
+cross-validation: 100%|██████████| 10/10 [00:14<00:00,  1.45s/it][Across-validation: 100%|██████████| 10/10 [00:14<00:00,  1.47s/it]
+layers: 100%|██████████| 1/1 [00:14<00:00, 14.98s/it]layers: 100%|██████████| 1/1 [00:14<00:00, 14.98s/it]
+main total runtime: 0:00:57.847640

@@ -1,0 +1,2062 @@
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-0.2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+Loading catalog from entrypoints
+Loading lookup from /home/wtownle1/env_dim/dim-powerlaw/lib/python3.7/site-packages/brainscore/lookup.csv
+results/fall2023/rsa_adjA_EPsqrt|seed:0|pooling:PCAtrans_reshape|nPCs:1000|benchmark:dicarlo.MajajHong2015.IT.public-rsa.csv
+-0.2
+0.25997624946025255
+0.9994461658110113
+-0.2
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.53s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.55s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.54s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.53s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.53s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.53s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.53s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.53s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.53s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.53s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.88s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.88s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-0.6|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-0.2
+0.25997624946025255
+0.9994461658110113
+-0.6
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.52s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.53s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.52s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.51s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.51s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.52s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.52s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.68s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.68s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-1.0|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-0.2
+0.25997624946025255
+0.9994461658110113
+-1.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.53s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.54s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.53s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.53s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.52s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.53s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.52s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.53s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.53s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.53s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.53s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.79s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.79s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-1.4|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-0.2
+0.25997624946025255
+0.9994461658110113
+-1.4
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.53s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.52s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.52s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.52s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.52s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.52s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.53s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.53s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.53s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.71s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.71s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-0.2
+0.25997624946025255
+0.9994461658110113
+-2.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.52s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.52s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.52s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.52s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.52s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.52s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.52s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.67s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.67s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-0.2|source:adjA_-3|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-0.2
+0.25997624946025255
+0.9994461658110113
+-3.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.53s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.52s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.52s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.52s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.52s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.52s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.52s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.52s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.69s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.69s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-1.0|source:adjA_-0.2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-1.0
+1.054649196631982
+0.9991878970214365
+-0.2
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.53s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.53s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.53s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.53s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.53s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.52s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.52s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.51s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.51s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.62s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.62s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-1.0|source:adjA_-0.6|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-1.0
+1.054649196631982
+0.9991878970214365
+-0.6
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.50s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.50s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.50s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.50s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.50s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.50s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.50s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.50s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.50s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.50s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.50s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.43s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.43s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-1.0|source:adjA_-1.0|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-1.0
+1.054649196631982
+0.9991878970214365
+-1.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.51s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.51s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.51s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.50s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.50s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:09,  2.50s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.50s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.50s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.50s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.50s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.50s/it]
+layers: 100%|██████████| 1/1 [00:25<00:00, 25.36s/it]layers: 100%|██████████| 1/1 [00:25<00:00, 25.36s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-1.0|source:adjA_-1.4|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-1.0
+1.054649196631982
+0.9991878970214365
+-1.4
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][A
+activations:   2%|▏         | 64/3200 [00:04<03:17, 15.86it/s][A
+activations:   4%|▍         | 128/3200 [00:05<01:52, 27.34it/s][A
+activations:   6%|▌         | 192/3200 [00:06<01:20, 37.50it/s][A
+activations:   8%|▊         | 256/3200 [00:06<01:01, 47.49it/s][A
+activations:  10%|█         | 320/3200 [00:07<00:50, 57.55it/s][A
+activations:  12%|█▏        | 384/3200 [00:08<00:42, 65.83it/s][A
+activations:  14%|█▍        | 448/3200 [00:09<00:37, 72.66it/s][A
+activations:  16%|█▌        | 512/3200 [00:09<00:34, 77.68it/s][A
+activations:  18%|█▊        | 576/3200 [00:10<00:32, 81.61it/s][A
+activations:  20%|██        | 640/3200 [00:11<00:30, 84.14it/s][A
+activations:  22%|██▏       | 704/3200 [00:11<00:28, 86.56it/s][A
+activations:  24%|██▍       | 768/3200 [00:12<00:27, 88.13it/s][A
+activations:  26%|██▌       | 832/3200 [00:13<00:28, 84.45it/s][A
+activations:  28%|██▊       | 896/3200 [00:14<00:28, 81.95it/s][A
+activations:  30%|███       | 960/3200 [00:14<00:26, 84.69it/s][A
+activations:  32%|███▏      | 1024/3200 [00:15<00:26, 82.97it/s][A
+activations:  34%|███▍      | 1088/3200 [00:16<00:25, 84.39it/s][A
+activations:  36%|███▌      | 1152/3200 [00:17<00:23, 86.42it/s][A
+activations:  38%|███▊      | 1216/3200 [00:17<00:22, 86.70it/s][A
+activations:  40%|████      | 1280/3200 [00:18<00:21, 87.96it/s][A
+activations:  42%|████▏     | 1344/3200 [00:19<00:21, 86.49it/s][A
+activations:  44%|████▍     | 1408/3200 [00:20<00:21, 84.31it/s][A
+activations:  46%|████▌     | 1472/3200 [00:20<00:20, 83.60it/s][A
+activations:  48%|████▊     | 1536/3200 [00:21<00:20, 82.85it/s][A
+activations:  50%|█████     | 1600/3200 [00:22<00:19, 80.70it/s][A
+activations:  52%|█████▏    | 1664/3200 [00:23<00:18, 84.18it/s][A
+activations:  54%|█████▍    | 1728/3200 [00:23<00:16, 86.81it/s][A
+activations:  56%|█████▌    | 1792/3200 [00:24<00:16, 87.53it/s][A
+activations:  58%|█████▊    | 1856/3200 [00:25<00:15, 87.80it/s][A
+activations:  60%|██████    | 1920/3200 [00:26<00:14, 89.10it/s][A
+activations:  62%|██████▏   | 1984/3200 [00:26<00:13, 89.26it/s][A
+activations:  64%|██████▍   | 2048/3200 [00:27<00:12, 89.75it/s][A
+activations:  66%|██████▌   | 2112/3200 [00:28<00:11, 90.79it/s][A
+activations:  68%|██████▊   | 2176/3200 [00:28<00:11, 89.28it/s][A
+activations:  70%|███████   | 2240/3200 [00:29<00:10, 87.78it/s][A
+activations:  72%|███████▏  | 2304/3200 [00:30<00:10, 87.80it/s][A
+activations:  74%|███████▍  | 2368/3200 [00:31<00:09, 87.95it/s][A
+activations:  76%|███████▌  | 2432/3200 [00:31<00:08, 86.59it/s][A
+activations:  78%|███████▊  | 2496/3200 [00:32<00:07, 88.50it/s][A
+activations:  80%|████████  | 2560/3200 [00:33<00:07, 89.43it/s][A
+activations:  82%|████████▏ | 2624/3200 [00:34<00:06, 86.79it/s][A
+activations:  84%|████████▍ | 2688/3200 [00:34<00:05, 87.92it/s][A
+activations:  86%|████████▌ | 2752/3200 [00:35<00:05, 89.27it/s][A
+activations:  88%|████████▊ | 2816/3200 [00:36<00:04, 90.07it/s][A
+activations:  90%|█████████ | 2880/3200 [00:36<00:03, 90.41it/s][A
+activations:  92%|█████████▏| 2944/3200 [00:37<00:02, 90.82it/s][A
+activations:  94%|█████████▍| 3008/3200 [00:38<00:02, 91.14it/s][A
+activations:  96%|█████████▌| 3072/3200 [00:38<00:01, 91.39it/s][A
+activations:  98%|█████████▊| 3136/3200 [00:39<00:00, 91.81it/s][A
+activations: 100%|██████████| 3200/3200 [00:40<00:00, 91.69it/s][Aactivations: 100%|██████████| 3200/3200 [00:40<00:00, 79.39it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 96.65it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.52s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.53s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.52s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.52s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.52s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.52s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.52s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.52s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.52s/it]
+layers: 100%|██████████| 1/1 [01:05<00:00, 65.89s/it]layers: 100%|██████████| 1/1 [01:05<00:00, 65.89s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-1.0|source:adjA_-2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-1.0
+1.054649196631982
+0.9991878970214365
+-2.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:05, 163.38it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:00<00:06, 140.43it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:06, 129.48it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:02<00:06, 120.24it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:02<00:06, 111.38it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:06, 104.23it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:05, 97.56it/s] [A[A
+
+activations:  50%|█████     | 512/1024 [00:04<00:05, 90.39it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:05<00:05, 84.92it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:06<00:04, 79.62it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:07<00:04, 75.35it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:08<00:03, 70.97it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:09<00:02, 67.58it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:10<00:02, 63.72it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:12<00:01, 60.97it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:13<00:00, 58.87it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:13<00:00, 77.66it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.63s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.63s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [00:58<00:00, 58.84s/it][A[Alayer principal components: 100%|██████████| 1/1 [00:58<00:00, 58.84s/it]
+
+activations:   2%|▏         | 64/3200 [01:33<1:16:14,  1.46s/it][A
+activations:   4%|▍         | 128/3200 [01:34<31:06,  1.65it/s] [A
+activations:   6%|▌         | 192/3200 [01:34<16:47,  2.99it/s][A
+activations:   8%|▊         | 256/3200 [01:35<10:09,  4.83it/s][A
+activations:  10%|█         | 320/3200 [01:36<06:32,  7.33it/s][A
+activations:  12%|█▏        | 384/3200 [01:36<04:23, 10.68it/s][A
+activations:  14%|█▍        | 448/3200 [01:37<03:03, 15.04it/s][A
+activations:  16%|█▌        | 512/3200 [01:38<02:11, 20.52it/s][A
+activations:  18%|█▊        | 576/3200 [01:38<01:36, 27.16it/s][A
+activations:  20%|██        | 640/3200 [01:39<01:13, 34.67it/s][A
+activations:  22%|██▏       | 704/3200 [01:40<00:59, 41.87it/s][A
+activations:  24%|██▍       | 768/3200 [01:41<00:48, 50.36it/s][A
+activations:  26%|██▌       | 832/3200 [01:41<00:40, 58.58it/s][A
+activations:  28%|██▊       | 896/3200 [01:42<00:35, 65.46it/s][A
+activations:  30%|███       | 960/3200 [01:43<00:31, 70.43it/s][A
+activations:  32%|███▏      | 1024/3200 [01:43<00:28, 76.03it/s][A
+activations:  34%|███▍      | 1088/3200 [01:44<00:26, 80.38it/s][A
+activations:  36%|███▌      | 1152/3200 [01:45<00:24, 82.69it/s][A
+activations:  38%|███▊      | 1216/3200 [01:46<00:23, 85.72it/s][A
+activations:  40%|████      | 1280/3200 [01:46<00:21, 87.40it/s][A
+activations:  42%|████▏     | 1344/3200 [01:47<00:21, 86.24it/s][A
+activations:  44%|████▍     | 1408/3200 [01:48<00:20, 88.02it/s][A
+activations:  46%|████▌     | 1472/3200 [01:48<00:19, 89.90it/s][A
+activations:  48%|████▊     | 1536/3200 [01:49<00:18, 90.81it/s][A
+activations:  50%|█████     | 1600/3200 [01:50<00:17, 91.98it/s][A
+activations:  52%|█████▏    | 1664/3200 [01:50<00:16, 92.23it/s][A
+activations:  54%|█████▍    | 1728/3200 [01:51<00:15, 92.84it/s][A
+activations:  56%|█████▌    | 1792/3200 [01:52<00:15, 92.68it/s][A
+activations:  58%|█████▊    | 1856/3200 [01:52<00:14, 93.23it/s][A
+activations:  60%|██████    | 1920/3200 [01:53<00:13, 93.02it/s][A
+activations:  62%|██████▏   | 1984/3200 [01:54<00:12, 93.61it/s][A
+activations:  64%|██████▍   | 2048/3200 [01:55<00:12, 93.29it/s][A
+activations:  66%|██████▌   | 2112/3200 [01:55<00:12, 89.09it/s][A
+activations:  68%|██████▊   | 2176/3200 [01:56<00:11, 88.55it/s][A
+activations:  70%|███████   | 2240/3200 [01:57<00:10, 90.14it/s][A
+activations:  72%|███████▏  | 2304/3200 [01:57<00:09, 90.89it/s][A
+activations:  74%|███████▍  | 2368/3200 [01:58<00:09, 91.80it/s][A
+activations:  76%|███████▌  | 2432/3200 [01:59<00:08, 92.10it/s][A
+activations:  78%|███████▊  | 2496/3200 [02:00<00:07, 91.61it/s][A
+activations:  80%|████████  | 2560/3200 [02:00<00:06, 91.79it/s][A
+activations:  82%|████████▏ | 2624/3200 [02:01<00:06, 92.01it/s][A
+activations:  84%|████████▍ | 2688/3200 [02:02<00:05, 91.37it/s][A
+activations:  86%|████████▌ | 2752/3200 [02:02<00:04, 92.17it/s][A
+activations:  88%|████████▊ | 2816/3200 [02:03<00:04, 92.43it/s][A
+activations:  90%|█████████ | 2880/3200 [02:04<00:03, 87.60it/s][A
+activations:  92%|█████████▏| 2944/3200 [02:04<00:02, 88.83it/s][A
+activations:  94%|█████████▍| 3008/3200 [02:05<00:02, 90.19it/s][A
+activations:  96%|█████████▌| 3072/3200 [02:06<00:01, 91.07it/s][A
+activations:  98%|█████████▊| 3136/3200 [02:07<00:00, 92.03it/s][A
+activations: 100%|██████████| 3200/3200 [02:07<00:00, 92.18it/s][Aactivations: 100%|██████████| 3200/3200 [02:07<00:00, 25.05it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 99.97it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.52s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.51s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.51s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.51s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.51s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.51s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.51s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.51s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it]
+layers: 100%|██████████| 1/1 [02:33<00:00, 153.20s/it]layers: 100%|██████████| 1/1 [02:33<00:00, 153.20s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-1.0|source:adjA_-3|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-1.0
+1.054649196631982
+0.9991878970214365
+-3.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:05, 171.56it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:00<00:06, 147.54it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:06, 133.76it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:01<00:06, 122.76it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:02<00:06, 113.32it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:06, 106.00it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:05, 99.33it/s] [A[A
+
+activations:  50%|█████     | 512/1024 [00:04<00:05, 92.17it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:05<00:05, 86.45it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:06<00:04, 80.85it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:07<00:04, 76.37it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:08<00:03, 71.84it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:09<00:02, 68.33it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:10<00:01, 64.50it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:11<00:01, 61.65it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:12<00:00, 59.50it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:12<00:00, 78.82it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.60s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.60s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [00:58<00:00, 58.75s/it][A[Alayer principal components: 100%|██████████| 1/1 [00:58<00:00, 58.75s/it]
+
+activations:   2%|▏         | 64/3200 [01:32<1:15:32,  1.45s/it][A
+activations:   4%|▍         | 128/3200 [01:33<30:47,  1.66it/s] [A
+activations:   6%|▌         | 192/3200 [01:33<16:37,  3.02it/s][A
+activations:   8%|▊         | 256/3200 [01:34<10:03,  4.88it/s][A
+activations:  10%|█         | 320/3200 [01:35<06:28,  7.41it/s][A
+activations:  12%|█▏        | 384/3200 [01:35<04:21, 10.79it/s][A
+activations:  14%|█▍        | 448/3200 [01:36<03:01, 15.14it/s][A
+activations:  16%|█▌        | 512/3200 [01:37<02:10, 20.59it/s][A
+activations:  18%|█▊        | 576/3200 [01:38<01:36, 27.17it/s][A
+activations:  20%|██        | 640/3200 [01:38<01:13, 34.78it/s][A
+activations:  22%|██▏       | 704/3200 [01:39<00:59, 42.03it/s][A
+activations:  24%|██▍       | 768/3200 [01:40<00:48, 50.50it/s][A
+activations:  26%|██▌       | 832/3200 [01:40<00:40, 58.76it/s][A
+activations:  28%|██▊       | 896/3200 [01:41<00:34, 66.31it/s][A
+activations:  30%|███       | 960/3200 [01:42<00:30, 72.46it/s][A
+activations:  32%|███▏      | 1024/3200 [01:42<00:27, 77.84it/s][A
+activations:  34%|███▍      | 1088/3200 [01:43<00:25, 82.13it/s][A
+activations:  36%|███▌      | 1152/3200 [01:44<00:24, 85.24it/s][A
+activations:  38%|███▊      | 1216/3200 [01:45<00:22, 86.69it/s][A
+activations:  40%|████      | 1280/3200 [01:45<00:21, 88.62it/s][A
+activations:  42%|████▏     | 1344/3200 [01:46<00:20, 90.22it/s][A
+activations:  44%|████▍     | 1408/3200 [01:47<00:19, 91.15it/s][A
+activations:  46%|████▌     | 1472/3200 [01:47<00:18, 91.98it/s][A
+activations:  48%|████▊     | 1536/3200 [01:48<00:17, 92.48it/s][A
+activations:  50%|█████     | 1600/3200 [01:49<00:17, 91.70it/s][A
+activations:  52%|█████▏    | 1664/3200 [01:49<00:16, 92.09it/s][A
+activations:  54%|█████▍    | 1728/3200 [01:50<00:16, 91.51it/s][A
+activations:  56%|█████▌    | 1792/3200 [01:51<00:15, 92.13it/s][A
+activations:  58%|█████▊    | 1856/3200 [01:51<00:14, 92.64it/s][A
+activations:  60%|██████    | 1920/3200 [01:52<00:13, 92.76it/s][A
+activations:  62%|██████▏   | 1984/3200 [01:53<00:13, 93.19it/s][A
+activations:  64%|██████▍   | 2048/3200 [01:53<00:12, 93.23it/s][A
+activations:  66%|██████▌   | 2112/3200 [01:54<00:11, 92.18it/s][A
+activations:  68%|██████▊   | 2176/3200 [01:55<00:11, 92.72it/s][A
+activations:  70%|███████   | 2240/3200 [01:56<00:10, 93.09it/s][A
+activations:  72%|███████▏  | 2304/3200 [01:56<00:09, 93.17it/s][A
+activations:  74%|███████▍  | 2368/3200 [01:57<00:08, 93.20it/s][A
+activations:  76%|███████▌  | 2432/3200 [01:58<00:08, 93.13it/s][A
+activations:  78%|███████▊  | 2496/3200 [01:58<00:07, 92.00it/s][A
+activations:  80%|████████  | 2560/3200 [01:59<00:06, 92.10it/s][A
+activations:  82%|████████▏ | 2624/3200 [02:00<00:06, 92.54it/s][A
+activations:  84%|████████▍ | 2688/3200 [02:00<00:05, 91.57it/s][A
+activations:  86%|████████▌ | 2752/3200 [02:01<00:04, 91.23it/s][A
+activations:  88%|████████▊ | 2816/3200 [02:02<00:04, 91.55it/s][A
+activations:  90%|█████████ | 2880/3200 [02:03<00:03, 91.95it/s][A
+activations:  92%|█████████▏| 2944/3200 [02:03<00:02, 92.56it/s][A
+activations:  94%|█████████▍| 3008/3200 [02:04<00:02, 91.74it/s][A
+activations:  96%|█████████▌| 3072/3200 [02:05<00:01, 91.85it/s][A
+activations:  98%|█████████▊| 3136/3200 [02:05<00:00, 91.72it/s][A
+activations: 100%|██████████| 3200/3200 [02:06<00:00, 90.94it/s][Aactivations: 100%|██████████| 3200/3200 [02:06<00:00, 25.29it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 101.17it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.52s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.52s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.52s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.53s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.54s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.55s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.56s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.57s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.56s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.55s/it]
+layers: 100%|██████████| 1/1 [02:32<00:00, 152.37s/it]layers: 100%|██████████| 1/1 [02:32<00:00, 152.37s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-3|source:adjA_-0.2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-3
+3.048879977537494
+0.9991827133268055
+-0.2
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:05, 165.05it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:00<00:06, 141.97it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:06, 128.93it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:02<00:06, 119.38it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:02<00:06, 110.60it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:06, 103.60it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:05, 96.89it/s] [A[A
+
+activations:  50%|█████     | 512/1024 [00:04<00:05, 89.93it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:05<00:05, 84.50it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:06<00:04, 79.29it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:07<00:04, 75.14it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:08<00:03, 70.78it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:09<00:02, 67.44it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:10<00:02, 63.61it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:12<00:01, 60.90it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:13<00:00, 58.89it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:13<00:00, 77.48it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.60s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.60s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [01:01<00:00, 61.20s/it][A[Alayer principal components: 100%|██████████| 1/1 [01:01<00:00, 61.20s/it]
+
+activations:   2%|▏         | 64/3200 [01:35<1:17:52,  1.49s/it][A
+activations:   4%|▍         | 128/3200 [01:36<31:51,  1.61it/s] [A
+activations:   6%|▌         | 192/3200 [01:36<17:11,  2.92it/s][A
+activations:   8%|▊         | 256/3200 [01:37<10:23,  4.72it/s][A
+activations:  10%|█         | 320/3200 [01:38<06:41,  7.17it/s][A
+activations:  12%|█▏        | 384/3200 [01:39<04:29, 10.44it/s][A
+activations:  14%|█▍        | 448/3200 [01:39<03:07, 14.71it/s][A
+activations:  16%|█▌        | 512/3200 [01:40<02:14, 20.03it/s][A
+activations:  18%|█▊        | 576/3200 [01:41<01:38, 26.54it/s][A
+activations:  20%|██        | 640/3200 [01:41<01:15, 34.02it/s][A
+activations:  22%|██▏       | 704/3200 [01:42<00:59, 42.23it/s][A
+activations:  24%|██▍       | 768/3200 [01:43<00:48, 50.64it/s][A
+activations:  26%|██▌       | 832/3200 [01:43<00:40, 58.75it/s][A
+activations:  28%|██▊       | 896/3200 [01:44<00:34, 66.04it/s][A
+activations:  30%|███       | 960/3200 [01:45<00:30, 72.37it/s][A
+activations:  32%|███▏      | 1024/3200 [01:46<00:28, 76.67it/s][A
+activations:  34%|███▍      | 1088/3200 [01:46<00:26, 80.77it/s][A
+activations:  36%|███▌      | 1152/3200 [01:47<00:24, 83.77it/s][A
+activations:  38%|███▊      | 1216/3200 [01:48<00:23, 83.40it/s][A
+activations:  40%|████      | 1280/3200 [01:49<00:23, 82.16it/s][A
+activations:  42%|████▏     | 1344/3200 [01:49<00:22, 82.62it/s][A
+activations:  44%|████▍     | 1408/3200 [01:50<00:21, 85.27it/s][A
+activations:  46%|████▌     | 1472/3200 [01:51<00:19, 87.52it/s][A
+activations:  48%|████▊     | 1536/3200 [01:51<00:18, 89.03it/s][A
+activations:  50%|█████     | 1600/3200 [01:52<00:17, 90.38it/s][A
+activations:  52%|█████▏    | 1664/3200 [01:53<00:16, 91.11it/s][A
+activations:  54%|█████▍    | 1728/3200 [01:53<00:16, 90.20it/s][A
+activations:  56%|█████▌    | 1792/3200 [01:54<00:15, 90.76it/s][A
+activations:  58%|█████▊    | 1856/3200 [01:55<00:14, 91.65it/s][A
+activations:  60%|██████    | 1920/3200 [01:56<00:13, 92.05it/s][A
+activations:  62%|██████▏   | 1984/3200 [01:56<00:13, 92.52it/s][A
+activations:  64%|██████▍   | 2048/3200 [01:57<00:12, 92.70it/s][A
+activations:  66%|██████▌   | 2112/3200 [01:58<00:11, 92.91it/s][A
+activations:  68%|██████▊   | 2176/3200 [01:58<00:11, 93.01it/s][A
+activations:  70%|███████   | 2240/3200 [01:59<00:10, 91.87it/s][A
+activations:  72%|███████▏  | 2304/3200 [02:00<00:09, 92.07it/s][A
+activations:  74%|███████▍  | 2368/3200 [02:00<00:08, 92.45it/s][A
+activations:  76%|███████▌  | 2432/3200 [02:01<00:08, 92.52it/s][A
+activations:  78%|███████▊  | 2496/3200 [02:02<00:07, 92.20it/s][A
+activations:  80%|████████  | 2560/3200 [02:03<00:07, 86.95it/s][A
+activations:  82%|████████▏ | 2624/3200 [02:03<00:06, 88.70it/s][A
+activations:  84%|████████▍ | 2688/3200 [02:04<00:05, 89.70it/s][A
+activations:  86%|████████▌ | 2752/3200 [02:05<00:04, 90.62it/s][A
+activations:  88%|████████▊ | 2816/3200 [02:05<00:04, 90.35it/s][A
+activations:  90%|█████████ | 2880/3200 [02:06<00:03, 88.16it/s][A
+activations:  92%|█████████▏| 2944/3200 [02:07<00:02, 87.28it/s][A
+activations:  94%|█████████▍| 3008/3200 [02:08<00:02, 84.14it/s][A
+activations:  96%|█████████▌| 3072/3200 [02:09<00:01, 80.60it/s][A
+activations:  98%|█████████▊| 3136/3200 [02:09<00:00, 83.30it/s][A
+activations: 100%|██████████| 3200/3200 [02:10<00:00, 85.81it/s][Aactivations: 100%|██████████| 3200/3200 [02:10<00:00, 24.53it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 100.24it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.50s/it][A
+cross-validation:  20%|██        | 2/10 [00:05<00:20,  2.51s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.51s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.51s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.51s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.51s/it][A
+cross-validation:  70%|███████   | 7/10 [00:17<00:07,  2.51s/it][A
+cross-validation:  80%|████████  | 8/10 [00:20<00:05,  2.51s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:22<00:02,  2.51s/it][A
+cross-validation: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it][Across-validation: 100%|██████████| 10/10 [00:25<00:00,  2.51s/it]
+layers: 100%|██████████| 1/1 [02:36<00:00, 156.07s/it]layers: 100%|██████████| 1/1 [02:36<00:00, 156.07s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-3|source:adjA_-0.6|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-3
+3.048879977537494
+0.9991827133268055
+-0.6
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:05, 167.14it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:00<00:06, 141.91it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:06, 129.54it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:02<00:06, 118.40it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:02<00:06, 108.50it/s][A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:06, 100.57it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:06, 94.48it/s] [A[A
+
+activations:  50%|█████     | 512/1024 [00:05<00:05, 87.53it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:05<00:05, 81.75it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:06<00:04, 77.14it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:07<00:04, 72.21it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:08<00:03, 68.60it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:09<00:02, 65.96it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:11<00:02, 62.54it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:12<00:01, 60.14it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:13<00:00, 58.12it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:13<00:00, 75.94it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.65s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.65s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [01:24<00:00, 84.04s/it][A[Alayer principal components: 100%|██████████| 1/1 [01:24<00:00, 84.04s/it]
+
+activations:   2%|▏         | 64/3200 [01:58<1:37:10,  1.86s/it][A
+activations:   4%|▍         | 128/3200 [01:59<39:35,  1.29it/s] [A
+activations:   6%|▌         | 192/3200 [02:00<21:22,  2.35it/s][A
+activations:   8%|▊         | 256/3200 [02:01<12:55,  3.80it/s][A
+activations:  10%|█         | 320/3200 [02:02<08:20,  5.75it/s][A
+activations:  12%|█▏        | 384/3200 [02:03<05:35,  8.40it/s][A
+activations:  14%|█▍        | 448/3200 [02:04<03:52, 11.84it/s][A
+activations:  16%|█▌        | 512/3200 [02:05<02:47, 16.03it/s][A
+activations:  18%|█▊        | 576/3200 [02:06<02:03, 21.23it/s][A
+activations:  20%|██        | 640/3200 [02:06<01:33, 27.37it/s][A
+activations:  22%|██▏       | 704/3200 [02:07<01:12, 34.24it/s][A
+activations:  24%|██▍       | 768/3200 [02:08<00:58, 41.35it/s][A
+activations:  26%|██▌       | 832/3200 [02:09<00:48, 48.34it/s][A
+activations:  28%|██▊       | 896/3200 [02:10<00:41, 55.07it/s][A
+activations:  30%|███       | 960/3200 [02:10<00:37, 60.21it/s][A
+activations:  32%|███▏      | 1024/3200 [02:11<00:34, 62.94it/s][A
+activations:  34%|███▍      | 1088/3200 [02:12<00:31, 67.22it/s][A
+activations:  36%|███▌      | 1152/3200 [02:13<00:29, 70.42it/s][A
+activations:  38%|███▊      | 1216/3200 [02:14<00:26, 73.53it/s][A
+activations:  40%|████      | 1280/3200 [02:15<00:25, 74.17it/s][A
+activations:  42%|████▏     | 1344/3200 [02:15<00:25, 74.18it/s][A
+activations:  44%|████▍     | 1408/3200 [02:16<00:23, 76.26it/s][A
+activations:  46%|████▌     | 1472/3200 [02:17<00:21, 79.86it/s][A
+activations:  48%|████▊     | 1536/3200 [02:18<00:20, 81.87it/s][A
+activations:  50%|█████     | 1600/3200 [02:18<00:19, 80.01it/s][A
+activations:  52%|█████▏    | 1664/3200 [02:19<00:19, 80.74it/s][A
+activations:  54%|█████▍    | 1728/3200 [02:20<00:18, 78.28it/s][A
+activations:  56%|█████▌    | 1792/3200 [02:21<00:17, 79.02it/s][A
+activations:  58%|█████▊    | 1856/3200 [02:22<00:16, 82.04it/s][A
+activations:  60%|██████    | 1920/3200 [02:22<00:15, 81.56it/s][A
+activations:  62%|██████▏   | 1984/3200 [02:23<00:14, 83.89it/s][A
+activations:  64%|██████▍   | 2048/3200 [02:24<00:13, 85.99it/s][A
+activations:  66%|██████▌   | 2112/3200 [02:25<00:12, 85.64it/s][A
+activations:  68%|██████▊   | 2176/3200 [02:25<00:12, 84.15it/s][A
+activations:  70%|███████   | 2240/3200 [02:26<00:11, 86.79it/s][A
+activations:  72%|███████▏  | 2304/3200 [02:27<00:10, 88.40it/s][A
+activations:  74%|███████▍  | 2368/3200 [02:27<00:09, 89.90it/s][A
+activations:  76%|███████▌  | 2432/3200 [02:28<00:08, 89.60it/s][A
+activations:  78%|███████▊  | 2496/3200 [02:29<00:07, 90.63it/s][A
+activations:  80%|████████  | 2560/3200 [02:30<00:07, 91.21it/s][A
+activations:  82%|████████▏ | 2624/3200 [02:30<00:06, 91.84it/s][A
+activations:  84%|████████▍ | 2688/3200 [02:31<00:05, 90.76it/s][A
+activations:  86%|████████▌ | 2752/3200 [02:32<00:04, 91.67it/s][A
+activations:  88%|████████▊ | 2816/3200 [02:32<00:04, 92.08it/s][A
+activations:  90%|█████████ | 2880/3200 [02:33<00:03, 92.44it/s][A
+activations:  92%|█████████▏| 2944/3200 [02:34<00:02, 92.64it/s][A
+activations:  94%|█████████▍| 3008/3200 [02:34<00:02, 93.00it/s][A
+activations:  96%|█████████▌| 3072/3200 [02:35<00:01, 92.89it/s][A
+activations:  98%|█████████▊| 3136/3200 [02:36<00:00, 93.12it/s][A
+activations: 100%|██████████| 3200/3200 [02:36<00:00, 93.09it/s][Aactivations: 100%|██████████| 3200/3200 [02:36<00:00, 20.39it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 99.25it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:02<00:22,  2.49s/it][A
+cross-validation:  20%|██        | 2/10 [00:04<00:19,  2.50s/it][A
+cross-validation:  30%|███       | 3/10 [00:07<00:17,  2.52s/it][A
+cross-validation:  40%|████      | 4/10 [00:10<00:15,  2.55s/it][A
+cross-validation:  50%|█████     | 5/10 [00:12<00:12,  2.58s/it][A
+cross-validation:  60%|██████    | 6/10 [00:15<00:10,  2.70s/it][A
+cross-validation:  70%|███████   | 7/10 [00:19<00:08,  2.97s/it][A
+cross-validation:  80%|████████  | 8/10 [00:22<00:06,  3.16s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:26<00:03,  3.37s/it][A
+cross-validation: 100%|██████████| 10/10 [00:30<00:00,  3.37s/it][Across-validation: 100%|██████████| 10/10 [00:30<00:00,  3.00s/it]
+layers: 100%|██████████| 1/1 [03:07<00:00, 187.39s/it]layers: 100%|██████████| 1/1 [03:07<00:00, 187.39s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-3|source:adjA_-1.0|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-3
+3.048879977537494
+0.9991827133268055
+-1.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][A
+activations:   2%|▏         | 64/3200 [00:02<02:07, 24.56it/s][A
+activations:   4%|▍         | 128/3200 [00:03<01:15, 40.93it/s][A
+activations:   6%|▌         | 192/3200 [00:04<00:56, 52.99it/s][A
+activations:   8%|▊         | 256/3200 [00:05<00:52, 56.24it/s][A
+activations:  10%|█         | 320/3200 [00:06<00:46, 62.27it/s][A
+activations:  12%|█▏        | 384/3200 [00:06<00:41, 68.53it/s][A
+activations:  14%|█▍        | 448/3200 [00:07<00:38, 71.67it/s][A
+activations:  16%|█▌        | 512/3200 [00:08<00:36, 73.47it/s][A
+activations:  18%|█▊        | 576/3200 [00:09<00:34, 76.37it/s][A
+activations:  20%|██        | 640/3200 [00:10<00:32, 77.59it/s][A
+activations:  22%|██▏       | 704/3200 [00:10<00:32, 77.68it/s][A
+activations:  24%|██▍       | 768/3200 [00:11<00:32, 73.74it/s][A
+activations:  26%|██▌       | 832/3200 [00:12<00:31, 75.84it/s][A
+activations:  28%|██▊       | 896/3200 [00:13<00:31, 73.68it/s][A
+activations:  30%|███       | 960/3200 [00:14<00:29, 75.30it/s][A
+activations:  32%|███▏      | 1024/3200 [00:15<00:28, 75.62it/s][A
+activations:  34%|███▍      | 1088/3200 [00:16<00:27, 76.19it/s][A
+activations:  36%|███▌      | 1152/3200 [00:16<00:26, 76.57it/s][A
+activations:  38%|███▊      | 1216/3200 [00:17<00:27, 73.22it/s][A
+activations:  40%|████      | 1280/3200 [00:18<00:26, 71.98it/s][A
+activations:  42%|████▏     | 1344/3200 [00:19<00:26, 69.78it/s][A
+activations:  44%|████▍     | 1408/3200 [00:20<00:24, 72.78it/s][A
+activations:  46%|████▌     | 1472/3200 [00:21<00:22, 75.37it/s][A
+activations:  48%|████▊     | 1536/3200 [00:22<00:22, 73.30it/s][A
+activations:  50%|█████     | 1600/3200 [00:23<00:22, 71.76it/s][A
+activations:  52%|█████▏    | 1664/3200 [00:23<00:20, 74.18it/s][A
+activations:  54%|█████▍    | 1728/3200 [00:24<00:19, 75.56it/s][A
+activations:  56%|█████▌    | 1792/3200 [00:25<00:18, 76.05it/s][A
+activations:  58%|█████▊    | 1856/3200 [00:26<00:17, 75.84it/s][A
+activations:  60%|██████    | 1920/3200 [00:27<00:16, 76.29it/s][A
+activations:  62%|██████▏   | 1984/3200 [00:28<00:15, 77.63it/s][A
+activations:  64%|██████▍   | 2048/3200 [00:29<00:15, 73.54it/s][A
+activations:  66%|██████▌   | 2112/3200 [00:30<00:15, 70.49it/s][A
+activations:  68%|██████▊   | 2176/3200 [00:31<00:15, 67.30it/s][A
+activations:  70%|███████   | 2240/3200 [00:31<00:14, 67.94it/s][A
+activations:  72%|███████▏  | 2304/3200 [00:32<00:13, 66.41it/s][A
+activations:  74%|███████▍  | 2368/3200 [00:33<00:12, 67.93it/s][A
+activations:  76%|███████▌  | 2432/3200 [00:34<00:10, 71.20it/s][A
+activations:  78%|███████▊  | 2496/3200 [00:35<00:10, 70.14it/s][A
+activations:  80%|████████  | 2560/3200 [00:36<00:09, 70.25it/s][A
+activations:  82%|████████▏ | 2624/3200 [00:37<00:08, 68.78it/s][A
+activations:  84%|████████▍ | 2688/3200 [00:38<00:07, 66.92it/s][A
+activations:  86%|████████▌ | 2752/3200 [00:39<00:06, 70.48it/s][A
+activations:  88%|████████▊ | 2816/3200 [00:40<00:05, 73.43it/s][A
+activations:  90%|█████████ | 2880/3200 [00:40<00:04, 75.32it/s][A
+activations:  92%|█████████▏| 2944/3200 [00:41<00:03, 75.37it/s][A
+activations:  94%|█████████▍| 3008/3200 [00:42<00:02, 76.43it/s][A
+activations:  96%|█████████▌| 3072/3200 [00:43<00:01, 75.84it/s][A
+activations:  98%|█████████▊| 3136/3200 [00:44<00:00, 73.04it/s][A
+activations: 100%|██████████| 3200/3200 [00:45<00:00, 71.78it/s][Aactivations: 100%|██████████| 3200/3200 [00:45<00:00, 70.62it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 59.05it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:32,  3.62s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:29,  3.68s/it][A
+cross-validation:  30%|███       | 3/10 [00:11<00:25,  3.67s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.65s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.63s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.52s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.59s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.52s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.57s/it][A
+cross-validation: 100%|██████████| 10/10 [00:35<00:00,  3.60s/it][Across-validation: 100%|██████████| 10/10 [00:35<00:00,  3.60s/it]
+layers: 100%|██████████| 1/1 [01:21<00:00, 81.78s/it]layers: 100%|██████████| 1/1 [01:21<00:00, 81.78s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-3|source:adjA_-1.4|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-3
+3.048879977537494
+0.9991827133268055
+-1.4
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:06, 149.27it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:00<00:07, 127.52it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:07, 114.41it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:02<00:07, 105.40it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:03<00:07, 98.65it/s] [A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:06, 93.18it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:06, 87.64it/s][A[A
+
+activations:  50%|█████     | 512/1024 [00:05<00:06, 81.32it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:06<00:06, 74.20it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:07<00:05, 68.77it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:08<00:04, 65.37it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:09<00:04, 61.95it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:11<00:03, 58.73it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:12<00:02, 55.10it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:13<00:01, 52.25it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:15<00:00, 50.41it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:15<00:00, 67.58it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.85s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.85s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [01:19<00:00, 79.49s/it][A[Alayer principal components: 100%|██████████| 1/1 [01:19<00:00, 79.49s/it]
+
+activations:   2%|▏         | 64/3200 [01:58<1:36:57,  1.86s/it][A
+activations:   4%|▍         | 128/3200 [01:59<39:28,  1.30it/s] [A
+activations:   6%|▌         | 192/3200 [02:00<21:16,  2.36it/s][A
+activations:   8%|▊         | 256/3200 [02:01<12:51,  3.81it/s][A
+activations:  10%|█         | 320/3200 [02:01<08:15,  5.81it/s][A
+activations:  12%|█▏        | 384/3200 [02:02<05:31,  8.50it/s][A
+activations:  14%|█▍        | 448/3200 [02:03<03:48, 12.04it/s][A
+activations:  16%|█▌        | 512/3200 [02:04<02:45, 16.24it/s][A
+activations:  18%|█▊        | 576/3200 [02:05<02:03, 21.23it/s][A
+activations:  20%|██        | 640/3200 [02:06<01:32, 27.54it/s][A
+activations:  22%|██▏       | 704/3200 [02:07<01:14, 33.38it/s][A
+activations:  24%|██▍       | 768/3200 [02:08<01:02, 38.87it/s][A
+activations:  26%|██▌       | 832/3200 [02:09<00:53, 44.53it/s][A
+activations:  28%|██▊       | 896/3200 [02:09<00:44, 51.24it/s][A
+activations:  30%|███       | 960/3200 [02:10<00:38, 58.14it/s][A
+activations:  32%|███▏      | 1024/3200 [02:11<00:36, 60.26it/s][A
+activations:  34%|███▍      | 1088/3200 [02:12<00:33, 62.87it/s][A
+activations:  36%|███▌      | 1152/3200 [02:13<00:30, 66.98it/s][A
+activations:  38%|███▊      | 1216/3200 [02:14<00:28, 69.97it/s][A
+activations:  40%|████      | 1280/3200 [02:15<00:29, 65.81it/s][A
+activations:  42%|████▏     | 1344/3200 [02:16<00:26, 69.95it/s][A
+activations:  44%|████▍     | 1408/3200 [02:16<00:24, 72.97it/s][A
+activations:  46%|████▌     | 1472/3200 [02:17<00:23, 74.65it/s][A
+activations:  48%|████▊     | 1536/3200 [02:18<00:22, 72.91it/s][A
+activations:  50%|█████     | 1600/3200 [02:19<00:22, 71.63it/s][A
+activations:  52%|█████▏    | 1664/3200 [02:20<00:21, 69.86it/s][A
+activations:  54%|█████▍    | 1728/3200 [02:21<00:21, 69.93it/s][A
+activations:  56%|█████▌    | 1792/3200 [02:22<00:19, 73.02it/s][A
+activations:  58%|█████▊    | 1856/3200 [02:23<00:17, 75.25it/s][A
+activations:  60%|██████    | 1920/3200 [02:23<00:16, 76.53it/s][A
+activations:  62%|██████▏   | 1984/3200 [02:24<00:16, 75.67it/s][A
+activations:  64%|██████▍   | 2048/3200 [02:25<00:15, 76.07it/s][A
+activations:  66%|██████▌   | 2112/3200 [02:26<00:14, 74.67it/s][A
+activations:  68%|██████▊   | 2176/3200 [02:27<00:13, 75.60it/s][A
+activations:  70%|███████   | 2240/3200 [02:28<00:12, 74.00it/s][A
+activations:  72%|███████▏  | 2304/3200 [02:29<00:11, 75.26it/s][A
+activations:  74%|███████▍  | 2368/3200 [02:29<00:10, 76.10it/s][A
+activations:  76%|███████▌  | 2432/3200 [02:30<00:10, 76.62it/s][A
+activations:  78%|███████▊  | 2496/3200 [02:31<00:09, 74.26it/s][A
+activations:  80%|████████  | 2560/3200 [02:32<00:08, 74.08it/s][A
+activations:  82%|████████▏ | 2624/3200 [02:33<00:07, 72.37it/s][A
+activations:  84%|████████▍ | 2688/3200 [02:34<00:07, 71.75it/s][A
+activations:  86%|████████▌ | 2752/3200 [02:35<00:05, 75.31it/s][A
+activations:  88%|████████▊ | 2816/3200 [02:35<00:05, 76.15it/s][A
+activations:  90%|█████████ | 2880/3200 [02:36<00:04, 74.35it/s][A
+activations:  92%|█████████▏| 2944/3200 [02:37<00:03, 77.30it/s][A
+activations:  94%|█████████▍| 3008/3200 [02:38<00:02, 74.36it/s][A
+activations:  96%|█████████▌| 3072/3200 [02:39<00:01, 73.90it/s][A
+activations:  98%|█████████▊| 3136/3200 [02:40<00:00, 76.30it/s][A
+activations: 100%|██████████| 3200/3200 [02:40<00:00, 77.33it/s][Aactivations: 100%|██████████| 3200/3200 [02:40<00:00, 19.89it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 86.55it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:30,  3.42s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:28,  3.56s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:24,  3.54s/it][A
+cross-validation:  40%|████      | 4/10 [00:13<00:20,  3.48s/it][A
+cross-validation:  50%|█████     | 5/10 [00:17<00:17,  3.55s/it][A
+cross-validation:  60%|██████    | 6/10 [00:20<00:13,  3.47s/it][A
+cross-validation:  70%|███████   | 7/10 [00:24<00:10,  3.59s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:07,  3.58s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:31<00:03,  3.49s/it][A
+cross-validation: 100%|██████████| 10/10 [00:35<00:00,  3.51s/it][Across-validation: 100%|██████████| 10/10 [00:35<00:00,  3.52s/it]
+layers: 100%|██████████| 1/1 [03:16<00:00, 196.55s/it]layers: 100%|██████████| 1/1 [03:16<00:00, 196.55s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-3|source:adjA_-2|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-3
+3.048879977537494
+0.9991827133268055
+-2.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][A
+activations:   2%|▏         | 64/3200 [00:02<02:17, 22.84it/s][A
+activations:   4%|▍         | 128/3200 [00:03<01:19, 38.56it/s][A
+activations:   6%|▌         | 192/3200 [00:04<00:59, 50.22it/s][A
+activations:   8%|▊         | 256/3200 [00:05<00:49, 59.44it/s][A
+activations:  10%|█         | 320/3200 [00:06<00:43, 65.96it/s][A
+activations:  12%|█▏        | 384/3200 [00:06<00:39, 71.61it/s][A
+activations:  14%|█▍        | 448/3200 [00:07<00:37, 73.92it/s][A
+activations:  16%|█▌        | 512/3200 [00:08<00:37, 72.12it/s][A
+activations:  18%|█▊        | 576/3200 [00:09<00:34, 76.36it/s][A
+activations:  20%|██        | 640/3200 [00:10<00:32, 78.19it/s][A
+activations:  22%|██▏       | 704/3200 [00:10<00:31, 78.51it/s][A
+activations:  24%|██▍       | 768/3200 [00:11<00:30, 79.48it/s][A
+activations:  26%|██▌       | 832/3200 [00:12<00:29, 80.73it/s][A
+activations:  28%|██▊       | 896/3200 [00:13<00:28, 79.94it/s][A
+activations:  30%|███       | 960/3200 [00:14<00:30, 72.46it/s][A
+activations:  32%|███▏      | 1024/3200 [00:15<00:30, 72.46it/s][A
+activations:  34%|███▍      | 1088/3200 [00:16<00:29, 71.29it/s][A
+activations:  36%|███▌      | 1152/3200 [00:16<00:27, 73.91it/s][A
+activations:  38%|███▊      | 1216/3200 [00:17<00:26, 74.71it/s][A
+activations:  40%|████      | 1280/3200 [00:18<00:26, 72.64it/s][A
+activations:  42%|████▏     | 1344/3200 [00:19<00:24, 75.90it/s][A
+activations:  44%|████▍     | 1408/3200 [00:20<00:24, 73.68it/s][A
+activations:  46%|████▌     | 1472/3200 [00:21<00:23, 72.47it/s][A
+activations:  48%|████▊     | 1536/3200 [00:22<00:24, 67.93it/s][A
+activations:  50%|█████     | 1600/3200 [00:23<00:22, 69.88it/s][A
+activations:  52%|█████▏    | 1664/3200 [00:23<00:20, 74.06it/s][A
+activations:  54%|█████▍    | 1728/3200 [00:24<00:19, 75.92it/s][A
+activations:  56%|█████▌    | 1792/3200 [00:25<00:18, 75.66it/s][A
+activations:  58%|█████▊    | 1856/3200 [00:26<00:17, 77.28it/s][A
+activations:  60%|██████    | 1920/3200 [00:27<00:16, 79.22it/s][A
+activations:  62%|██████▏   | 1984/3200 [00:27<00:15, 77.78it/s][A
+activations:  64%|██████▍   | 2048/3200 [00:28<00:15, 75.41it/s][A
+activations:  66%|██████▌   | 2112/3200 [00:29<00:13, 77.93it/s][A
+activations:  68%|██████▊   | 2176/3200 [00:30<00:12, 79.66it/s][A
+activations:  70%|███████   | 2240/3200 [00:31<00:12, 78.95it/s][A
+activations:  72%|███████▏  | 2304/3200 [00:32<00:11, 79.64it/s][A
+activations:  74%|███████▍  | 2368/3200 [00:32<00:10, 78.29it/s][A
+activations:  76%|███████▌  | 2432/3200 [00:33<00:10, 75.05it/s][A
+activations:  78%|███████▊  | 2496/3200 [00:34<00:09, 75.58it/s][A
+activations:  80%|████████  | 2560/3200 [00:35<00:08, 74.85it/s][A
+activations:  82%|████████▏ | 2624/3200 [00:36<00:07, 77.04it/s][A
+activations:  84%|████████▍ | 2688/3200 [00:37<00:06, 78.94it/s][A
+activations:  86%|████████▌ | 2752/3200 [00:37<00:05, 80.13it/s][A
+activations:  88%|████████▊ | 2816/3200 [00:38<00:05, 74.86it/s][A
+activations:  90%|█████████ | 2880/3200 [00:39<00:04, 77.26it/s][A
+activations:  92%|█████████▏| 2944/3200 [00:40<00:03, 78.14it/s][A
+activations:  94%|█████████▍| 3008/3200 [00:41<00:02, 79.94it/s][A
+activations:  96%|█████████▌| 3072/3200 [00:41<00:01, 79.66it/s][A
+activations:  98%|█████████▊| 3136/3200 [00:42<00:00, 80.36it/s][A
+activations: 100%|██████████| 3200/3200 [00:43<00:00, 81.64it/s][Aactivations: 100%|██████████| 3200/3200 [00:43<00:00, 73.60it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 79.47it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:35,  3.93s/it][A
+cross-validation:  20%|██        | 2/10 [00:07<00:30,  3.87s/it][A
+cross-validation:  30%|███       | 3/10 [00:11<00:25,  3.71s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:21,  3.59s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.61s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.61s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.55s/it][A
+cross-validation:  80%|████████  | 8/10 [00:29<00:07,  3.59s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.63s/it][A
+cross-validation: 100%|██████████| 10/10 [00:36<00:00,  3.55s/it][Across-validation: 100%|██████████| 10/10 [00:36<00:00,  3.61s/it]
+layers: 100%|██████████| 1/1 [01:20<00:00, 80.10s/it]layers: 100%|██████████| 1/1 [01:20<00:00, 80.10s/it]
+INFO:root:architecture:AtlasNet_seed=0|task:adj_EP|kind:wtA_-3|source:adjA_-3|layer:c2|pooling:PCAtrans_reshape|ret_pcs:1000
+INFO:root:c2
+-3
+3.048879977537494
+0.9991827133268055
+-3.0
+layers:   0%|          | 0/1 [00:00<?, ?it/s]INFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+activations:   0%|          | 0/3200 [00:00<?, ?it/s][AINFO:model_tools.activations.core.ActivationsExtractorHelper:Running stimuli
+
+
+activations:   0%|          | 0/1024 [00:00<?, ?it/s][A[A
+
+activations:   6%|▋         | 64/1024 [00:00<00:07, 136.39it/s][A[A
+
+activations:  12%|█▎        | 128/1024 [00:01<00:07, 123.13it/s][A[A
+
+activations:  19%|█▉        | 192/1024 [00:01<00:07, 115.94it/s][A[A
+
+activations:  25%|██▌       | 256/1024 [00:02<00:07, 106.62it/s][A[A
+
+activations:  31%|███▏      | 320/1024 [00:03<00:07, 96.85it/s] [A[A
+
+activations:  38%|███▊      | 384/1024 [00:03<00:07, 91.04it/s][A[A
+
+activations:  44%|████▍     | 448/1024 [00:04<00:06, 86.15it/s][A[A
+
+activations:  50%|█████     | 512/1024 [00:05<00:06, 79.51it/s][A[A
+
+activations:  56%|█████▋    | 576/1024 [00:06<00:05, 74.80it/s][A[A
+
+activations:  62%|██████▎   | 640/1024 [00:07<00:05, 71.03it/s][A[A
+
+activations:  69%|██████▉   | 704/1024 [00:08<00:04, 65.87it/s][A[A
+
+activations:  75%|███████▌  | 768/1024 [00:09<00:04, 62.75it/s][A[A
+
+activations:  81%|████████▏ | 832/1024 [00:11<00:03, 59.12it/s][A[A
+
+activations:  88%|████████▊ | 896/1024 [00:12<00:02, 55.45it/s][A[A
+
+activations:  94%|█████████▍| 960/1024 [00:13<00:01, 53.31it/s][A[A
+
+activations: 100%|██████████| 1024/1024 [00:15<00:00, 49.68it/s][A[Aactivations: 100%|██████████| 1024/1024 [00:15<00:00, 67.44it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.78s/it][A[Alayer packaging: 100%|██████████| 1/1 [00:01<00:00,  1.78s/it]
+imagenet dict [0] shape
+(1000, 1000, 24, 24)
+
+
+layer principal components:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+layer principal components: 100%|██████████| 1/1 [01:17<00:00, 77.40s/it][A[Alayer principal components: 100%|██████████| 1/1 [01:17<00:00, 77.40s/it]
+
+activations:   2%|▏         | 64/3200 [01:56<1:34:44,  1.81s/it][A
+activations:   4%|▍         | 128/3200 [01:56<38:39,  1.32it/s] [A
+activations:   6%|▌         | 192/3200 [01:57<20:54,  2.40it/s][A
+activations:   8%|▊         | 256/3200 [01:58<12:37,  3.89it/s][A
+activations:  10%|█         | 320/3200 [01:59<08:05,  5.93it/s][A
+activations:  12%|█▏        | 384/3200 [02:00<05:25,  8.65it/s][A
+activations:  14%|█▍        | 448/3200 [02:01<03:44, 12.23it/s][A
+activations:  16%|█▌        | 512/3200 [02:01<02:40, 16.72it/s][A
+activations:  18%|█▊        | 576/3200 [02:02<01:58, 22.23it/s][A
+activations:  20%|██        | 640/3200 [02:03<01:30, 28.18it/s][A
+activations:  22%|██▏       | 704/3200 [02:04<01:11, 34.75it/s][A
+activations:  24%|██▍       | 768/3200 [02:05<00:56, 42.71it/s][A
+activations:  26%|██▌       | 832/3200 [02:05<00:47, 49.95it/s][A
+activations:  28%|██▊       | 896/3200 [02:06<00:40, 56.30it/s][A
+activations:  30%|███       | 960/3200 [02:07<00:36, 61.44it/s][A
+activations:  32%|███▏      | 1024/3200 [02:08<00:33, 64.87it/s][A
+activations:  34%|███▍      | 1088/3200 [02:09<00:30, 69.53it/s][A
+activations:  36%|███▌      | 1152/3200 [02:09<00:27, 73.33it/s][A
+activations:  38%|███▊      | 1216/3200 [02:10<00:26, 76.15it/s][A
+activations:  40%|████      | 1280/3200 [02:11<00:24, 77.94it/s][A
+activations:  42%|████▏     | 1344/3200 [02:12<00:23, 78.09it/s][A
+activations:  44%|████▍     | 1408/3200 [02:13<00:22, 78.37it/s][A
+activations:  46%|████▌     | 1472/3200 [02:13<00:22, 77.96it/s][A
+activations:  48%|████▊     | 1536/3200 [02:14<00:20, 79.56it/s][A
+activations:  50%|█████     | 1600/3200 [02:15<00:20, 77.61it/s][A
+activations:  52%|█████▏    | 1664/3200 [02:16<00:19, 79.03it/s][A
+activations:  54%|█████▍    | 1728/3200 [02:17<00:18, 78.27it/s][A
+activations:  56%|█████▌    | 1792/3200 [02:18<00:19, 73.54it/s][A
+activations:  58%|█████▊    | 1856/3200 [02:19<00:18, 72.70it/s][A
+activations:  60%|██████    | 1920/3200 [02:19<00:17, 74.94it/s][A
+activations:  62%|██████▏   | 1984/3200 [02:20<00:15, 77.09it/s][A
+activations:  64%|██████▍   | 2048/3200 [02:21<00:14, 76.99it/s][A
+activations:  66%|██████▌   | 2112/3200 [02:22<00:13, 78.88it/s][A
+activations:  68%|██████▊   | 2176/3200 [02:22<00:12, 79.92it/s][A
+activations:  70%|███████   | 2240/3200 [02:23<00:11, 81.00it/s][A
+activations:  72%|███████▏  | 2304/3200 [02:24<00:11, 81.28it/s][A
+activations:  74%|███████▍  | 2368/3200 [02:25<00:11, 75.10it/s][A
+activations:  76%|███████▌  | 2432/3200 [02:26<00:10, 70.36it/s][A
+activations:  78%|███████▊  | 2496/3200 [02:27<00:10, 68.28it/s][A
+activations:  80%|████████  | 2560/3200 [02:28<00:09, 70.79it/s][A
+activations:  82%|████████▏ | 2624/3200 [02:29<00:08, 70.62it/s][A
+activations:  84%|████████▍ | 2688/3200 [02:30<00:07, 71.94it/s][A
+activations:  86%|████████▌ | 2752/3200 [02:31<00:06, 70.03it/s][A
+activations:  88%|████████▊ | 2816/3200 [02:32<00:05, 66.66it/s][A
+activations:  90%|█████████ | 2880/3200 [02:33<00:04, 68.89it/s][A
+activations:  92%|█████████▏| 2944/3200 [02:33<00:03, 70.81it/s][A
+activations:  94%|█████████▍| 3008/3200 [02:34<00:02, 74.38it/s][A
+activations:  96%|█████████▌| 3072/3200 [02:35<00:01, 75.55it/s][A
+activations:  98%|█████████▊| 3136/3200 [02:36<00:00, 67.02it/s][A
+activations: 100%|██████████| 3200/3200 [02:37<00:00, 68.83it/s][Aactivations: 100%|██████████| 3200/3200 [02:37<00:00, 20.31it/s]
+INFO:model_tools.activations.core.ActivationsExtractorHelper:Packaging into assembly
+not modified
+pca eigenvalues:
+(1000, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+activations shape
+(64, 576000)
+
+layer packaging:   0%|          | 0/1 [00:00<?, ?it/s][Alayer packaging: 100%|██████████| 1/1 [00:00<00:00, 88.16it/s]
+
+cross-validation:   0%|          | 0/10 [00:00<?, ?it/s][A
+cross-validation:  10%|█         | 1/10 [00:03<00:31,  3.52s/it][A
+cross-validation:  20%|██        | 2/10 [00:06<00:27,  3.48s/it][A
+cross-validation:  30%|███       | 3/10 [00:10<00:25,  3.62s/it][A
+cross-validation:  40%|████      | 4/10 [00:14<00:22,  3.67s/it][A
+cross-validation:  50%|█████     | 5/10 [00:18<00:18,  3.69s/it][A
+cross-validation:  60%|██████    | 6/10 [00:21<00:14,  3.71s/it][A
+cross-validation:  70%|███████   | 7/10 [00:25<00:10,  3.55s/it][A
+cross-validation:  80%|████████  | 8/10 [00:28<00:06,  3.47s/it][A
+cross-validation:  90%|█████████ | 9/10 [00:32<00:03,  3.53s/it][A
+cross-validation: 100%|██████████| 10/10 [00:35<00:00,  3.60s/it][Across-validation: 100%|██████████| 10/10 [00:35<00:00,  3.59s/it]
+layers: 100%|██████████| 1/1 [03:13<00:00, 193.94s/it]layers: 100%|██████████| 1/1 [03:13<00:00, 193.94s/it]
+main total runtime: 0:25:15.073403

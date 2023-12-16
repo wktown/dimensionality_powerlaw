@@ -44,10 +44,10 @@ def main(dataset, data_dir, seed, pooling, grayscale, debug=False):
     
     if pooling=='max' or pooling=='none': #projections, spatial_PCA, random_spatial
         n_pcs = 'NA'
-    elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore':
-        n_pcs = 25
+    elif pooling=='layerPCA' or pooling=='PCA_maxpool' or pooling=='PCA_zscore' or pooling == 'PCA':
+        n_pcs = 1000
     
-    inlcude_euclidean = True
+    inlcude_euclidean = False
     pearson_rdms = {}
     euclidean_rdms = {}
     for model, layers in get_activation_models(seed, n_pcs):
@@ -83,11 +83,12 @@ def main(dataset, data_dir, seed, pooling, grayscale, debug=False):
         
         #seed = task.split('_')[1]
         #seed = seed.split('=')[1]
-        method = properties['task'].split('_')[0]
-        if method == 'Eig':
-            m = 'X_transformed'
-        elif method == 'SVD':
-            m = 'SVD'
+        
+        #method = properties['task'].split('_')[0]
+        #if method == 'Eig':
+        #    m = 'X_transformed'
+        #elif method == 'SVD':
+        #    m = 'SVD'
         
         if pooling == 'layerPCA':
             pool = f'layerPCA:{n_pcs}'
@@ -97,14 +98,17 @@ def main(dataset, data_dir, seed, pooling, grayscale, debug=False):
            pool = f'maxpool_PCA:{n_pcs}'
         elif pooling == 'PCA_zscore':
             pool = f'Zscore_PCA:{n_pcs}'
+        elif pooling == 'PCA':
+            pool = f'PCA:{n_pcs}'
     
         
-        alphas = ['-0.2', '-0.6', '-1.0', '-2', '-3']
+        #alphas = ['-0.2', '-0.6', '-1.0', '-2', '-3']
+        alphas = ['-1.0']
         for model in pearson_rdms.keys():
             a = model.split('|')[1].split('_')[1]
             if a in alphas:
                 architecture = model.split('|')[0]
-                path = f'/home/wtownle1/dimensionality_powerlaw/figures/keaton/RDMs/{architecture}/presentation'
+                path = f'/home/wtownle1/dimensionality_powerlaw/figures/keaton/RDMs/PCxPC/{architecture}'
                 if not os.path.exists(path):
                     os.makedirs(path)
                 
@@ -119,7 +123,7 @@ def main(dataset, data_dir, seed, pooling, grayscale, debug=False):
                     ax.set(title=f'RDM (1-pearson r|alpha:{a}|{pool})')
                     ax.set_xticklabels([])
                     ax.set_yticklabels([])
-                    plt.savefig(f'{path}/PearsonRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|{m}.png')#, dpi=300)
+                    plt.savefig(f'{path}/PearsonRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|Eig.png')#, dpi=300)
                     #plt.savefig(f'{path}/PearsonRDM|alpha={a}|{pool}|.png')
                 
                 if inlcude_euclidean:
@@ -133,7 +137,7 @@ def main(dataset, data_dir, seed, pooling, grayscale, debug=False):
                         ax.set(title=f'RDM (euclidean|alpha:{a}|{pool})')
                         ax.set_xticklabels([])
                         ax.set_yticklabels([])
-                        plt.savefig(f'{path}/EuclideanRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|{m}.png')#, dpi=300)
+                        plt.savefig(f'{path}/EuclideanRDM|seed:{seed}|alpha={a}|layer:{layer}|{pool}|Eig.png')#, dpi=300)
                         #plt.savefig(f'{path}/EuclideanRDM|alpha={a}|{pool}|.png')
             
             
@@ -225,6 +229,9 @@ class EigenspectrumBase:
             elif pooling == 'PCA_zscore':
                 handle = LayerPCA_Modified.hook(self._extractor, n_components=n_pcs, mod='z_score')
                 self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+            elif pooling == 'PCA':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=n_pcs, mod='none')
+                self._extractor.identifier = self._extractor.identifier + f'|layer:{layer}|pooling:PCA|n_components:{n_pcs}'
                 
             handles = []
             if self._hooks is not None:
@@ -235,16 +242,33 @@ class EigenspectrumBase:
                 
             self._logger.debug('Retrieving stimulus activations')
             activations = self._extractor(image_paths, layers=[layer])
+            print(activations.dims)
+            print(activations.coords)
+            print(activations.attrs)
+            
             activations = activations.sel(layer=layer).values
             print(activations.shape)
 
             self._logger.debug('Computing RDMs')
             progress = tqdm(total=1, desc="RDMs")
             
-            activations = flatten(activations)
+            print('---activations---')
+            print('nimages x npcs (x nfeatures?)')
+            print(activations.shape)
             
-            dvec_model = pdist(activations, metric=self._metric)
-            dsquare_model = squareform(dvec_model)
+            print('---flattened activations---')
+            flat_activations = flatten(activations)
+            print(flat_activations.shape)
+            
+            print('---correlations---')
+            distance_vec = pdist(activations, metric=self._metric)
+            distance_mat = squareform(distance_vec)
+            print(distance_mat.shape)
+            
+            print('---flattened correlations---')
+            flat_distance_vec = pdist(flat_activations, metric=self._metric)
+            flat_distance_mat = squareform(flat_distance_vec)
+            print(flat_distance_mat.shape)
             
             #if self._distance == 'pearson':
             #    p_model = np.corrcoef(activations)
@@ -263,8 +287,8 @@ class EigenspectrumBase:
             progress.close()
             
             #key = identifier+layer
-            rdms[layer] = dsquare_model
-            #euclidean_rdms[layer] = edistance_model
+            rdms[layer] = distance_mat
+            #euclidean_rdms[layer] = edistance_modele
 
             handle.remove()
 
@@ -289,8 +313,9 @@ class EigenspectrumBase:
     
     
 class EigenspectrumImageNet(EigenspectrumBase):
-
-    def __init__(self, *args, num_classes=1000, num_per_class=10, **kwargs):
+    
+    # *num_classes=1000, num_per_class=10*
+    def __init__(self, *args, num_classes=1000, num_per_class=1, **kwargs):
         super(EigenspectrumImageNet, self).__init__(*args, **kwargs,
                                                     stimuli_identifier='imagenet')
         assert 1 <= num_classes <= 1000 and 1 <= num_per_class <= 100
@@ -341,7 +366,7 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, default=None,
                         help='Data directory containing stimuli')
     parser.add_argument('--pooling', dest='pooling', type=str, default=None,
-                        choices=['max', 'none', 'layerPCA', 'PCA_zscore', 'PCA_maxpool'],
+                        choices=['max', 'none', 'layerPCA', 'PCA_zscore', 'PCA_maxpool', 'PCA'],
                         help='Choose global max pooling, random projection, or layer PCA prior to computing RDMs')
     parser.add_argument('--seed', dest='seed', type=int, default=0,
                         help='Choose a random seed for analysis (torch and numpy)')

@@ -94,6 +94,40 @@ class EigenspectrumBase:
             linear_fit = LinearRegression().fit(logeignum.reshape(-1, 1), logeigspec)
             alpha[layer] = -linear_fit.coef_.item()
         return alpha
+    
+    def alpha_raj(self):
+        alpha = {}
+        for layer, eigspec in self._layer_eigenspectra.items():
+            
+            n_pc = len(eigspec)
+            eignum_bins = np.geomspace(1, n_pc, num=50).round().astype(int)
+            pc_index = eignum_bins - 1
+            bins = eigspec[pc_index]
+
+            assigned_bins = np.digitize(eigspec, bins)
+
+            bin_means = []
+            for i in range(0, len(bins)):
+                if i in assigned_bins:
+                    bin_means.append(eigspec[assigned_bins == i].mean())
+
+            unique_assignments, unique_pcindex, count_unique = np.unique(assigned_bins, return_index=True, return_counts=True)
+            solo_pcindex = unique_pcindex[count_unique==1]
+            multi_assigned = unique_assignments[count_unique!=1]
+            eignum_means = []
+            for m in multi_assigned:
+                multi_pcind = np.where(assigned_bins==m)[0]
+                mean_pcind = multi_pcind.mean()
+                eignum_means.append(mean_pcind)
+            eignum_fit = np.sort(np.concatenate((solo_pcindex, np.array(eignum_means)))) + 1
+
+            logspec = np.log10(bin_means)
+            lognum = np.log10(eignum_fit)
+
+            linear_fit = LinearRegression().fit(lognum.reshape(-1,1), logspec)
+            exponent = -linear_fit.coef_.item()
+            alpha[layer] = exponent
+            return alpha
 
     def as_df(self):
         df = pd.DataFrame()
@@ -109,12 +143,14 @@ class EigenspectrumBase:
         effdims = self.effective_dimensionalities()
         eightyvar = self.eighty_percent_var()
         alpha = self.powerlaw_exponent()
+        alpha_R = self.alpha_raj()
         df = pd.DataFrame()
         for layer in self._layer_eigenspectra:
             df = df.append({'layer': layer,
                             'effective dimensionality': effdims[layer],
                             '80% variance': eightyvar[layer],
-                            'alpha': alpha[layer]},
+                            'alpha': alpha[layer],
+                            'alpha_R': alpha_R[layer]},
                            ignore_index=True)
         properties = id_to_properties(self._extractor.identifier)
         df = df.assign(**properties)
@@ -130,6 +166,8 @@ class EigenspectrumBase:
         # This is more inefficient because we run images through the network several times,
         # but it is a more scalable approach when using many images and large layers.
         
+        model_properties = id_to_properties(identifier)
+        
         layer_eigenspectra = {}
         #spatial_eigenspectra = {}
         for layer in layers:
@@ -144,8 +182,15 @@ class EigenspectrumBase:
             elif pooling == 'layerPCA':
                 handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='none')
                 #handle = LayerPCA.hook(self._extractor, n_components=1000)
-            elif pooling == 'PCA_zscore':
-                handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='z_score')
+            elif pooling == 'zscore_PCA':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='z_score') #ret='transformed'
+            elif pooling == 'PCAtrans_zscore':
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='none', ret='trans_zscored')
+                #model.identifier = model_identifier + f'|layer:{layer}|pooling:{pooling}|n_components:{n_pcs}'
+            elif pooling == 'PCAtrans_reshape':
+                newalpha = float(model_properties['source'].split('_')[-1])
+                print(newalpha)
+                handle = LayerPCA_Modified.hook(self._extractor, n_components=1000, mod='none', ret='trans_reshape_3', new_alpha=newalpha)
             
             
             elif pooling == 'spatial_pca':

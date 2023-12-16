@@ -1,0 +1,2 @@
+layer,score,score_error,architecture,task,kind,source
+c2,0.18922494684006794,0.004314189023332842,AtlasNet_seed=0,Standard_Norm,a_NA,pcs_1000
